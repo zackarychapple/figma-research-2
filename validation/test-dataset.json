@@ -1,0 +1,132 @@
+{
+  "description": "End-to-End Pipeline Test Dataset - 10+ components from Zephyr and New UI Scratch files",
+  "testCases": [
+    {
+      "id": "zephyr-button-primary",
+      "file": "Zephyr Cloud ShadCN Design System.fig",
+      "componentIdentifier": { "name": "Button" },
+      "expectedType": "Button",
+      "complexity": "simple",
+      "description": "Primary button component from design system",
+      "source": "library"
+    },
+    {
+      "id": "zephyr-card",
+      "file": "Zephyr Cloud ShadCN Design System.fig",
+      "componentIdentifier": { "name": "Card" },
+      "expectedType": "Card",
+      "complexity": "medium",
+      "description": "Card component from design system",
+      "source": "library"
+    },
+    {
+      "id": "zephyr-input",
+      "file": "Zephyr Cloud ShadCN Design System.fig",
+      "componentIdentifier": { "name": "Input" },
+      "expectedType": "Input",
+      "complexity": "simple",
+      "description": "Input field component from design system",
+      "source": "library"
+    },
+    {
+      "id": "zephyr-badge",
+      "file": "Zephyr Cloud ShadCN Design System.fig",
+      "componentIdentifier": { "name": "Badge" },
+      "expectedType": "Badge",
+      "complexity": "simple",
+      "description": "Badge component from design system",
+      "source": "library"
+    },
+    {
+      "id": "zephyr-dialog",
+      "file": "Zephyr Cloud ShadCN Design System.fig",
+      "componentIdentifier": { "name": "Dialog" },
+      "expectedType": "Dialog",
+      "complexity": "complex",
+      "description": "Dialog/Modal component from design system",
+      "source": "library"
+    },
+    {
+      "id": "zephyr-navigation",
+      "file": "Zephyr Cloud ShadCN Design System.fig",
+      "componentIdentifier": { "index": 0 },
+      "expectedType": "Navigation",
+      "complexity": "medium",
+      "description": "Navigation component from design system",
+      "source": "library"
+    },
+    {
+      "id": "newui-login-card",
+      "file": "New UI Scratch.fig",
+      "componentIdentifier": { "index": 0 },
+      "expectedType": "Card",
+      "complexity": "complex",
+      "description": "Login card from UI design",
+      "source": "design"
+    },
+    {
+      "id": "newui-dashboard-frame",
+      "file": "New UI Scratch.fig",
+      "componentIdentifier": { "index": 1 },
+      "expectedType": "Layout",
+      "complexity": "complex",
+      "description": "Dashboard layout frame from UI design",
+      "source": "design"
+    },
+    {
+      "id": "newui-button-custom",
+      "file": "New UI Scratch.fig",
+      "componentIdentifier": { "index": 2 },
+      "expectedType": "Button",
+      "complexity": "simple",
+      "description": "Custom button from UI design",
+      "source": "design"
+    },
+    {
+      "id": "newui-form-group",
+      "file": "New UI Scratch.fig",
+      "componentIdentifier": { "index": 3 },
+      "expectedType": "Form",
+      "complexity": "medium",
+      "description": "Form group from UI design",
+      "source": "design"
+    },
+    {
+      "id": "newui-list-item",
+      "file": "New UI Scratch.fig",
+      "componentIdentifier": { "index": 4 },
+      "expectedType": "List",
+      "complexity": "medium",
+      "description": "List item component from UI design",
+      "source": "design"
+    },
+    {
+      "id": "newui-icon-set",
+      "file": "New UI Scratch.fig",
+      "componentIdentifier": { "index": 5 },
+      "expectedType": "Icon",
+      "complexity": "simple",
+      "description": "Icon set from UI design",
+      "source": "design"
+    }
+  ],
+  "complexityDefinitions": {
+    "simple": "Single element, minimal children (1-3), basic styling",
+    "medium": "Multiple elements (4-8), moderate nesting, multiple styles",
+    "complex": "Many elements (8+), deep nesting, complex interactions"
+  },
+  "expectedMetrics": {
+    "simple": {
+      "targetLatency": 15000,
+      "targetCost": 0.015
+    },
+    "medium": {
+      "targetLatency": 20000,
+      "targetCost": 0.020
+    },
+    "complex": {
+      "targetLatency": 30000,
+      "targetCost": 0.030
+    }
+  }
+}

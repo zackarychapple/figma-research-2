@@ -1,0 +1,98 @@
+{
+  "success": true,
+  "finalCode": "import React from 'react';\n\n/**\n * Defines the available visual variants for the Button component.\n * Although the provided JSON only specifies a primary style,\n * a robust component should handle potential variants.\n */\ntype ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';\n\n/**\n * Defines the available sizes for the Button component.\n */\ntype ButtonSize = 'small' | 'medium' | 'large';\n\n/**\n * Interface for the Button component props.\n */\ninterface ButtonProps {\n  /**\n   * The text content displayed inside the button.\n   */\n  text: string;\n  /**\n   * The visual style variant of the button.\n   * @default 'primary'\n   */\n  variant?: ButtonVariant;\n  /**\n   * The size of the button.\n   * @default 'medium'\n   */\n  size?: ButtonSize;\n  /**\n   * Optional click handler for the button.\n   */\n  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;\n  /**\n   * Controls whether the button is disabled.\n   * @default false\n   */\n  disabled?: boolean;\n  /**\n   * Optional aria-label for accessibility.\n   */\n  ariaLabel?: string;\n  /**\n   * Optional HTML type attribute for the button.\n   * @default 'button'\n   */\n  type?: 'button' | 'submit' | 'reset';\n}\n\n/**\n * A reusable button component styled using Tailwind CSS, matching the provided specifications.\n *\n * Specifications from JSON:\n * - backgroundColor: #7c3aed (violet-600)\n * - color: #ffffff (white)\n * - padding: 8px 16px (py-2 px-4)\n * - borderRadius: 6px (rounded-md)\n * - fontSize: 14px (text-sm)\n * - fontWeight: 500 (font-medium)\n * - text: \"Click Me\"\n */\nconst Button: React.FC<ButtonProps> = ({\n  text,\n  variant = 'primary',\n  size = 'medium',\n  onClick,\n  disabled = false,\n  ariaLabel,\n  type = 'button',\n}) => {\n  // --- Tailwind Class Mapping ---\n\n  // 1. Base styles (shared across all variants/sizes)\n  const baseClasses =\n    'inline-flex items-center justify-center transition-colors duration-150 focus:outline-none focus:ring-4 disabled:opacity-50 disabled:cursor-not-allowed';\n\n  // 2. Size styles\n  const sizeClasses = {\n    small: 'text-xs rounded',\n    medium: 'text-sm rounded-md', // Matches 14px font size and 6px border radius from spec\n    large: 'text-base rounded-lg',\n  };\n\n  // 3. Padding styles (based on spec: 8px 16px -> py-2 px-4)\n  const paddingClasses = {\n    small: 'py-1.5 px-3',\n    medium: 'py-2 px-4', // Matches 8px 16px padding from spec\n    large: 'py-3 px-6',\n  };\n\n  // 4. Variant styles (Primary variant matches spec: #7c3aed background, white text)\n  const variantClasses = {\n    primary:\n      'bg-violet-600 text-white hover:bg-violet-700 focus:ring-violet-300 font-medium', // Matches spec\n    secondary:\n      'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-100 font-medium',\n    danger:\n      'bg-red-600 text-white hover:bg-red-700 focus:ring-red-300 font-medium',\n    ghost: 'bg-transparent text-violet-600 hover:bg-violet-50 focus:ring-violet-100 font-medium',\n  };\n\n  // Combine all classes\n  const classes = [\n    baseClasses,\n    sizeClasses[size],\n    paddingClasses[size],\n    variantClasses[variant],\n  ].join(' ');\n\n  // Ensure font weight is 500 as per spec (added to variantClasses[primary] for clarity)\n\n  return (\n    <button\n      type={type}\n      className={classes}\n      onClick={onClick}\n      disabled={disabled}\n      aria-label={ariaLabel || text}\n      aria-disabled={disabled}\n    >\n      {text}\n    </button>\n  );\n};\n\nexport default Button;",
+  "finalScore": 0.5989375,
+  "pixelDifferencePercent": 40.35416666666667,
+  "iterations": [
+    {
+      "iteration": 1,
+      "code": "import React from 'react';\n\n/**\n * Defines the available button variants.\n */\ntype ButtonVariant = 'primary' | 'secondary' | 'ghost';\n\n/**\n * Defines the available button sizes.\n */\ntype ButtonSize = 'small' | 'medium' | 'large';\n\n/**\n * Props for the Button component.\n */\ninterface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  /**\n   * The text content displayed inside the button.\n   */\n  text: string;\n  /**\n   * The visual style variant of the button.\n   * @default 'primary'\n   */\n  variant?: ButtonVariant;\n  /**\n   * The size of the button.\n   * @default 'medium'\n   */\n  size?: ButtonSize;\n  /**\n   * Indicates if the button is disabled.\n   * @default false\n   */\n  disabled?: boolean;\n  /**\n   * Optional click handler for the button.\n   */\n  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;\n}\n\n/**\n * A versatile and customizable button component matching the Figma design specifications.\n */\nconst Button: React.FC<ButtonProps> = ({\n  text,\n  variant = 'primary',\n  size = 'medium',\n  disabled = false,\n  className = '',\n  onClick,\n  ...rest\n}) => {\n  // 1. Define base styling\n  const baseStyles =\n    'inline-flex items-center justify-center font-medium transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md';\n\n  // 2. Define size-specific styling\n  const sizeStyles = React.useMemo(() => {\n    switch (size) {\n      case 'small':\n        return 'px-3 py-1.5 text-xs'; // Example: 12px font, smaller padding\n      case 'large':\n        return 'px-6 py-3 text-base'; // Example: 16px font, larger padding\n      case 'medium':\n      default:\n        // Matches the Figma specification: padding: 8px 16px, fontSize: 14px, fontWeight: 500\n        return 'px-4 py-2 text-sm';\n    }\n  }, [size]);\n\n  // 3. Define variant-specific styling\n  const variantStyles = React.useMemo(() => {\n    switch (variant) {\n      case 'secondary':\n        return 'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-400';\n      case 'ghost':\n        return 'bg-transparent text-indigo-600 hover:bg-indigo-50 focus:ring-indigo-300';\n      case 'primary':\n      default:\n        // Matches the Figma specification: backgroundColor: #7c3aed, color: #ffffff\n        return 'bg-violet-600 text-white hover:bg-violet-700 focus:ring-violet-500';\n    }\n  }, [variant]);\n\n  // 4. Define disabled styling\n  const disabledStyles = disabled\n    ? 'opacity-50 cursor-not-allowed shadow-none'\n    : 'shadow-sm';\n\n  // Combine all styles\n  const buttonClasses = `${baseStyles} ${sizeStyles} ${variantStyles} ${disabledStyles} ${className}`;\n\n  return (\n    <button\n      type=\"button\" // Default to button type\n      className={buttonClasses}\n      disabled={disabled}\n      onClick={onClick}\n      aria-label={text}\n      {...rest}\n    >\n      {text}\n    </button>\n  );\n};\n\nexport default Button;",
+      "renderSuccess": false,
+      "renderLatency": 11480,
+      "validationSuccess": false,
+      "validationLatency": 0,
+      "pixelScore": 0,
+      "semanticScore": 0,
+      "combinedScore": 0,
+      "pixelDifferencePercent": 100,
+      "feedback": [
+        "Render error: Component did not render within 10000ms. Selector: #root > *"
+      ],
+      "cost": 0,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash",
+      "error": "Component did not render within 10000ms. Selector: #root > *"
+    },
+    {
+      "iteration": 2,
+      "code": "import React from 'react';\n\n/**\n * Defines the available button variants.\n */\ntype ButtonVariant = 'primary' | 'secondary' | 'ghost';\n\n/**\n * Defines the available button sizes.\n */\ntype ButtonSize = 'small' | 'medium' | 'large';\n\n/**\n * Props for the Button component.\n */\ninterface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {\n  /**\n   * The text content displayed inside the button.\n   */\n  text: string;\n  /**\n   * The visual style variant of the button. Defaults to 'primary'.\n   */\n  variant?: ButtonVariant;\n  /**\n   * The size of the button. Defaults to 'medium'.\n   */\n  size?: ButtonSize;\n  /**\n   * Optional click handler.\n   */\n  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;\n}\n\n/**\n * A versatile and stylish button component styled according to the provided specifications.\n *\n * Figma Specs:\n * - Background: #7c3aed (violet-600)\n * - Text Color: #ffffff (white)\n * - Padding: 8px 16px\n * - Border Radius: 6px\n * - Font Size: 14px (text-sm)\n * - Font Weight: 500 (font-medium)\n */\nconst Button: React.FC<ButtonProps> = ({\n  text,\n  variant = 'primary',\n  size = 'medium',\n  onClick,\n  className = '',\n  disabled,\n  type = 'button',\n  ...rest\n}) => {\n  // --- Styling Logic ---\n\n  // 1. Base Styles: Common styles for all buttons\n  const baseStyles = 'inline-flex items-center justify-center transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-md font-medium whitespace-nowrap';\n\n  // 2. Variant Styles: Specific colors and hover effects\n  let variantStyles: string;\n  let focusRingColor: string;\n\n  switch (variant) {\n    case 'primary':\n      // Matches Figma spec: bg-violet-600, text-white\n      variantStyles = 'bg-violet-600 text-white hover:bg-violet-700 disabled:bg-violet-400';\n      focusRingColor = 'focus:ring-violet-500';\n      break;\n    case 'secondary':\n      variantStyles = 'bg-gray-200 text-gray-800 hover:bg-gray-300 disabled:bg-gray-100';\n      focusRingColor = 'focus:ring-gray-500';\n      break;\n    case 'ghost':\n      variantStyles = 'bg-transparent text-violet-600 hover:bg-violet-50 disabled:text-violet-400';\n      focusRingColor = 'focus:ring-violet-500';\n      break;\n  }\n\n  // 3. Size Styles: Padding and font size\n  let sizeStyles: string;\n  switch (size) {\n    case 'small':\n      sizeStyles = 'px-3 py-1.5 text-xs';\n      break;\n    case 'medium':\n      // Matches Figma spec: px-4 py-2 (8px 16px is equivalent to py-2 px-4 in standard Tailwind scale) and text-sm\n      sizeStyles = 'px-4 py-2 text-sm';\n      break;\n    case 'large':\n      sizeStyles = 'px-6 py-3 text-base';\n      break;\n  }\n\n  // Combine all styles\n  const buttonClasses = `${baseStyles} ${variantStyles} ${sizeStyles} ${focusRingColor} ${className}`;\n\n  return (\n    <button\n      type={type}\n      className={buttonClasses}\n      onClick={onClick}\n      disabled={disabled}\n      aria-label={text}\n      {...rest}\n    >\n      {text}\n    </button>\n  );\n};\n\nexport default Button;",
+      "renderSuccess": false,
+      "renderLatency": 11485,
+      "validationSuccess": false,
+      "validationLatency": 0,
+      "pixelScore": 0,
+      "semanticScore": 0,
+      "combinedScore": 0,
+      "pixelDifferencePercent": 100,
+      "feedback": [
+        "Render error: Component did not render within 10000ms. Selector: #root > *"
+      ],
+      "cost": 0,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash",
+      "error": "Component did not render within 10000ms. Selector: #root > *"
+    },
+    {
+      "iteration": 3,
+      "code": "import React from 'react';\n\n/**\n * Defines the available visual variants for the Button component.\n * Although the provided JSON only specifies a primary style,\n * a robust component should handle potential variants.\n */\ntype ButtonVariant = 'primary' | 'secondary' | 'danger' | 'ghost';\n\n/**\n * Defines the available sizes for the Button component.\n */\ntype ButtonSize = 'small' | 'medium' | 'large';\n\n/**\n * Interface for the Button component props.\n */\ninterface ButtonProps {\n  /**\n   * The text content displayed inside the button.\n   */\n  text: string;\n  /**\n   * The visual style variant of the button.\n   * @default 'primary'\n   */\n  variant?: ButtonVariant;\n  /**\n   * The size of the button.\n   * @default 'medium'\n   */\n  size?: ButtonSize;\n  /**\n   * Optional click handler for the button.\n   */\n  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;\n  /**\n   * Controls whether the button is disabled.\n   * @default false\n   */\n  disabled?: boolean;\n  /**\n   * Optional aria-label for accessibility.\n   */\n  ariaLabel?: string;\n  /**\n   * Optional HTML type attribute for the button.\n   * @default 'button'\n   */\n  type?: 'button' | 'submit' | 'reset';\n}\n\n/**\n * A reusable button component styled using Tailwind CSS, matching the provided specifications.\n *\n * Specifications from JSON:\n * - backgroundColor: #7c3aed (violet-600)\n * - color: #ffffff (white)\n * - padding: 8px 16px (py-2 px-4)\n * - borderRadius: 6px (rounded-md)\n * - fontSize: 14px (text-sm)\n * - fontWeight: 500 (font-medium)\n * - text: \"Click Me\"\n */\nconst Button: React.FC<ButtonProps> = ({\n  text,\n  variant = 'primary',\n  size = 'medium',\n  onClick,\n  disabled = false,\n  ariaLabel,\n  type = 'button',\n}) => {\n  // --- Tailwind Class Mapping ---\n\n  // 1. Base styles (shared across all variants/sizes)\n  const baseClasses =\n    'inline-flex items-center justify-center transition-colors duration-150 focus:outline-none focus:ring-4 disabled:opacity-50 disabled:cursor-not-allowed';\n\n  // 2. Size styles\n  const sizeClasses = {\n    small: 'text-xs rounded',\n    medium: 'text-sm rounded-md', // Matches 14px font size and 6px border radius from spec\n    large: 'text-base rounded-lg',\n  };\n\n  // 3. Padding styles (based on spec: 8px 16px -> py-2 px-4)\n  const paddingClasses = {\n    small: 'py-1.5 px-3',\n    medium: 'py-2 px-4', // Matches 8px 16px padding from spec\n    large: 'py-3 px-6',\n  };\n\n  // 4. Variant styles (Primary variant matches spec: #7c3aed background, white text)\n  const variantClasses = {\n    primary:\n      'bg-violet-600 text-white hover:bg-violet-700 focus:ring-violet-300 font-medium', // Matches spec\n    secondary:\n      'bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-100 font-medium',\n    danger:\n      'bg-red-600 text-white hover:bg-red-700 focus:ring-red-300 font-medium',\n    ghost: 'bg-transparent text-violet-600 hover:bg-violet-50 focus:ring-violet-100 font-medium',\n  };\n\n  // Combine all classes\n  const classes = [\n    baseClasses,\n    sizeClasses[size],\n    paddingClasses[size],\n    variantClasses[variant],\n  ].join(' ');\n\n  // Ensure font weight is 500 as per spec (added to variantClasses[primary] for clarity)\n\n  return (\n    <button\n      type={type}\n      className={classes}\n      onClick={onClick}\n      disabled={disabled}\n      aria-label={ariaLabel || text}\n      aria-disabled={disabled}\n    >\n      {text}\n    </button>\n  );\n};\n\nexport default Button;",
+      "renderSuccess": true,
+      "renderLatency": 1595,
+      "validationSuccess": true,
+      "validationLatency": 10731,
+      "pixelScore": 0.5964583333333333,
+      "semanticScore": 0.6,
+      "combinedScore": 0.5989375,
+      "pixelDifferencePercent": 40.35416666666667,
+      "feedback": [
+        {
+          "aspect": "Color",
+          "reference": "Background color is #800080",
+          "implementation": "Background color is #8A2BE2"
+        },
+        {
+          "aspect": "Typography",
+          "reference": "Font size is approximately 16px, font weight is normal",
+          "implementation": "Font size is approximately 14px, font weight is bold"
+        },
+        {
+          "aspect": "Spacing",
+          "reference": "No padding around text",
+          "implementation": "Padding around text is approximately 10px"
+        },
+        {
+          "aspect": "Positioning",
+          "reference": "Text is left-aligned",
+          "implementation": "Text is center-aligned"
+        },
+        {
+          "aspect": "Border",
+          "reference": "No border",
+          "implementation": "Rounded border present"
+        },
+        "Change the background color to #800080",
+        "Adjust font size to 16px and font weight to normal",
+        "Remove padding around the text",
+        "Align text to the left",
+        "Remove the border or make it match the reference"
+      ],
+      "cost": 0.0046975,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash"
+    }
+  ],
+  "totalLatency": 159027,
+  "totalCost": 0.18469750000000001,
+  "targetAchieved": false,
+  "componentName": "Button",
+  "componentType": "Button"
+}

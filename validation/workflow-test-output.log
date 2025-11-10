@@ -1,0 +1,89 @@
+[dotenv@17.2.3] injecting env (2) from ../.env -- tip: 👥 sync secrets across teammates & machines: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from ../.env -- tip: 🔄 add secrets lifecycle management: https://dotenvx.com/ops
+[dotenv@17.2.3] injecting env (0) from ../.env -- tip: 📡 add observability to secrets: https://dotenvx.com/ops
+Starting Complete Workflow Test
+================================================================================
+
+Figma URL: https://www.figma.com/design/MMMjqwWNYZAg0YlIeL9aJZ/test?node-id=17085-177614
+Reference: /Users/zackarychapple/code/figma-research/validation/reports/shadcn-comparison/TestWrapper.png
+Output: /Users/zackarychapple/code/figma-research/validation/output/workflow-test
+
+================================================================================
+ITERATION ENGINE - Testing Multiple Strategies
+================================================================================
+Figma URL: https://www.figma.com/design/MMMjqwWNYZAg0YlIeL9aJZ/test?node-id=17085-177614
+Reference: /Users/zackarychapple/code/figma-research/validation/reports/shadcn-comparison/TestWrapper.png
+Extraction Strategies: 4
+Generation Strategies: 4
+Total Iterations: 16
+================================================================================
+
+
+Iteration 1/4
+  Extraction: basic
+  Generation: template
+[basic__template] Extracting from Figma...
+[basic__template] Building component inventory...
+[basic__template] Generating code with template...
+[basic__template] Rendering component...
+[basic__template] Comparing with reference...
+[basic__template] ✓ Complete - Score: 49.0%
+
+Iteration 2/4
+  Extraction: basic
+  Generation: sonnet-4.5
+[basic__sonnet-4.5] Extracting from Figma...
+[basic__sonnet-4.5] Building component inventory...
+[basic__sonnet-4.5] Generating code with anthropic/claude-sonnet-4.5...
+[basic__sonnet-4.5] Rendering component...
+[basic__sonnet-4.5] Comparing with reference...
+[basic__sonnet-4.5] ✓ Complete - Score: 21.0%
+
+Iteration 3/4
+  Extraction: basic
+  Generation: sonnet-3.5
+[basic__sonnet-3.5] Extracting from Figma...
+[basic__sonnet-3.5] Building component inventory...
+[basic__sonnet-3.5] Generating code with anthropic/claude-3.5-sonnet...
+AI generation failed, falling back to template
+[basic__sonnet-3.5] Rendering component...
+[basic__sonnet-3.5] Comparing with reference...
+[basic__sonnet-3.5] ✓ Complete - Score: 56.0%
+
+Iteration 4/4
+  Extraction: basic
+  Generation: haiku
+[basic__haiku] Extracting from Figma...
+[basic__haiku] Building component inventory...
+[basic__haiku] Generating code with anthropic/claude-3-haiku...
+[basic__haiku] Rendering component...
+[basic__haiku] Comparing with reference...
+[basic__haiku] ✓ Complete - Score: 49.0%
+
+================================================================================
+ITERATION REPORT
+================================================================================
+Total Iterations: 4
+Successful: 4
+
+SCORE DISTRIBUTION:
+  PASS (≥85%): 0
+  NEEDS REVIEW (70-85%): 0
+  FAIL (<70%): 4
+
+TOP 5 STRATEGIES:
+  1. basic__sonnet-3.5 - 56.0%
+  2. basic__template - 49.0%
+  3. basic__haiku - 49.0%
+  4. basic__sonnet-4.5 - 21.0%
+
+
+Report saved to: /Users/zackarychapple/code/figma-research/validation/output/workflow-test/iteration-report.json
+Total time: 130777ms
+================================================================================
+
+================================================================================
+TEST RESULTS
+================================================================================
+
+❌ FAILED: No successful results

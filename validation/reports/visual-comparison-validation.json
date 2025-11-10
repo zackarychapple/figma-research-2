@@ -1,0 +1,147 @@
+{
+  "timestamp": "2025-11-07T12:13:05.551Z",
+  "testResults": [
+    {
+      "testNumber": 1,
+      "recommendation": "PASS",
+      "finalScore": 0.895,
+      "pixelScore": 1,
+      "semanticScore": 0.85,
+      "latency": 10087,
+      "cost": 0.0080525,
+      "pixelDifferencePercent": 0,
+      "similarities": [
+        "Overall layout structure",
+        "Typography style and size for headings and body text",
+        "Button color and style",
+        "Input field styles"
+      ],
+      "differences": [
+        "Input text content differs: 'Sample input' vs 'Some kind of input here I guess?!'",
+        "Dropdown text content differs: 'Cooler than Keanu Reeves in John Wick' vs 'Cooler than Nicolas Cage and his llamas in The Color Out of Space'",
+        "Checkbox is missing in Image 1 but present in Image 2",
+        "Browser UI elements visible in Image 2 but not in Image 1"
+      ],
+      "actionableFeedback": [
+        "Update input field placeholder text to match the reference.",
+        "Ensure dropdown text matches the reference.",
+        "Remove the checkbox if not part of the design specification.",
+        "Consider hiding browser UI elements for a cleaner presentation."
+      ]
+    },
+    {
+      "testNumber": 2,
+      "recommendation": "FAIL",
+      "finalScore": 0.48999999999999994,
+      "pixelScore": 0,
+      "semanticScore": 0.7,
+      "latency": 12179,
+      "cost": 0.00902,
+      "pixelDifferencePercent": 0,
+      "similarities": [
+        "Both images use a similar color palette including black, white, red, blue, and green.",
+        "Typography styles such as headings and body text are present in both images.",
+        "Both images have a structured layout with clear sections."
+      ],
+      "differences": [
+        {
+          "element": "Color Swatches",
+          "issue": "Missing Elements",
+          "description": "Image 2 does not display the color swatches shown in Image 1."
+        },
+        {
+          "element": "Typography",
+          "issue": "Font Size",
+          "description": "Font sizes in Image 2 appear larger than those in Image 1, particularly for headings.",
+          "measurement": "Approximately 2-4px larger"
+        },
+        {
+          "element": "Spacing",
+          "issue": "Inconsistent Spacing",
+          "description": "Spacing between elements in Image 2 is inconsistent compared to Image 1.",
+          "measurement": "Differences of 5-10px in padding and margins"
+        },
+        {
+          "element": "Positioning",
+          "issue": "Misalignment",
+          "description": "Elements in Image 2 are not aligned as precisely as in Image 1.",
+          "measurement": "Offset by 3-5px"
+        }
+      ],
+      "actionableFeedback": [
+        "Add color swatches to Image 2 to match those in Image 1.",
+        "Adjust font sizes in Image 2 to match those in Image 1, reducing by 2-4px.",
+        "Ensure consistent spacing between elements in Image 2, matching the 5-10px padding and margins in Image 1.",
+        "Align elements in Image 2 more precisely, correcting the 3-5px offset."
+      ]
+    },
+    {
+      "testNumber": 3,
+      "recommendation": "FAIL",
+      "finalScore": 0.42,
+      "pixelScore": 0,
+      "semanticScore": 0.6,
+      "latency": 27295,
+      "cost": 0.008895,
+      "pixelDifferencePercent": 0,
+      "similarities": [
+        "Both images have a chart sample section with a title and input for values.",
+        "Both have a button to create the chart.",
+        "The layout and structure of the input section are consistent."
+      ],
+      "differences": [
+        "Chart Type: Image 1 is a bar chart, while Image 2 is a pie chart.",
+        "Values: Image 1 uses values '1, 3, 10, 28, 41, 87, 100', while Image 2 uses '1, 2, 3, 4'.",
+        "Chart Colors: Image 1 uses red bars (hex #FF0000), while Image 2 uses grayscale segments.",
+        "Chart Labels: Image 1 has numeric labels above each bar, Image 2 has no labels.",
+        "Button Text: Image 1 says 'Create Bar Chart', Image 2 says 'Create Pie Chart'."
+      ],
+      "actionableFeedback": [
+        "Ensure the chart type matches the intended design (bar vs pie).",
+        "Update the values in the input field to match the reference if needed.",
+        "Adjust the chart colors to match the reference design.",
+        "Add labels to the pie chart if required by the design.",
+        "Ensure button text corresponds to the chart type."
+      ]
+    },
+    {
+      "testNumber": 4,
+      "recommendation": "FAIL",
+      "finalScore": 0.06,
+      "pixelScore": 0,
+      "semanticScore": 0.1,
+      "latency": 6970,
+      "cost": 0.007935000000000001,
+      "pixelDifferencePercent": 0,
+      "similarities": [],
+      "differences": [
+        "Image 1 has a search bar with an icon, while Image 2 does not.",
+        "Image 1 contains buttons labeled 'Absolute' and '640 Height', which are absent in Image 2.",
+        "Image 1 displays a list of numbers (480, 600, 720, 768, 960), whereas Image 2 contains text statistics.",
+        "Image 1 has a light gray background, while Image 2 has a white background.",
+        "Image 1 includes a blue bounding box with dimensions (457 x 172), which is not present in Image 2.",
+        "Image 2 has a close button (X) in the top right corner, which is not in Image 1."
+      ],
+      "actionableFeedback": [
+        "Add a search bar with an icon to Image 2.",
+        "Include buttons labeled 'Absolute' and '640 Height' in Image 2.",
+        "Replace the text statistics in Image 2 with a list of numbers similar to Image 1.",
+        "Change the background color of Image 2 to match the light gray of Image 1.",
+        "Add a blue bounding box with dimensions (457 x 172) to Image 2."
+      ]
+    }
+  ],
+  "summary": {
+    "successRate": 25,
+    "avgLatency": 14132.75,
+    "avgCost": 0.008475625,
+    "avgFinalScore": 0.46625,
+    "pixelLatency": 235,
+    "semanticLatency": 13897.75
+  },
+  "costProjections": {
+    "perComparison": 0.008475625,
+    "monthly300": 2.5426875,
+    "annual3600": 30.51225
+  }
+}

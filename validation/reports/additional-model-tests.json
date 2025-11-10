@@ -1,0 +1,44 @@
+[
+  {
+    "modelId": "anthropic/claude-sonnet-4.5",
+    "name": "Claude Sonnet 4.5 (primary)",
+    "success": true,
+    "latency": 3217,
+    "tokensUsed": 53,
+    "promptTokens": 0,
+    "completionTokens": 0
+  },
+  {
+    "modelId": "anthropic/claude-3.7-sonnet",
+    "name": "Claude 3.7 Sonnet (fallback 1)",
+    "success": true,
+    "latency": 1361,
+    "tokensUsed": 69,
+    "promptTokens": 0,
+    "completionTokens": 0
+  },
+  {
+    "modelId": "anthropic/claude-3.5-sonnet",
+    "name": "Claude 3.5 Sonnet (fallback 2)",
+    "success": false,
+    "error": "No allowed providers are available for the selected model."
+  },
+  {
+    "modelId": "anthropic/claude-haiku-4.5",
+    "name": "Claude Haiku 4.5 (faster/cheaper)",
+    "success": true,
+    "latency": 4187,
+    "tokensUsed": 114,
+    "promptTokens": 0,
+    "completionTokens": 0
+  },
+  {
+    "modelId": "anthropic/claude-3.5-haiku",
+    "name": "Claude 3.5 Haiku (fastest/cheapest)",
+    "success": true,
+    "latency": 2418,
+    "tokensUsed": 133,
+    "promptTokens": 0,
+    "completionTokens": 0
+  }
+]

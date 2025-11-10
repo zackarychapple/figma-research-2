@@ -1,0 +1,2464 @@
+[
+  [
+    "Default",
+    [
+      {
+        "name": "Variant=Default, State=Loading, Size=default",
+        "type": "COMPONENT",
+        "id": "24340:51240",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=icon",
+        "type": "COMPONENT",
+        "id": "24340:51247",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=icon-sm",
+        "type": "COMPONENT",
+        "id": "24340:51269",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=icon-lg",
+        "type": "COMPONENT",
+        "id": "24340:51273",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=lg",
+        "type": "COMPONENT",
+        "id": "24340:51295",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24340:51320",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=xs",
+        "type": "COMPONENT",
+        "id": "24341:8221",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=icon-xs",
+        "type": "COMPONENT",
+        "id": "24341:8238",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=icon-sm",
+        "type": "COMPONENT",
+        "id": "24341:8242",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Default, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24341:8260",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.48627451062202454,
+              "g": 0.22745098173618317,
+              "b": 0.929411768913269,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:461"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    "Secondary",
+    [
+      {
+        "name": "Variant=Secondary, State=Loading, Size=default",
+        "type": "COMPONENT",
+        "id": "24340:51345",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=icon",
+        "type": "COMPONENT",
+        "id": "24340:51370",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=icon-sm",
+        "type": "COMPONENT",
+        "id": "24340:51374",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=icon-lg",
+        "type": "COMPONENT",
+        "id": "24340:51378",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=lg",
+        "type": "COMPONENT",
+        "id": "24340:51400",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24340:51425",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=xs",
+        "type": "COMPONENT",
+        "id": "24341:8279",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=icon-xs",
+        "type": "COMPONENT",
+        "id": "24341:8296",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=icon-sm",
+        "type": "COMPONENT",
+        "id": "24341:8300",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Secondary, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24341:8318",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.9607843160629272,
+              "g": 0.9607843160629272,
+              "b": 0.9607843160629272,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:464"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    "Ghost",
+    [
+      {
+        "name": "Variant=Ghost, State=Loading, Size=default",
+        "type": "COMPONENT",
+        "id": "24340:51466",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=icon",
+        "type": "COMPONENT",
+        "id": "24340:51495",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=icon-sm",
+        "type": "COMPONENT",
+        "id": "24340:51499",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=icon-lg",
+        "type": "COMPONENT",
+        "id": "24340:51503",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=lg",
+        "type": "COMPONENT",
+        "id": "24340:51525",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24340:51566",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=xs",
+        "type": "COMPONENT",
+        "id": "24341:8353",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=icon-xs",
+        "type": "COMPONENT",
+        "id": "24341:8373",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=icon-sm",
+        "type": "COMPONENT",
+        "id": "24341:8377",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Ghost, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24341:8395",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    "Link",
+    [
+      {
+        "name": "Variant=Link, State=Loading, Size=default",
+        "type": "COMPONENT",
+        "id": "24340:51471",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Link, State=Loading, Size=lg",
+        "type": "COMPONENT",
+        "id": "24340:51571",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Link, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24340:51591",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Link, State=Loading, Size=xs",
+        "type": "COMPONENT",
+        "id": "24341:8356",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Link, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24341:8414",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "opacity": 0,
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1:150"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    "Outline",
+    [
+      {
+        "name": "Variant=Outline, State=Loading, Size=default",
+        "type": "COMPONENT",
+        "id": "24340:51615",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=icon",
+        "type": "COMPONENT",
+        "id": "24340:51640",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=icon-sm",
+        "type": "COMPONENT",
+        "id": "24340:51644",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=icon-lg",
+        "type": "COMPONENT",
+        "id": "24340:51648",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=lg",
+        "type": "COMPONENT",
+        "id": "24340:51670",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24340:51695",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=xs",
+        "type": "COMPONENT",
+        "id": "24341:8433",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=icon-xs",
+        "type": "COMPONENT",
+        "id": "24341:8450",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=icon-sm",
+        "type": "COMPONENT",
+        "id": "24341:8454",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Outline, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24341:8472",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 1,
+              "g": 1,
+              "b": 1,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17375:199745"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  ],
+  [
+    "Destructive",
+    [
+      {
+        "name": "Variant=Destructive, State=Loading, Size=default",
+        "type": "COMPONENT",
+        "id": "24340:51720",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.8627451062202454,
+              "g": 0.14901961386203766,
+              "b": 0.14901961386203766,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17378:86807"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Destructive, State=Loading, Size=icon",
+        "type": "COMPONENT",
+        "id": "24340:51733",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.8627451062202454,
+              "g": 0.14901961386203766,
+              "b": 0.14901961386203766,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17378:86807"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Destructive, State=Loading, Size=lg",
+        "type": "COMPONENT",
+        "id": "24340:51755",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.8627451062202454,
+              "g": 0.14901961386203766,
+              "b": 0.14901961386203766,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17378:86807"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Destructive, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24340:51780",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.8627451062202454,
+              "g": 0.14901961386203766,
+              "b": 0.14901961386203766,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17378:86807"
+              }
+            }
+          }
+        ],
+        "effects": [],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          },
+          {
+            "name": "Icon / Circle",
+            "type": "INSTANCE",
+            "visible": false
+          },
+          {
+            "name": "KbdGroup",
+            "type": "INSTANCE",
+            "visible": false
+          }
+        ]
+      },
+      {
+        "name": "Variant=Destructive, State=Loading, Size=xs",
+        "type": "COMPONENT",
+        "id": "24341:8491",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.8627451062202454,
+              "g": 0.14901961386203766,
+              "b": 0.14901961386203766,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17378:86807"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Destructive, State=Loading, Size=icon-xs",
+        "type": "COMPONENT",
+        "id": "24341:8502",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.8627451062202454,
+              "g": 0.14901961386203766,
+              "b": 0.14901961386203766,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17378:86807"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          }
+        ]
+      },
+      {
+        "name": "Variant=Destructive, State=Loading, Size=sm",
+        "type": "COMPONENT",
+        "id": "24341:8520",
+        "opacity": 0.5,
+        "fills": [
+          {
+            "blendMode": "NORMAL",
+            "type": "SOLID",
+            "color": {
+              "r": 0.8627451062202454,
+              "g": 0.14901961386203766,
+              "b": 0.14901961386203766,
+              "a": 1
+            },
+            "boundVariables": {
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:17378:86807"
+              }
+            }
+          }
+        ],
+        "effects": [
+          {
+            "type": "DROP_SHADOW",
+            "visible": true,
+            "color": {
+              "r": 0,
+              "g": 0,
+              "b": 0,
+              "a": 0.05000000074505806
+            },
+            "blendMode": "NORMAL",
+            "offset": {
+              "x": 0,
+              "y": 1
+            },
+            "radius": 2,
+            "showShadowBehindNode": true,
+            "boundVariables": {
+              "radius": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:6658db093a3e1107d39a5e50c56fe5356d90d706/17031:182"
+              },
+              "spread": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:f72195062cfb22892dd38b3a86950f20dc2b467c/17031:143"
+              },
+              "color": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:b418c9d377ea6ec8a08a21107429b394d514628a/17031:204"
+              },
+              "offsetX": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:3fbbcaecb0c53dabb4b198c756fc38e3b806fa59/17031:180"
+              },
+              "offsetY": {
+                "type": "VARIABLE_ALIAS",
+                "id": "VariableID:1da810805a8ec682f73d447e89b0f756369fba40/17031:169"
+              }
+            }
+          }
+        ],
+        "children": [
+          {
+            "name": "Spinner",
+            "type": "INSTANCE"
+          },
+          {
+            "name": "Button",
+            "type": "TEXT"
+          }
+        ]
+      }
+    ]
+  ]
+]

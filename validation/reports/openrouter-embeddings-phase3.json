@@ -1,0 +1,167 @@
+{
+  "timestamp": "2025-11-07T12:09:19.521Z",
+  "apiKeyValid": true,
+  "textEmbeddings": [
+    {
+      "modelId": "openai/text-embedding-3-small",
+      "type": "text",
+      "available": true,
+      "latencyMs": 596,
+      "dimensions": 1536,
+      "costEstimate": 3.0000000000000004e-7,
+      "metadata": {
+        "tokensUsed": 15,
+        "embeddingPreview": [
+          -0.002729512,
+          0.0015195134,
+          -0.025046887,
+          0.06693682,
+          -0.012577863
+        ],
+        "responseObject": "list"
+      }
+    },
+    {
+      "modelId": "openai/text-embedding-3-large",
+      "type": "text",
+      "available": true,
+      "latencyMs": 381,
+      "dimensions": 3072,
+      "costEstimate": 3.0000000000000004e-7,
+      "metadata": {
+        "tokensUsed": 15,
+        "embeddingPreview": [
+          -0.04414774,
+          -0.042003047,
+          -0.006702175,
+          0.018163925,
+          0.009882099
+        ],
+        "responseObject": "list"
+      }
+    },
+    {
+      "modelId": "openai/text-embedding-ada-002",
+      "type": "text",
+      "available": true,
+      "latencyMs": 317,
+      "dimensions": 1536,
+      "costEstimate": 3.0000000000000004e-7,
+      "metadata": {
+        "tokensUsed": 15,
+        "embeddingPreview": [
+          -0.0123851895,
+          0.0012399864,
+          -0.02070068,
+          -0.014204814,
+          -0.027731346
+        ],
+        "responseObject": "list"
+      }
+    },
+    {
+      "modelId": "text-embedding-3-small",
+      "type": "text",
+      "available": true,
+      "latencyMs": 286,
+      "dimensions": 1536,
+      "costEstimate": 3.0000000000000004e-7,
+      "metadata": {
+        "tokensUsed": 15,
+        "embeddingPreview": [
+          -0.002729512,
+          0.0015195134,
+          -0.025046887,
+          0.06693682,
+          -0.012577863
+        ],
+        "responseObject": "list"
+      }
+    },
+    {
+      "modelId": "text-embedding-3-large",
+      "type": "text",
+      "available": true,
+      "latencyMs": 371,
+      "dimensions": 3072,
+      "costEstimate": 3.0000000000000004e-7,
+      "metadata": {
+        "tokensUsed": 15,
+        "embeddingPreview": [
+          -0.04414774,
+          -0.042003047,
+          -0.006702175,
+          0.018163925,
+          0.009882099
+        ],
+        "responseObject": "list"
+      }
+    }
+  ],
+  "visualEmbeddings": [
+    {
+      "modelId": "openai/clip-vit-large-patch14",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    },
+    {
+      "modelId": "openai/clip-vit-base-patch32",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    },
+    {
+      "modelId": "clip-vit-large-patch14",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    },
+    {
+      "modelId": "clip-vit-base-patch32",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    },
+    {
+      "modelId": "google/gemini-embedding-001",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    },
+    {
+      "modelId": "voyage/voyage-multimodal-3",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    },
+    {
+      "modelId": "nomic/nomic-embed-vision-v1.5",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    },
+    {
+      "modelId": "vision-embedding",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    },
+    {
+      "modelId": "image-embedding",
+      "type": "visual",
+      "available": false,
+      "error": "All input formats failed"
+    }
+  ],
+  "recommendations": [
+    "⚠️  Use OpenRouter for text embeddings only",
+    "⚠️  Keep OpenAI direct API for visual embeddings (CLIP)",
+    "ℹ️  No architecture change from Phase 1"
+  ],
+  "phase1Comparison": {
+    "textEmbeddingsStatus": "AVAILABLE - No change",
+    "visualEmbeddingsStatus": "NOT AVAILABLE - No change",
+    "changes": []
+  }
+}

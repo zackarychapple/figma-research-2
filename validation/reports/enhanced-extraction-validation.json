@@ -1,0 +1,644 @@
+{
+  "totalComponents": 30,
+  "successfulExtractions": 30,
+  "classifications": {
+    "Container": 22,
+    "Icon": 8
+  },
+  "averageConfidence": 0.37999999999999995,
+  "highConfidenceCount": 0,
+  "mediumConfidenceCount": 8,
+  "lowConfidenceCount": 22,
+  "results": [
+    {
+      "componentName": "Variant=Default, State=Default, Size=default",
+      "componentId": "37:930",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Focus, Size=default",
+      "componentId": "17421:99764",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": true,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 2,
+      "cssPropertyCount": 5,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Hover, Size=default",
+      "componentId": "979:19776",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 2,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Disabled, Size=default",
+      "componentId": "112:1268",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Loading, Size=default",
+      "componentId": "60:103",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Default, Size=icon",
+      "componentId": "46:189",
+      "classification": {
+        "type": "Icon",
+        "confidence": 0.6,
+        "reasons": [
+          "Name contains \"icon\""
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Focus, Size=icon",
+      "componentId": "17421:99768",
+      "classification": {
+        "type": "Icon",
+        "confidence": 0.6,
+        "reasons": [
+          "Name contains \"icon\""
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": true,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 2,
+      "cssPropertyCount": 5,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Hover, Size=icon",
+      "componentId": "979:19780",
+      "classification": {
+        "type": "Icon",
+        "confidence": 0.6,
+        "reasons": [
+          "Name contains \"icon\""
+        ]
+      },
+      "styles": {
+        "colorCount": 2,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Disabled, Size=icon",
+      "componentId": "112:1271",
+      "classification": {
+        "type": "Icon",
+        "confidence": 0.6,
+        "reasons": [
+          "Name contains \"icon\""
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Default, Size=lg",
+      "componentId": "37:1658",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Focus, Size=lg",
+      "componentId": "17421:99770",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": true,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 2,
+      "cssPropertyCount": 5,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Hover, Size=lg",
+      "componentId": "979:19782",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 2,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Disabled, Size=lg",
+      "componentId": "112:1273",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Loading, Size=lg",
+      "componentId": "60:106",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Default, Size=sm",
+      "componentId": "37:1616",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Focus, Size=sm",
+      "componentId": "17421:99774",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": true,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 2,
+      "cssPropertyCount": 5,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Hover, Size=sm",
+      "componentId": "979:19786",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 2,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Disabled, Size=sm",
+      "componentId": "112:1276",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Default, State=Loading, Size=sm",
+      "componentId": "60:109",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Default, Size=default",
+      "componentId": "37:932",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Focus, Size=default",
+      "componentId": "17421:99778",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": true,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 2,
+      "cssPropertyCount": 5,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Hover, Size=default",
+      "componentId": "979:19790",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 2,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Disabled, Size=default",
+      "componentId": "112:1279",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Loading, Size=default",
+      "componentId": "60:112",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Default, Size=icon",
+      "componentId": "46:192",
+      "classification": {
+        "type": "Icon",
+        "confidence": 0.6,
+        "reasons": [
+          "Name contains \"icon\""
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Focus, Size=icon",
+      "componentId": "17421:99782",
+      "classification": {
+        "type": "Icon",
+        "confidence": 0.6,
+        "reasons": [
+          "Name contains \"icon\""
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": true,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 2,
+      "cssPropertyCount": 5,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Hover, Size=icon",
+      "componentId": "979:19794",
+      "classification": {
+        "type": "Icon",
+        "confidence": 0.6,
+        "reasons": [
+          "Name contains \"icon\""
+        ]
+      },
+      "styles": {
+        "colorCount": 2,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Disabled, Size=icon",
+      "componentId": "112:1282",
+      "classification": {
+        "type": "Icon",
+        "confidence": 0.6,
+        "reasons": [
+          "Name contains \"icon\""
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Default, Size=lg",
+      "componentId": "37:1661",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": false,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 1,
+      "cssPropertyCount": 4,
+      "success": true,
+      "errors": []
+    },
+    {
+      "componentName": "Variant=Secondary, State=Focus, Size=lg",
+      "componentId": "17421:99784",
+      "classification": {
+        "type": "Container",
+        "confidence": 0.3,
+        "reasons": [
+          "No specific component type detected"
+        ]
+      },
+      "styles": {
+        "colorCount": 1,
+        "hasTypography": false,
+        "hasEffects": true,
+        "hasPadding": false
+      },
+      "tailwindClassCount": 2,
+      "cssPropertyCount": 5,
+      "success": true,
+      "errors": []
+    }
+  ]
+}

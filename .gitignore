@@ -1,0 +1,96 @@
+/target
+Figma.app
+figma_files
+github
+reference_repos
+reference-repos
+reference_docs
+.idea
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+# use npm i
+yarn.lock
+
+# compiled output
+dist
+/tmp
+/out-tsc
+.firebase
+.serena
+# dependencies
+node_modules
+
+# IDEs and editors
+.nx
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+__pycache__
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+
+# System Files
+.DS_Store
+Thumbs.db
+.env
+apps/zephyr-api/.env
+apps/zephyr-next/.env
+
+# Pipeline project
+/tmp_data
+/medusa-env
+/airflow_instance
+.terraform
+/warehouse-data
+
+# Next.js
+.next
+
+# Playwright
+playwright-report
+test-results
+allure-results
+playwright
+
+# Newrelic
+newrelic_agent.log
+
+# Sentry Config File
+.env.sentry-build-plugin
+
+# Terraform artifacts
+terraform.tfvars
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfvars.json
+
+# TypeScript build info files (in any folder)
+**/*.tsbuildinfo
+
+# AI
+.cursor/rules/nx-rules.mdc
+
+# Nx
+.nx
+graph.json
+.github/instructions/nx.instructions.md
+
+app.log

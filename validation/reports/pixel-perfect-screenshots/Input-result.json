@@ -1,0 +1,164 @@
+{
+  "success": true,
+  "finalCode": "import React from 'react';\n\n/**\n * TypeScript interface for the Input component props.\n * The component represents a standard text input field.\n */\ninterface InputProps {\n  /** The type of the input element (e.g., 'text', 'email', 'password'). */\n  type?: 'text' | 'email' | 'password' | 'number';\n  /** Placeholder text displayed when the input is empty. */\n  placeholder?: string;\n  /** Optional label text displayed above the input field (used for accessibility). */\n  label?: string;\n  /** The current value of the input field (controlled component). */\n  value?: string;\n  /** Function called when the input value changes. */\n  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;\n  /** Unique identifier for the input element. */\n  id?: string;\n  /** If true, the input field will be disabled. */\n  disabled?: boolean;\n}\n\n/**\n * A reusable input component styled according to the specified Figma design.\n *\n * Design Specifications:\n * - Background Color: #ffffff (bg-white)\n * - Border: 1px solid #d1d5db (border border-gray-300) -> Corrected based on previous requirement #7 to #CCCCCC (border-gray-400 equivalent)\n * - Border Radius: 6px (rounded-[6px])\n * - Padding: 8px 12px (p-2 px-3) -> Corrected based on previous requirement #9 to 10px (p-[10px])\n * - Font Size: 14px (text-sm) -> Corrected based on previous requirement #8 to 16px (text-base)\n * - Width: 240px (w-[240px])\n * - Height: 40px (h-[40px])\n * - Placeholder: \"Enter text...\"\n * - Label: Removed (Requirement #10)\n */\nconst Input: React.FC<InputProps> = ({\n  type = 'text',\n  placeholder = 'Enter text...', // Requirement #6: Placeholder text is 'Enter text...'\n  label = 'Input Field', // Included for accessibility, but not rendered\n  value,\n  onChange,\n  id = 'standard-input',\n  disabled = false,\n}) => {\n  // Requirement #7: Change the border color to #CCCCCC (Tailwind equivalent: gray-400 or custom hex)\n  // Using custom hex for precise matching: border-[#CCCCCC]\n  const customBorderColor = 'border-[#CCCCCC]';\n\n  // Requirement #8: Increase the font size to 16px (text-base)\n  // Requirement #9: Adjust the padding to 10px (p-[10px])\n\n  const inputBaseClasses = `\n    w-[240px] h-10\n    bg-white\n    border ${customBorderColor}\n    rounded-[6px]\n    text-base          /* 16px font size */\n    text-gray-900\n    p-[10px]           /* 10px padding */\n    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500\n    placeholder:text-gray-400\n    transition duration-150 ease-in-out\n  `;\n\n  // Disabled state classes\n  const disabledClasses = disabled\n    ? 'opacity-60 cursor-not-allowed bg-gray-50'\n    : '';\n\n  return (\n    <div className=\"flex flex-col\">\n      {/* \n        Requirement #10: Remove the label 'Input Field' above the input box.\n        The label prop is still used for aria-label, but not rendered visually.\n      */}\n      \n      {/* Input Field */}\n      <input\n        id={id}\n        type={type}\n        placeholder={placeholder}\n        value={value}\n        onChange={onChange}\n        disabled={disabled}\n        // Use the label or placeholder for accessibility\n        aria-label={label || placeholder || 'Text input field'}\n        aria-disabled={disabled}\n        className={`${inputBaseClasses} ${disabledClasses}`}\n      />\n    </div>\n  );\n};\n\nexport default Input;",
+  "finalScore": 0.7777499999999999,
+  "pixelDifferencePercent": 4.083333333333333,
+  "iterations": [
+    {
+      "iteration": 1,
+      "code": "import React from 'react';\n\n/**\n * TypeScript interface for the Input component props.\n * The component represents a standard text input field with an optional label.\n */\ninterface InputProps {\n  /** The type of the input element (e.g., 'text', 'email', 'password'). */\n  type?: 'text' | 'email' | 'password' | 'number';\n  /** Placeholder text displayed when the input is empty. */\n  placeholder?: string;\n  /** Optional label text displayed above the input field. */\n  label?: string;\n  /** The current value of the input field (controlled component). */\n  value?: string;\n  /** Function called when the input value changes. */\n  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;\n  /** Unique identifier for the input element (used for linking label and input). */\n  id?: string;\n  /** If true, the input field will be disabled. */\n  disabled?: boolean;\n}\n\n/**\n * A reusable input component styled according to the Figma specifications.\n * \n * Styles:\n * - Background: #ffffff (white)\n * - Border: 1px solid #d1d5db (gray-300)\n * - Border Radius: 6px (rounded-md)\n * - Padding: 8px 12px (p-2 px-3)\n * - Font Size: 14px (text-sm)\n * - Fixed Width: 240px\n * - Fixed Height: 40px (leading to h-10)\n */\nconst Input: React.FC<InputProps> = ({\n  type = 'text',\n  placeholder = 'Enter text...',\n  label = 'Input Field',\n  value,\n  onChange,\n  id = 'standard-input',\n  disabled = false,\n}) => {\n  // Base Tailwind classes for the input element\n  const inputBaseClasses = `\n    w-[240px] h-10\n    bg-white\n    border border-gray-300\n    rounded-md\n    text-sm\n    p-2 px-3\n    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500\n    placeholder:text-gray-400\n    transition duration-150 ease-in-out\n  `;\n\n  // Disabled state classes\n  const disabledClasses = disabled\n    ? 'opacity-60 cursor-not-allowed bg-gray-50'\n    : '';\n\n  return (\n    <div className=\"flex flex-col\">\n      {/* Label (if provided) */}\n      {label && (\n        <label\n          htmlFor={id}\n          className=\"mb-1 text-sm font-medium text-gray-700\"\n        >\n          {label}\n        </label>\n      )}\n      \n      {/* Input Field */}\n      <input\n        id={id}\n        type={type}\n        placeholder={placeholder}\n        value={value}\n        onChange={onChange}\n        disabled={disabled}\n        aria-label={label || placeholder}\n        aria-disabled={disabled}\n        className={`${inputBaseClasses} ${disabledClasses}`}\n      />\n    </div>\n  );\n};\n\nexport default Input;",
+      "renderSuccess": true,
+      "renderLatency": 1315,
+      "validationSuccess": true,
+      "validationLatency": 13159,
+      "pixelScore": 0.88125,
+      "semanticScore": 0.7,
+      "combinedScore": 0.7543749999999999,
+      "pixelDifferencePercent": 11.875,
+      "feedback": [
+        {
+          "element": "Placeholder text",
+          "reference": "Enter text...",
+          "implementation": "Input Field",
+          "description": "The placeholder text differs between the two images."
+        },
+        {
+          "element": "Border color",
+          "reference": "#DADADA",
+          "implementation": "#E0E0E0",
+          "description": "The border color is slightly different."
+        },
+        {
+          "element": "Font color",
+          "reference": "#000000",
+          "implementation": "#4A4A4A",
+          "description": "The font color in the implementation is lighter."
+        },
+        {
+          "element": "Font size",
+          "reference": "16px",
+          "implementation": "14px",
+          "description": "The font size in the implementation is smaller."
+        },
+        {
+          "element": "Padding",
+          "reference": "10px",
+          "implementation": "8px",
+          "description": "The padding inside the input field is less in the implementation."
+        },
+        "Change the placeholder text to 'Enter text...'.",
+        "Adjust the border color to #DADADA.",
+        "Change the font color to #000000.",
+        "Increase the font size to 16px.",
+        "Increase the padding to 10px."
+      ],
+      "cost": 0.0050675,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash"
+    },
+    {
+      "iteration": 2,
+      "code": "import React from 'react';\n\n/**\n * TypeScript interface for the Input component props.\n * The component represents a standard text input field with an optional label.\n */\ninterface InputProps {\n  /** The type of the input element (e.g., 'text', 'email', 'password'). */\n  type?: 'text' | 'email' | 'password' | 'number';\n  /** Placeholder text displayed when the input is empty. */\n  placeholder?: string;\n  /** Optional label text displayed above the input field. */\n  label?: string;\n  /** The current value of the input field (controlled component). */\n  value?: string;\n  /** Function called when the input value changes. */\n  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;\n  /** Unique identifier for the input element (used for linking label and input). */\n  id?: string;\n  /** If true, the input field will be disabled. */\n  disabled?: boolean;\n}\n\n/**\n * A reusable input component styled according to the updated specifications.\n * \n * Styles (Updated):\n * - Placeholder: 'Enter text...'\n * - Border Color: #DADADA (custom gray)\n * - Font Color: #000000 (black)\n * - Font Size: 16px (text-base)\n * - Padding: 10px (p-[10px])\n * - Background: #ffffff (white)\n * - Border: 1px solid #DADADA\n * - Border Radius: 6px (rounded-md)\n * - Fixed Width: 240px\n * - Fixed Height: 40px\n */\nconst Input: React.FC<InputProps> = ({\n  type = 'text',\n  placeholder = 'Enter text...', // Fixed: Ensure placeholder is 'Enter text...'\n  label = 'Input Field',\n  value,\n  onChange,\n  id = 'standard-input',\n  disabled = false,\n}) => {\n  // Custom Tailwind class for the #DADADA border color\n  const customBorderColor = 'border-[#DADADA]';\n\n  // Base Tailwind classes for the input element\n  const inputBaseClasses = `\n    w-[240px] h-10\n    bg-white\n    border ${customBorderColor}\n    rounded-[6px]\n    text-base          /* Fixed: Font size to 16px (text-base) */\n    text-black         /* Fixed: Font color to #000000 (text-black) */\n    p-[10px]           /* Fixed: Padding to 10px */\n    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500\n    placeholder:text-gray-400\n    transition duration-150 ease-in-out\n  `;\n\n  // Disabled state classes\n  const disabledClasses = disabled\n    ? 'opacity-60 cursor-not-allowed bg-gray-50'\n    : '';\n\n  return (\n    <div className=\"flex flex-col\">\n      {/* Label (if provided) */}\n      {label && (\n        <label\n          htmlFor={id}\n          className=\"mb-1 text-sm font-medium text-gray-700\"\n        >\n          {label}\n        </label>\n      )}\n\n      {/* Input Field */}\n      <input\n        id={id}\n        type={type}\n        placeholder={placeholder}\n        value={value}\n        onChange={onChange}\n        disabled={disabled}\n        aria-label={label || placeholder}\n        aria-disabled={disabled}\n        className={`${inputBaseClasses} ${disabledClasses}`}\n      />\n    </div>\n  );\n};\n\nexport default Input;",
+      "renderSuccess": true,
+      "renderLatency": 1234,
+      "validationSuccess": true,
+      "validationLatency": 16257,
+      "pixelScore": 0.8815625,
+      "semanticScore": 0.7,
+      "combinedScore": 0.7544687499999999,
+      "pixelDifferencePercent": 11.84375,
+      "feedback": [
+        {
+          "element": "Placeholder text",
+          "reference": "Enter text...",
+          "implementation": "Input Field",
+          "issue": "Different placeholder text."
+        },
+        {
+          "element": "Border color",
+          "reference": "#CCCCCC",
+          "implementation": "#E0E0E0",
+          "issue": "Border color is different."
+        },
+        {
+          "element": "Font size",
+          "reference": "16px",
+          "implementation": "14px",
+          "issue": "Font size is smaller in the implementation."
+        },
+        {
+          "element": "Padding",
+          "reference": "10px",
+          "implementation": "8px",
+          "issue": "Padding is smaller in the implementation."
+        },
+        {
+          "element": "Label",
+          "reference": "None",
+          "implementation": "Input Field",
+          "issue": "Extra label present in the implementation."
+        },
+        "Update the placeholder text to 'Enter text...'.",
+        "Change the border color to #CCCCCC.",
+        "Increase the font size to 16px.",
+        "Adjust the padding to 10px.",
+        "Remove the label 'Input Field' above the input box."
+      ],
+      "cost": 0.0048575,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash"
+    },
+    {
+      "iteration": 3,
+      "code": "import React from 'react';\n\n/**\n * TypeScript interface for the Input component props.\n * The component represents a standard text input field.\n */\ninterface InputProps {\n  /** The type of the input element (e.g., 'text', 'email', 'password'). */\n  type?: 'text' | 'email' | 'password' | 'number';\n  /** Placeholder text displayed when the input is empty. */\n  placeholder?: string;\n  /** Optional label text displayed above the input field (used for accessibility). */\n  label?: string;\n  /** The current value of the input field (controlled component). */\n  value?: string;\n  /** Function called when the input value changes. */\n  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;\n  /** Unique identifier for the input element. */\n  id?: string;\n  /** If true, the input field will be disabled. */\n  disabled?: boolean;\n}\n\n/**\n * A reusable input component styled according to the specified Figma design.\n *\n * Design Specifications:\n * - Background Color: #ffffff (bg-white)\n * - Border: 1px solid #d1d5db (border border-gray-300) -> Corrected based on previous requirement #7 to #CCCCCC (border-gray-400 equivalent)\n * - Border Radius: 6px (rounded-[6px])\n * - Padding: 8px 12px (p-2 px-3) -> Corrected based on previous requirement #9 to 10px (p-[10px])\n * - Font Size: 14px (text-sm) -> Corrected based on previous requirement #8 to 16px (text-base)\n * - Width: 240px (w-[240px])\n * - Height: 40px (h-[40px])\n * - Placeholder: \"Enter text...\"\n * - Label: Removed (Requirement #10)\n */\nconst Input: React.FC<InputProps> = ({\n  type = 'text',\n  placeholder = 'Enter text...', // Requirement #6: Placeholder text is 'Enter text...'\n  label = 'Input Field', // Included for accessibility, but not rendered\n  value,\n  onChange,\n  id = 'standard-input',\n  disabled = false,\n}) => {\n  // Requirement #7: Change the border color to #CCCCCC (Tailwind equivalent: gray-400 or custom hex)\n  // Using custom hex for precise matching: border-[#CCCCCC]\n  const customBorderColor = 'border-[#CCCCCC]';\n\n  // Requirement #8: Increase the font size to 16px (text-base)\n  // Requirement #9: Adjust the padding to 10px (p-[10px])\n\n  const inputBaseClasses = `\n    w-[240px] h-10\n    bg-white\n    border ${customBorderColor}\n    rounded-[6px]\n    text-base          /* 16px font size */\n    text-gray-900\n    p-[10px]           /* 10px padding */\n    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500\n    placeholder:text-gray-400\n    transition duration-150 ease-in-out\n  `;\n\n  // Disabled state classes\n  const disabledClasses = disabled\n    ? 'opacity-60 cursor-not-allowed bg-gray-50'\n    : '';\n\n  return (\n    <div className=\"flex flex-col\">\n      {/* \n        Requirement #10: Remove the label 'Input Field' above the input box.\n        The label prop is still used for aria-label, but not rendered visually.\n      */}\n      \n      {/* Input Field */}\n      <input\n        id={id}\n        type={type}\n        placeholder={placeholder}\n        value={value}\n        onChange={onChange}\n        disabled={disabled}\n        // Use the label or placeholder for accessibility\n        aria-label={label || placeholder || 'Text input field'}\n        aria-disabled={disabled}\n        className={`${inputBaseClasses} ${disabledClasses}`}\n      />\n    </div>\n  );\n};\n\nexport default Input;",
+      "renderSuccess": true,
+      "renderLatency": 1322,
+      "validationSuccess": true,
+      "validationLatency": 6674,
+      "pixelScore": 0.9591666666666667,
+      "semanticScore": 0.7,
+      "combinedScore": 0.7777499999999999,
+      "pixelDifferencePercent": 4.083333333333333,
+      "feedback": [
+        {
+          "aspect": "Color",
+          "reference": "Border color is #000000 (black)",
+          "implementation": "Border color is #B0B0B0 (light gray)"
+        },
+        {
+          "aspect": "Typography",
+          "reference": "Font color is #000000 (black)",
+          "implementation": "Font color is #B0B0B0 (light gray)"
+        },
+        {
+          "aspect": "Spacing",
+          "reference": "Padding is approximately 5px",
+          "implementation": "Padding is approximately 10px"
+        },
+        {
+          "aspect": "Positioning",
+          "reference": "Centered vertically and horizontally within the border",
+          "implementation": "Centered vertically but slightly off horizontally"
+        },
+        {
+          "aspect": "Border",
+          "reference": "Border thickness is 1px",
+          "implementation": "Border thickness is 2px"
+        },
+        "Change the border color to #000000.",
+        "Change the font color to #000000.",
+        "Adjust padding to approximately 5px.",
+        "Ensure horizontal centering of the text.",
+        "Reduce border thickness to 1px."
+      ],
+      "cost": 0.004817500000000001,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash"
+    }
+  ],
+  "totalLatency": 228279,
+  "totalCost": 0.1947425,
+  "targetAchieved": false,
+  "componentName": "Input",
+  "componentType": "Input"
+}

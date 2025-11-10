@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Component Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #ffffff;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+      #root {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      const React = window.React;
+      const { useState, useEffect } = React;
+
+      // Button component code from test
+      interface ButtonProps {
+        variant?: 'primary' | 'secondary' | 'outline';
+        size?: 'small' | 'medium' | 'large';
+        text: string;
+        onClick?: () => void;
+        disabled?: boolean;
+        type?: 'button' | 'submit' | 'reset';
+        className?: string;
+      }
+
+      const Button = ({
+        variant = 'primary',
+        size = 'medium',
+        text,
+        onClick,
+        disabled = false,
+        type = 'button',
+        className = '',
+      }) => {
+        const baseStyles = 'inline-flex items-center justify-center font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+
+        const variantStyles = {
+          primary: 'bg-violet-600 text-white hover:bg-violet-700 focus:ring-violet-500',
+          secondary: 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500',
+          outline: 'bg-transparent border-2 border-violet-600 text-violet-600 hover:bg-violet-50 focus:ring-violet-500',
+        };
+
+        const sizeStyles = {
+          small: 'px-3 py-1.5 text-xs rounded',
+          medium: 'px-4 py-2 text-sm rounded-md',
+          large: 'px-6 py-3 text-base rounded-lg',
+        };
+
+        const classes = `${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`.trim();
+
+        return (
+          <button
+            type={type}
+            onClick={onClick}
+            disabled={disabled}
+            className={classes}
+            aria-label={text}
+          >
+            {text}
+          </button>
+        );
+      };
+
+      // Test prop generation logic
+      const componentCode = JSON.stringify(`
+        interface ButtonProps {
+          variant?: 'primary' | 'secondary' | 'outline';
+          size?: 'small' | 'medium' | 'large';
+          text: string;
+          onClick?: () => void;
+          disabled?: boolean;
+          type?: 'button' | 'submit' | 'reset';
+          className?: string;
+        }
+      `);
+
+      const getDefaultProps = (componentName) => {
+        console.log('Getting default props for:', componentName);
+        const interfaceRegex = new RegExp('interface\\s+' + componentName + 'Props\\s*\\{([^}]+)\\}', 's');
+        const match = componentCode.match(interfaceRegex);
+
+        console.log('Regex match:', match);
+
+        if (!match) {
+          console.log('No interface match, returning empty props');
+          return {};
+        }
+
+        const propsText = match[1];
+        const props = {};
+
+        // Parse each prop line
+        const propLines = propsText.split(/[;\n]/).filter(line => line.trim());
+        console.log('Prop lines:', propLines);
+
+        for (const line of propLines) {
+          const propMatch = line.match(/(\w+)\??\s*:\s*([^;\n]+)/);
+          if (!propMatch) continue;
+
+          const [, propName, propType] = propMatch;
+          const cleanType = propType.trim().toLowerCase();
+
+          console.log(`Processing prop: ${propName}, type: ${cleanType}`);
+
+          // Generate default values based on type
+          if (cleanType.includes('string')) {
+            props[propName] = propName === 'text' || propName === 'children' ? 'Sample Text' : 'Value';
+          } else if (cleanType.includes('number')) {
+            props[propName] = 0;
+          } else if (cleanType.includes('boolean')) {
+            props[propName] = false;
+          } else if (cleanType.includes('function') || cleanType.includes('=>')) {
+            props[propName] = () => {};
+          }
+        }
+
+        console.log('Generated props:', props);
+        return props;
+      };
+
+      // Render the component with dynamically generated props
+      console.log('Starting render...');
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      const defaultProps = getDefaultProps('Button');
+      console.log('Rendering Button with props:', defaultProps);
+      root.render(<Button {...defaultProps} />);
+      console.log('Render called');
+    </script>
+  </body>
+</html>

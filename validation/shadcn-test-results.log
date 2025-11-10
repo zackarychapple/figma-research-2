@@ -1,0 +1,91 @@
+[dotenv@17.2.3] injecting env (2) from ../.env -- tip: 🗂️ backup and recover secrets: https://dotenvx.com/ops
+================================================================================
+TESTING REAL SHADCN COMPONENTS
+================================================================================
+
+
+================================================================================
+Testing: Button (Button)
+================================================================================
+\n[1/3] Rendering Figma reference...
+✓ Figma rendered (643ms)
+\n[2/3] Rendering ShadCN component...
+✓ ShadCN rendered (1812ms)
+\n[3/3] Comparing with visual validator...
+\nResults:
+  Pixel Score: 89.13%
+  Semantic Score: 80.00%
+  Combined Score: 82.74%
+  Cost: $0.004777
+
+================================================================================
+Testing: Badge (Badge)
+================================================================================
+\n[1/3] Rendering Figma reference...
+✓ Figma rendered (637ms)
+\n[2/3] Rendering ShadCN component...
+✓ ShadCN rendered (1811ms)
+\n[3/3] Comparing with visual validator...
+\nResults:
+  Pixel Score: 12.29%
+  Semantic Score: 60.00%
+  Combined Score: 45.69%
+  Cost: $0.003777
+
+================================================================================
+Testing: Card (Card)
+================================================================================
+\n[1/3] Rendering Figma reference...
+✓ Figma rendered (678ms)
+\n[2/3] Rendering ShadCN component...
+✓ ShadCN rendered (1835ms)
+\n[3/3] Comparing with visual validator...
+\nResults:
+  Pixel Score: 97.31%
+  Semantic Score: 60.00%
+  Combined Score: 71.19%
+  Cost: $0.005078
+
+================================================================================
+Testing: Input (Input)
+================================================================================
+\n[1/3] Rendering Figma reference...
+✓ Figma rendered (699ms)
+\n[2/3] Rendering ShadCN component...
+✓ ShadCN rendered (1818ms)
+\n[3/3] Comparing with visual validator...
+\nResults:
+  Pixel Score: 86.19%
+  Semantic Score: 70.00%
+  Combined Score: 74.86%
+  Cost: $0.004517
+
+================================================================================
+Testing: Dialog (Dialog)
+================================================================================
+\n[1/3] Rendering Figma reference...
+✓ Figma rendered (668ms)
+\n[2/3] Rendering ShadCN component...
+✓ ShadCN rendered (1841ms)
+\n[3/3] Comparing with visual validator...
+\nResults:
+  Pixel Score: 54.74%
+  Semantic Score: 40.00%
+  Combined Score: 44.42%
+  Cost: $0.006157
+\n================================================================================
+SUMMARY
+================================================================================
+\nComponents Tested: 5
+Successful: 5/5
+Average Combined Score: 63.8%
+\n| Component | Pixel | Semantic | Combined |
+|-----------|-------|----------|----------|
+| Button    |  89.1% |     80.0% |     82.7% |
+| Badge     |  12.3% |     60.0% |     45.7% |
+| Card      |  97.3% |     60.0% |     71.2% |
+| Input     |  86.2% |     70.0% |     74.9% |
+| Dialog    |  54.7% |     40.0% |     44.4% |
+
+\n✅ Report saved to: /Users/zackarychapple/code/figma-research/validation/reports/shadcn-comparison/shadcn-comparison-report.json\n
+\n

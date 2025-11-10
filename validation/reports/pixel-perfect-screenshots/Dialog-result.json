@@ -1,0 +1,128 @@
+{
+  "success": true,
+  "finalCode": "import React from 'react';\n\n/**\n * Props for the Dialog component.\n */\ninterface DialogProps {\n  /** The title displayed at the top of the dialog. */\n  title: string;\n  /** The main descriptive text content of the dialog. */\n  description: string;\n  /** Text for the primary action button (e.g., \"Confirm\", \"Save\"). */\n  primaryAction: string;\n  /** Text for the secondary action button (e.g., \"Cancel\", \"Dismiss\"). */\n  secondaryAction: string;\n  /** Optional handler for the primary action button click. */\n  onPrimaryAction?: () => void;\n  /** Optional handler for the secondary action button click/close action. */\n  onSecondaryAction?: () => void;\n  /** Determines if the close (X) button is shown in the top right corner. Defaults to true. */\n  showCloseButton?: boolean;\n}\n\nconst Dialog: React.FC<DialogProps> = ({\n  title,\n  description,\n  primaryAction,\n  secondaryAction,\n  onPrimaryAction,\n  onSecondaryAction,\n  showCloseButton = true, // Default based on component data\n}) => {\n  // Simple SVG for the close button (X icon)\n  const CloseIcon = () => (\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      className=\"h-5 w-5\"\n      viewBox=\"0 0 20 20\"\n      fill=\"currentColor\"\n    >\n      <path\n        fillRule=\"evenodd\"\n        d=\"M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z\"\n        clipRule=\"evenodd\"\n      />\n    </svg>\n  );\n\n  return (\n    // Backdrop/Overlay (Assuming the parent handles the actual modal wrapper,\n    // this component focuses on the dialog box itself)\n    <div\n      className=\"bg-white rounded-[12px] shadow-xl w-[400px] min-h-[200px] p-6 flex flex-col\"\n      role=\"dialog\"\n      aria-modal=\"true\"\n      aria-labelledby=\"dialog-title\"\n      aria-describedby=\"dialog-description\"\n      // Note: The specific shadow is 'shadow-xl' in Tailwind, which is\n      // '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)'\n    >\n      {/* Header */}\n      <div className=\"flex justify-between items-start mb-4\">\n        <h2 id=\"dialog-title\" className=\"text-xl font-semibold text-gray-900\">\n          {title}\n        </h2>\n        {showCloseButton && (\n          <button\n            onClick={onSecondaryAction}\n            className=\"p-1 rounded-full text-gray-400 hover:text-gray-500 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\"\n            aria-label=\"Close dialog\"\n          >\n            <CloseIcon />\n          </button>\n        )}\n      </div>\n\n      {/* Content */}\n      <div className=\"flex-grow mb-6\">\n        <p id=\"dialog-description\" className=\"text-sm text-gray-500\">\n          {description}\n        </p>\n      </div>\n\n      {/* Actions */}\n      <div className=\"flex justify-end space-x-3\">\n        {/* Secondary Action (Cancel) */}\n        <button\n          type=\"button\"\n          onClick={onSecondaryAction}\n          className=\"px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors\"\n        >\n          {secondaryAction}\n        </button>\n\n        {/* Primary Action (Confirm) */}\n        <button\n          type=\"button\"\n          onClick={onPrimaryAction}\n          className=\"px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors\"\n        >\n          {primaryAction}\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default Dialog;",
+  "finalScore": 0.49382499999999996,
+  "pixelDifferencePercent": 5.391666666666667,
+  "iterations": [
+    {
+      "iteration": 1,
+      "code": "import React from 'react';\n\n/**\n * Props for the Dialog component.\n */\ninterface DialogProps {\n  /** The title displayed at the top of the dialog. */\n  title: string;\n  /** The main descriptive text content of the dialog. */\n  description: string;\n  /** Text for the primary action button (e.g., \"Confirm\", \"Save\"). */\n  primaryAction: string;\n  /** Text for the secondary action button (e.g., \"Cancel\", \"Dismiss\"). */\n  secondaryAction: string;\n  /** Optional handler for the primary action button click. */\n  onPrimaryAction?: () => void;\n  /** Optional handler for the secondary action button click/close action. */\n  onSecondaryAction?: () => void;\n  /** Determines if the close (X) button is shown in the top right corner. Defaults to true. */\n  showCloseButton?: boolean;\n}\n\nconst Dialog: React.FC<DialogProps> = ({\n  title,\n  description,\n  primaryAction,\n  secondaryAction,\n  onPrimaryAction,\n  onSecondaryAction,\n  showCloseButton = true, // Default based on component data\n}) => {\n  // Simple SVG for the close button (X icon)\n  const CloseIcon = () => (\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      className=\"h-5 w-5\"\n      viewBox=\"0 0 20 20\"\n      fill=\"currentColor\"\n    >\n      <path\n        fillRule=\"evenodd\"\n        d=\"M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z\"\n        clipRule=\"evenodd\"\n      />\n    </svg>\n  );\n\n  return (\n    // Backdrop/Overlay (Assuming the parent handles the actual modal wrapper,\n    // this component focuses on the dialog box itself)\n    <div\n      className=\"bg-white rounded-[12px] shadow-xl w-[400px] min-h-[200px] p-6 flex flex-col\"\n      role=\"dialog\"\n      aria-modal=\"true\"\n      aria-labelledby=\"dialog-title\"\n      aria-describedby=\"dialog-description\"\n      // Note: The specific shadow is 'shadow-xl' in Tailwind, which is\n      // '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)'\n    >\n      {/* Header */}\n      <div className=\"flex justify-between items-start mb-4\">\n        <h2 id=\"dialog-title\" className=\"text-xl font-semibold text-gray-900\">\n          {title}\n        </h2>\n        {showCloseButton && (\n          <button\n            onClick={onSecondaryAction}\n            className=\"p-1 rounded-full text-gray-400 hover:text-gray-500 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\"\n            aria-label=\"Close dialog\"\n          >\n            <CloseIcon />\n          </button>\n        )}\n      </div>\n\n      {/* Content */}\n      <div className=\"flex-grow mb-6\">\n        <p id=\"dialog-description\" className=\"text-sm text-gray-500\">\n          {description}\n        </p>\n      </div>\n\n      {/* Actions */}\n      <div className=\"flex justify-end space-x-3\">\n        {/* Secondary Action (Cancel) */}\n        <button\n          type=\"button\"\n          onClick={onSecondaryAction}\n          className=\"px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors\"\n        >\n          {secondaryAction}\n        </button>\n\n        {/* Primary Action (Confirm) */}\n        <button\n          type=\"button\"\n          onClick={onPrimaryAction}\n          className=\"px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors\"\n        >\n          {primaryAction}\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default Dialog;",
+      "renderSuccess": true,
+      "renderLatency": 1736,
+      "validationSuccess": true,
+      "validationLatency": 9257,
+      "pixelScore": 0.9460833333333334,
+      "semanticScore": 0.3,
+      "combinedScore": 0.49382499999999996,
+      "pixelDifferencePercent": 5.391666666666667,
+      "feedback": [
+        "Image 1 is missing the dialog content present in Image 2.",
+        "Image 1 lacks the buttons ('Cancel' and 'Confirm') present in Image 2.",
+        "Image 1 does not have a close icon ('X') that is present in Image 2.",
+        "Typography difference: Image 1 title font-size appears smaller than Image 2.",
+        "Color difference: Image 2 has a background color (#FFFFFF) with a shadow, while Image 1 is plain white without shadow.",
+        "Button color difference: Image 2 has a 'Confirm' button with a blue background (#6366F1), which is absent in Image 1.",
+        "Spacing difference: Image 2 has padding around the content, while Image 1 does not.",
+        "Add dialog content text below the title in Image 1.",
+        "Include 'Cancel' and 'Confirm' buttons in Image 1.",
+        "Add a close icon ('X') to Image 1.",
+        "Increase the font-size of the title in Image 1 to match Image 2.",
+        "Add a shadow to the dialog box in Image 1 to match Image 2.",
+        "Implement button styles in Image 1, particularly the blue 'Confirm' button.",
+        "Add padding around the dialog content in Image 1."
+      ],
+      "cost": 0.0049375,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash"
+    },
+    {
+      "iteration": 2,
+      "code": "import React from 'react';\n\n/**\n * Props for the Dialog component.\n */\ninterface DialogProps {\n  /** The title displayed at the top of the dialog. */\n  title: string;\n  /** The main descriptive text content of the dialog. */\n  description: string;\n  /** Text for the primary action button (e.g., \"Confirm\", \"Save\"). */\n  primaryAction: string;\n  /** Text for the secondary action button (e.g., \"Cancel\", \"Dismiss\"). */\n  secondaryAction: string;\n  /** Optional handler for the primary action button click. */\n  onPrimaryAction?: () => void;\n  /** Optional handler for the secondary action button click/close action. */\n  onSecondaryAction?: () => void;\n  /** Determines if the close (X) button is shown in the top right corner. Defaults to true. */\n  showCloseButton?: boolean;\n}\n\nconst Dialog: React.FC<DialogProps> = ({\n  title,\n  description,\n  primaryAction,\n  secondaryAction,\n  onPrimaryAction,\n  onSecondaryAction,\n  showCloseButton = true, // Default based on component data\n}) => {\n  // Simple SVG for the close button (X icon)\n  const CloseIcon: React.FC = () => (\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      className=\"h-5 w-5\"\n      viewBox=\"0 0 20 20\"\n      fill=\"currentColor\"\n    >\n      <path\n        fillRule=\"evenodd\"\n        d=\"M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z\"\n        clipRule=\"evenodd\"\n      />\n    </svg>\n  );\n\n  // Styles based on component data:\n  // backgroundColor: #ffffff -> bg-white\n  // borderRadius: 12px -> rounded-[12px]\n  // padding: 24px -> p-6\n  // boxShadow: 0 20px 25px -5px rgba(0,0,0,0.1) -> shadow-xl (Tailwind equivalent)\n  // width: 400px -> w-[400px]\n  // minHeight: 200px -> min-h-[200px]\n\n  // Primary Action Button Color: #6366F1 (Indigo-600)\n\n  return (\n    <div\n      className=\"bg-white rounded-[12px] shadow-xl w-[400px] min-h-[200px] p-6 flex flex-col\"\n      role=\"dialog\"\n      aria-modal=\"true\"\n      aria-labelledby=\"dialog-title\"\n      aria-describedby=\"dialog-description\"\n    >\n      {/* Header */}\n      <div className=\"flex justify-between items-start pb-4\">\n        {/* Title: Increased font size to text-xl for better visual weight */}\n        <h2 id=\"dialog-title\" className=\"text-xl font-semibold text-gray-900\">\n          {title}\n        </h2>\n        {showCloseButton && (\n          <button\n            onClick={onSecondaryAction}\n            className=\"p-1 -mr-1 rounded-full text-gray-400 hover:text-gray-500 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\"\n            aria-label=\"Close dialog\"\n          >\n            <CloseIcon />\n          </button>\n        )}\n      </div>\n\n      {/* Content */}\n      <div className=\"flex-grow pb-6\">\n        {/* Description: Standard text size */}\n        <p id=\"dialog-description\" className=\"text-sm text-gray-500\">\n          {description}\n        </p>\n      </div>\n\n      {/* Actions */}\n      <div className=\"flex justify-end space-x-3 pt-4 border-t border-gray-100 -mx-6 px-6 -mb-6 pb-6 mt-auto\">\n        {/* Secondary Action (Cancel) */}\n        <button\n          type=\"button\"\n          onClick={onSecondaryAction}\n          className=\"px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors\"\n        >\n          {secondaryAction}\n        </button>\n\n        {/* Primary Action (Confirm) - Use Indigo-600 for the specified color #6366F1 */}\n        <button\n          type=\"button\"\n          onClick={onPrimaryAction}\n          className=\"px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors\"\n        >\n          {primaryAction}\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default Dialog;",
+      "renderSuccess": true,
+      "renderLatency": 1573,
+      "validationSuccess": true,
+      "validationLatency": 7680,
+      "pixelScore": 0.9460833333333334,
+      "semanticScore": 0.2,
+      "combinedScore": 0.423825,
+      "pixelDifferencePercent": 5.391666666666667,
+      "feedback": [
+        "Title text: Image 1 has 'Dialog Title', Image 2 has 'Confirm Action'.",
+        "Subtitle text: Image 1 is missing a subtitle, Image 2 has 'Are you sure you want to proceed with this action?'.",
+        "Buttons: Image 1 has no buttons, Image 2 has 'Cancel' and 'Confirm' buttons.",
+        "Close icon: Image 1 has no close icon, Image 2 has a close icon (X) in the top right corner.",
+        "Background color: Image 1 has a plain white background, Image 2 has a slightly elevated card with shadow.",
+        "Button colors: Image 2 has a purple 'Confirm' button (#6366F1) and a white 'Cancel' button with a border.",
+        "Add subtitle text below the title in Image 1.",
+        "Include 'Cancel' and 'Confirm' buttons in Image 1.",
+        "Add a close icon (X) in the top right corner of Image 1.",
+        "Implement a card-like background with shadow for Image 1.",
+        "Ensure button colors match: 'Confirm' button should be #6366F1."
+      ],
+      "cost": 0.0046475,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash"
+    },
+    {
+      "iteration": 3,
+      "code": "import React from 'react';\n\n/**\n * Props for the Dialog component.\n */\ninterface DialogProps {\n  /** The title displayed at the top of the dialog. */\n  title: string;\n  /** The main descriptive text content of the dialog. */\n  description: string;\n  /** Text for the primary action button (e.g., \"Confirm\", \"Save\"). */\n  primaryAction: string;\n  /** Text for the secondary action button (e.g., \"Cancel\", \"Dismiss\"). */\n  secondaryAction: string;\n  /** Optional handler for the primary action button click. */\n  onPrimaryAction?: () => void;\n  /** Optional handler for the secondary action button click/close action. */\n  onSecondaryAction?: () => void;\n  /** Determines if the close (X) button is shown in the top right corner. Defaults to true. */\n  showCloseButton?: boolean;\n}\n\nconst Dialog: React.FC<DialogProps> = ({\n  title,\n  description,\n  primaryAction,\n  secondaryAction,\n  onPrimaryAction,\n  onSecondaryAction,\n  showCloseButton = true, // Default based on component data\n}) => {\n  // Simple SVG for the close button (X icon)\n  const CloseIcon: React.FC = () => (\n    <svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      className=\"h-5 w-5\"\n      viewBox=\"0 0 20 20\"\n      fill=\"currentColor\"\n    >\n      <path\n        fillRule=\"evenodd\"\n        d=\"M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z\"\n        clipRule=\"evenodd\"\n      />\n    </svg>\n  );\n\n  // Styles derived from component data:\n  // backgroundColor: #ffffff -> bg-white\n  // borderRadius: 12px -> rounded-xl (Tailwind equivalent for 12px)\n  // padding: 24px -> p-6 (Used for the main container padding)\n  // boxShadow: 0 20px 25px -5px rgba(0,0,0,0.1) -> shadow-xl\n  // width: 400px -> w-[400px]\n  // minHeight: 200px -> min-h-[200px]\n  // Primary Action Button Color: #6366F1 (Indigo-600)\n\n  return (\n    <div\n      className=\"bg-white rounded-xl shadow-xl w-[400px] min-h-[200px] p-6 flex flex-col\"\n      role=\"dialog\"\n      aria-modal=\"true\"\n      aria-labelledby=\"dialog-title\"\n      aria-describedby=\"dialog-description\"\n      // Note: In a real implementation, this would be wrapped in a modal backdrop/portal\n    >\n      {/* Header */}\n      <div className=\"flex justify-between items-start pb-4\">\n        {/* Title: text-xl font-semibold matches the visual weight required */}\n        <h2 id=\"dialog-title\" className=\"text-xl font-semibold text-gray-900\">\n          {title}\n        </h2>\n        {showCloseButton && (\n          <button\n            onClick={onSecondaryAction}\n            className=\"p-1 -mr-1 rounded-full text-gray-400 hover:text-gray-500 hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500\"\n            aria-label=\"Close dialog\"\n          >\n            <CloseIcon />\n          </button>\n        )}\n      </div>\n\n      {/* Content */}\n      <div className=\"flex-grow pb-6\">\n        {/* Description */}\n        <p id=\"dialog-description\" className=\"text-sm text-gray-500\">\n          {description}\n        </p>\n      </div>\n\n      {/* Actions (Footer) \n          To ensure consistent padding and layout, we apply negative margin \n          and padding to visually extend the action bar to the dialog edges, \n          then use border-t to separate it.\n      */}\n      <div className=\"flex justify-end space-x-3 pt-4 border-t border-gray-100 mt-auto\">\n        {/* Secondary Action (Cancel) */}\n        <button\n          type=\"button\"\n          onClick={onSecondaryAction}\n          className=\"px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors\"\n        >\n          {secondaryAction}\n        </button>\n\n        {/* Primary Action (Confirm) - Indigo-600 (#6366F1) */}\n        <button\n          type=\"button\"\n          onClick={onPrimaryAction}\n          className=\"px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-lg shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors\"\n        >\n          {primaryAction}\n        </button>\n      </div>\n    </div>\n  );\n};\n\nexport default Dialog;",
+      "renderSuccess": true,
+      "renderLatency": 1269,
+      "validationSuccess": true,
+      "validationLatency": 14416,
+      "pixelScore": 0.9460833333333334,
+      "semanticScore": 0.3,
+      "combinedScore": 0.49382499999999996,
+      "pixelDifferencePercent": 5.391666666666667,
+      "feedback": [
+        {
+          "element": "Title",
+          "reference": "Dialog Title",
+          "implementation": "Confirm Action",
+          "difference": "Text content is different."
+        },
+        {
+          "element": "Subtitle",
+          "reference": "None",
+          "implementation": "Are you sure you want to proceed with this action?",
+          "difference": "Subtitle is present in the implementation but not in the reference."
+        },
+        {
+          "element": "Buttons",
+          "reference": "None",
+          "implementation": "Cancel and Confirm buttons",
+          "difference": "Buttons are present in the implementation but not in the reference."
+        },
+        {
+          "element": "Close Icon",
+          "reference": "None",
+          "implementation": "Close (X) icon",
+          "difference": "Close icon is present in the implementation but not in the reference."
+        },
+        {
+          "element": "Background",
+          "reference": "#FFFFFF",
+          "implementation": "#FFFFFF with shadow",
+          "difference": "Implementation has a shadow effect not present in the reference."
+        },
+        {
+          "element": "Typography",
+          "reference": "Font size and weight not specified",
+          "implementation": "Font size: 16px, Font weight: bold for title",
+          "difference": "Font size and weight are specified in the implementation but not in the reference."
+        },
+        "Ensure the dialog title matches the reference text.",
+        "Remove the subtitle, buttons, and close icon if not intended in the reference.",
+        "Remove shadow effect if not part of the design intent."
+      ],
+      "cost": 0.0056175,
+      "generationCost": 0.060000000000000005,
+      "selectedModel": "gemini-2.5-flash"
+    }
+  ],
+  "totalLatency": 202736,
+  "totalCost": 0.1952025,
+  "targetAchieved": false,
+  "componentName": "Dialog",
+  "componentType": "Dialog"
+}

@@ -1,0 +1,1072 @@
+{
+  "id": "2115:109081",
+  "name": "Frame 1000004602",
+  "type": "FRAME",
+  "depth": 0,
+  "size": {
+    "width": 992,
+    "height": 114
+  },
+  "layout": {
+    "mode": "VERTICAL",
+    "gap": 4,
+    "padding": {}
+  },
+  "children": [
+    {
+      "id": "2115:109082",
+      "name": "Flex",
+      "type": "FRAME",
+      "depth": 1,
+      "size": {
+        "width": 992,
+        "height": 62
+      },
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 16,
+        "padding": {}
+      },
+      "children": [
+        {
+          "id": "2115:109083",
+          "name": "Date Picker/Default/Yes/Left",
+          "type": "INSTANCE",
+          "depth": 2,
+          "size": {
+            "width": 236,
+            "height": 62
+          },
+          "layout": {
+            "mode": "VERTICAL",
+            "gap": 12,
+            "padding": {}
+          },
+          "componentId": "2001:3814",
+          "children": [
+            {
+              "id": "I2115:109083;18401:17265",
+              "name": "Flex",
+              "type": "FRAME",
+              "depth": 3,
+              "size": {
+                "width": 236,
+                "height": 14
+              },
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 10,
+                "padding": {
+                  "right": 4,
+                  "left": 4
+                }
+              },
+              "children": [
+                {
+                  "id": "I2115:109083;334:4044",
+                  "name": "Label",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "Time range",
+                  "size": {
+                    "width": 228,
+                    "height": 14
+                  },
+                  "backgroundColor": {
+                    "r": 0.9803921580314636,
+                    "g": 0.9803921580314636,
+                    "b": 0.9803921580314636,
+                    "a": 1
+                  }
+                }
+              ]
+            },
+            {
+              "id": "I2115:109083;334:4018",
+              "name": "_DatePickerTrigger",
+              "type": "FRAME",
+              "depth": 3,
+              "size": {
+                "width": 236,
+                "height": 36
+              },
+              "layout": {
+                "mode": "HORIZONTAL",
+                "gap": 8,
+                "padding": {
+                  "top": 8,
+                  "right": 12,
+                  "bottom": 8,
+                  "left": 12
+                }
+              },
+              "backgroundColor": {
+                "r": 1,
+                "g": 1,
+                "b": 1,
+                "a": 1
+              },
+              "children": [
+                {
+                  "id": "I2115:109083;334:4019",
+                  "name": "Icon / Calendar",
+                  "type": "INSTANCE",
+                  "depth": 4,
+                  "size": {
+                    "width": 16,
+                    "height": 16
+                  },
+                  "componentId": "2001:3812",
+                  "children": [
+                    {
+                      "id": "I2115:109083;334:4019;5197:565",
+                      "name": "Vector",
+                      "type": "VECTOR",
+                      "depth": 5,
+                      "size": {
+                        "width": 12,
+                        "height": 13
+                      }
+                    }
+                  ]
+                },
+                {
+                  "id": "I2115:109083;334:4020",
+                  "name": "PlaceholderText",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "Last 12 months",
+                  "size": {
+                    "width": 188,
+                    "height": 20
+                  },
+                  "backgroundColor": {
+                    "r": 0.9803921580314636,
+                    "g": 0.9803921580314636,
+                    "b": 0.9803921580314636,
+                    "a": 1
+                  }
+                }
+              ]
+            },
+            {
+              "id": "I2115:109083;334:6387",
+              "name": "Your message will be copied to the support team.",
+              "type": "TEXT",
+              "depth": 3,
+              "text": "Your message will be copied to the support team.",
+              "size": {
+                "width": 300,
+                "height": 40
+              },
+              "backgroundColor": {
+                "r": 0.6392157077789307,
+                "g": 0.6392157077789307,
+                "b": 0.6392157077789307,
+                "a": 1
+              }
+            },
+            {
+              "id": "I2115:109083;345:11287",
+              "name": "Your message will be copied to the support team.",
+              "type": "TEXT",
+              "depth": 3,
+              "text": "Your message will be copied to the support team.",
+              "size": {
+                "width": 300,
+                "height": 40
+              },
+              "backgroundColor": {
+                "r": 0.6392157077789307,
+                "g": 0.6392157077789307,
+                "b": 0.6392157077789307,
+                "a": 1
+              }
+            }
+          ]
+        },
+        {
+          "id": "2115:109084",
+          "name": "Flex",
+          "type": "FRAME",
+          "depth": 2,
+          "size": {
+            "width": 236,
+            "height": 36
+          },
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": {}
+          },
+          "children": [
+            {
+              "id": "2115:109085",
+              "name": "Combobox",
+              "type": "INSTANCE",
+              "depth": 3,
+              "size": {
+                "width": 236,
+                "height": 36
+              },
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 8,
+                "padding": {}
+              },
+              "componentId": "2004:2140",
+              "children": [
+                {
+                  "id": "I2115:109085;435:3657",
+                  "name": "Label",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "Label",
+                  "size": {
+                    "width": 228,
+                    "height": 14
+                  },
+                  "backgroundColor": {
+                    "r": 0.9803921580314636,
+                    "g": 0.9803921580314636,
+                    "b": 0.9803921580314636,
+                    "a": 1
+                  }
+                },
+                {
+                  "id": "I2115:109085;430:4101",
+                  "name": "Trigger",
+                  "type": "FRAME",
+                  "depth": 4,
+                  "size": {
+                    "width": 236,
+                    "height": 36
+                  },
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 8,
+                    "padding": {
+                      "top": 8,
+                      "right": 16,
+                      "bottom": 8,
+                      "left": 16
+                    }
+                  },
+                  "backgroundColor": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                  },
+                  "children": [
+                    {
+                      "id": "I2115:109085;17392:2503",
+                      "name": "Avatar",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 20,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.14901961386203766,
+                        "g": 0.14901961386203766,
+                        "b": 0.14901961386203766,
+                        "a": 1
+                      },
+                      "componentId": "58:2628"
+                    },
+                    {
+                      "id": "I2115:109085;430:4102",
+                      "name": "PlaceholderText",
+                      "type": "TEXT",
+                      "depth": 5,
+                      "text": "All projects",
+                      "size": {
+                        "width": 180,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.9803921580314636,
+                        "g": 0.9803921580314636,
+                        "b": 0.9803921580314636,
+                        "a": 1
+                      }
+                    },
+                    {
+                      "id": "I2115:109085;430:4103",
+                      "name": "Icon / ChevronsUpDown",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 16,
+                        "height": 16
+                      },
+                      "componentId": "2004:2136",
+                      "children": [
+                        {
+                          "id": "I2115:109085;430:4103;5197:643",
+                          "name": "Vector",
+                          "type": "VECTOR",
+                          "depth": 6,
+                          "size": {
+                            "width": 7,
+                            "height": 11
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "I2115:109085;435:3731",
+                  "name": "This is a combobox description.",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "This is a combobox description.",
+                  "size": {
+                    "width": 228,
+                    "height": 20
+                  },
+                  "backgroundColor": {
+                    "r": 0.6392157077789307,
+                    "g": 0.6392157077789307,
+                    "b": 0.6392157077789307,
+                    "a": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2115:109086",
+          "name": "Flex",
+          "type": "FRAME",
+          "depth": 2,
+          "size": {
+            "width": 236,
+            "height": 36
+          },
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": {}
+          },
+          "children": [
+            {
+              "id": "2115:109087",
+              "name": "Combobox",
+              "type": "INSTANCE",
+              "depth": 3,
+              "size": {
+                "width": 236,
+                "height": 36
+              },
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 8,
+                "padding": {}
+              },
+              "componentId": "2004:2140",
+              "children": [
+                {
+                  "id": "I2115:109087;435:3657",
+                  "name": "Label",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "Label",
+                  "size": {
+                    "width": 228,
+                    "height": 14
+                  },
+                  "backgroundColor": {
+                    "r": 0.9803921580314636,
+                    "g": 0.9803921580314636,
+                    "b": 0.9803921580314636,
+                    "a": 1
+                  }
+                },
+                {
+                  "id": "I2115:109087;430:4101",
+                  "name": "Trigger",
+                  "type": "FRAME",
+                  "depth": 4,
+                  "size": {
+                    "width": 236,
+                    "height": 36
+                  },
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 8,
+                    "padding": {
+                      "top": 8,
+                      "right": 16,
+                      "bottom": 8,
+                      "left": 16
+                    }
+                  },
+                  "backgroundColor": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                  },
+                  "children": [
+                    {
+                      "id": "I2115:109087;17392:2503",
+                      "name": "Avatar",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 20,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.14901961386203766,
+                        "g": 0.14901961386203766,
+                        "b": 0.14901961386203766,
+                        "a": 1
+                      },
+                      "componentId": "58:2628"
+                    },
+                    {
+                      "id": "I2115:109087;430:4102",
+                      "name": "PlaceholderText",
+                      "type": "TEXT",
+                      "depth": 5,
+                      "text": "All applications",
+                      "size": {
+                        "width": 180,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.9803921580314636,
+                        "g": 0.9803921580314636,
+                        "b": 0.9803921580314636,
+                        "a": 1
+                      }
+                    },
+                    {
+                      "id": "I2115:109087;430:4103",
+                      "name": "Icon / ChevronsUpDown",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 16,
+                        "height": 16
+                      },
+                      "componentId": "2004:2136",
+                      "children": [
+                        {
+                          "id": "I2115:109087;430:4103;5197:643",
+                          "name": "Vector",
+                          "type": "VECTOR",
+                          "depth": 6,
+                          "size": {
+                            "width": 7,
+                            "height": 11
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "I2115:109087;435:3731",
+                  "name": "This is a combobox description.",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "This is a combobox description.",
+                  "size": {
+                    "width": 228,
+                    "height": 20
+                  },
+                  "backgroundColor": {
+                    "r": 0.6392157077789307,
+                    "g": 0.6392157077789307,
+                    "b": 0.6392157077789307,
+                    "a": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2115:109088",
+          "name": "Flex",
+          "type": "FRAME",
+          "depth": 2,
+          "size": {
+            "width": 236,
+            "height": 36
+          },
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": {}
+          },
+          "children": [
+            {
+              "id": "2115:109089",
+              "name": "Combobox",
+              "type": "INSTANCE",
+              "depth": 3,
+              "size": {
+                "width": 236,
+                "height": 36
+              },
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 8,
+                "padding": {}
+              },
+              "componentId": "2004:2140",
+              "children": [
+                {
+                  "id": "I2115:109089;435:3657",
+                  "name": "Label",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "Label",
+                  "size": {
+                    "width": 228,
+                    "height": 14
+                  },
+                  "backgroundColor": {
+                    "r": 0.9803921580314636,
+                    "g": 0.9803921580314636,
+                    "b": 0.9803921580314636,
+                    "a": 1
+                  }
+                },
+                {
+                  "id": "I2115:109089;430:4101",
+                  "name": "Trigger",
+                  "type": "FRAME",
+                  "depth": 4,
+                  "size": {
+                    "width": 236,
+                    "height": 36
+                  },
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 8,
+                    "padding": {
+                      "top": 8,
+                      "right": 16,
+                      "bottom": 8,
+                      "left": 16
+                    }
+                  },
+                  "backgroundColor": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                  },
+                  "children": [
+                    {
+                      "id": "I2115:109089;17392:2503",
+                      "name": "Avatar",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 20,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.14901961386203766,
+                        "g": 0.14901961386203766,
+                        "b": 0.14901961386203766,
+                        "a": 1
+                      },
+                      "componentId": "58:2628"
+                    },
+                    {
+                      "id": "I2115:109089;430:4102",
+                      "name": "PlaceholderText",
+                      "type": "TEXT",
+                      "depth": 5,
+                      "text": "All environments",
+                      "size": {
+                        "width": 180,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.9803921580314636,
+                        "g": 0.9803921580314636,
+                        "b": 0.9803921580314636,
+                        "a": 1
+                      }
+                    },
+                    {
+                      "id": "I2115:109089;430:4103",
+                      "name": "Icon / ChevronsUpDown",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 16,
+                        "height": 16
+                      },
+                      "componentId": "2004:2136",
+                      "children": [
+                        {
+                          "id": "I2115:109089;430:4103;5197:643",
+                          "name": "Vector",
+                          "type": "VECTOR",
+                          "depth": 6,
+                          "size": {
+                            "width": 7,
+                            "height": 11
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "I2115:109089;435:3731",
+                  "name": "This is a combobox description.",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "This is a combobox description.",
+                  "size": {
+                    "width": 228,
+                    "height": 20
+                  },
+                  "backgroundColor": {
+                    "r": 0.6392157077789307,
+                    "g": 0.6392157077789307,
+                    "b": 0.6392157077789307,
+                    "a": 1
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2115:109090",
+      "name": "Flex",
+      "type": "FRAME",
+      "depth": 1,
+      "size": {
+        "width": 992,
+        "height": 48
+      },
+      "layout": {
+        "mode": "HORIZONTAL",
+        "gap": 16,
+        "padding": {
+          "top": 12
+        }
+      },
+      "children": [
+        {
+          "id": "2115:109091",
+          "name": "Flex",
+          "type": "FRAME",
+          "depth": 2,
+          "size": {
+            "width": 236,
+            "height": 36
+          },
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": {}
+          },
+          "children": [
+            {
+              "id": "2115:109092",
+              "name": "Combobox",
+              "type": "INSTANCE",
+              "depth": 3,
+              "size": {
+                "width": 236,
+                "height": 36
+              },
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 8,
+                "padding": {}
+              },
+              "componentId": "2004:2140",
+              "children": [
+                {
+                  "id": "I2115:109092;435:3657",
+                  "name": "Label",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "Label",
+                  "size": {
+                    "width": 228,
+                    "height": 14
+                  },
+                  "backgroundColor": {
+                    "r": 0.9803921580314636,
+                    "g": 0.9803921580314636,
+                    "b": 0.9803921580314636,
+                    "a": 1
+                  }
+                },
+                {
+                  "id": "I2115:109092;430:4101",
+                  "name": "Trigger",
+                  "type": "FRAME",
+                  "depth": 4,
+                  "size": {
+                    "width": 236,
+                    "height": 36
+                  },
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 8,
+                    "padding": {
+                      "top": 8,
+                      "right": 16,
+                      "bottom": 8,
+                      "left": 16
+                    }
+                  },
+                  "backgroundColor": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                  },
+                  "children": [
+                    {
+                      "id": "I2115:109092;17392:2503",
+                      "name": "Avatar",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 20,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.14901961386203766,
+                        "g": 0.14901961386203766,
+                        "b": 0.14901961386203766,
+                        "a": 1
+                      },
+                      "componentId": "58:2628"
+                    },
+                    {
+                      "id": "I2115:109092;430:4102",
+                      "name": "PlaceholderText",
+                      "type": "TEXT",
+                      "depth": 5,
+                      "text": "All teams",
+                      "size": {
+                        "width": 180,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.9803921580314636,
+                        "g": 0.9803921580314636,
+                        "b": 0.9803921580314636,
+                        "a": 1
+                      }
+                    },
+                    {
+                      "id": "I2115:109092;430:4103",
+                      "name": "Icon / ChevronsUpDown",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 16,
+                        "height": 16
+                      },
+                      "componentId": "2004:2136",
+                      "children": [
+                        {
+                          "id": "I2115:109092;430:4103;5197:643",
+                          "name": "Vector",
+                          "type": "VECTOR",
+                          "depth": 6,
+                          "size": {
+                            "width": 7,
+                            "height": 11
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "I2115:109092;435:3731",
+                  "name": "This is a combobox description.",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "This is a combobox description.",
+                  "size": {
+                    "width": 228,
+                    "height": 20
+                  },
+                  "backgroundColor": {
+                    "r": 0.6392157077789307,
+                    "g": 0.6392157077789307,
+                    "b": 0.6392157077789307,
+                    "a": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2115:109093",
+          "name": "Flex",
+          "type": "FRAME",
+          "depth": 2,
+          "size": {
+            "width": 236,
+            "height": 36
+          },
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 12,
+            "padding": {}
+          },
+          "children": [
+            {
+              "id": "2115:109094",
+              "name": "Combobox",
+              "type": "INSTANCE",
+              "depth": 3,
+              "size": {
+                "width": 236,
+                "height": 36
+              },
+              "layout": {
+                "mode": "VERTICAL",
+                "gap": 8,
+                "padding": {}
+              },
+              "componentId": "2004:2140",
+              "children": [
+                {
+                  "id": "I2115:109094;435:3657",
+                  "name": "Label",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "Label",
+                  "size": {
+                    "width": 228,
+                    "height": 14
+                  },
+                  "backgroundColor": {
+                    "r": 0.9803921580314636,
+                    "g": 0.9803921580314636,
+                    "b": 0.9803921580314636,
+                    "a": 1
+                  }
+                },
+                {
+                  "id": "I2115:109094;430:4101",
+                  "name": "Trigger",
+                  "type": "FRAME",
+                  "depth": 4,
+                  "size": {
+                    "width": 236,
+                    "height": 36
+                  },
+                  "layout": {
+                    "mode": "HORIZONTAL",
+                    "gap": 8,
+                    "padding": {
+                      "top": 8,
+                      "right": 16,
+                      "bottom": 8,
+                      "left": 16
+                    }
+                  },
+                  "backgroundColor": {
+                    "r": 1,
+                    "g": 1,
+                    "b": 1,
+                    "a": 1
+                  },
+                  "children": [
+                    {
+                      "id": "I2115:109094;17392:2503",
+                      "name": "Avatar",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 20,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.14901961386203766,
+                        "g": 0.14901961386203766,
+                        "b": 0.14901961386203766,
+                        "a": 1
+                      },
+                      "componentId": "58:2628"
+                    },
+                    {
+                      "id": "I2115:109094;430:4102",
+                      "name": "PlaceholderText",
+                      "type": "TEXT",
+                      "depth": 5,
+                      "text": "All people",
+                      "size": {
+                        "width": 180,
+                        "height": 20
+                      },
+                      "backgroundColor": {
+                        "r": 0.9803921580314636,
+                        "g": 0.9803921580314636,
+                        "b": 0.9803921580314636,
+                        "a": 1
+                      }
+                    },
+                    {
+                      "id": "I2115:109094;430:4103",
+                      "name": "Icon / ChevronsUpDown",
+                      "type": "INSTANCE",
+                      "depth": 5,
+                      "size": {
+                        "width": 16,
+                        "height": 16
+                      },
+                      "componentId": "2004:2136",
+                      "children": [
+                        {
+                          "id": "I2115:109094;430:4103;5197:643",
+                          "name": "Vector",
+                          "type": "VECTOR",
+                          "depth": 6,
+                          "size": {
+                            "width": 7,
+                            "height": 11
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "I2115:109094;435:3731",
+                  "name": "This is a combobox description.",
+                  "type": "TEXT",
+                  "depth": 4,
+                  "text": "This is a combobox description.",
+                  "size": {
+                    "width": 228,
+                    "height": 20
+                  },
+                  "backgroundColor": {
+                    "r": 0.6392157077789307,
+                    "g": 0.6392157077789307,
+                    "b": 0.6392157077789307,
+                    "a": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "2115:109095",
+          "name": "Button",
+          "type": "INSTANCE",
+          "depth": 2,
+          "size": {
+            "width": 86,
+            "height": 36
+          },
+          "layout": {
+            "mode": "HORIZONTAL",
+            "gap": 8,
+            "padding": {
+              "top": 8,
+              "right": 16,
+              "bottom": 8,
+              "left": 16
+            }
+          },
+          "backgroundColor": {
+            "r": 1,
+            "g": 1,
+            "b": 1,
+            "a": 1
+          },
+          "componentId": "58:2694",
+          "children": [
+            {
+              "id": "I2115:109095;37:1558",
+              "name": "Icon / Info",
+              "type": "INSTANCE",
+              "depth": 3,
+              "size": {
+                "width": 16,
+                "height": 16
+              },
+              "componentId": "2001:6939",
+              "children": [
+                {
+                  "id": "I2115:109095;37:1558;5197:1525",
+                  "name": "Vector",
+                  "type": "VECTOR",
+                  "depth": 4,
+                  "size": {
+                    "width": 20,
+                    "height": 20
+                  }
+                }
+              ]
+            },
+            {
+              "id": "I2115:109095;37:1495",
+              "name": "Button",
+              "type": "TEXT",
+              "depth": 3,
+              "text": "Clear all",
+              "size": {
+                "width": 54,
+                "height": 20
+              },
+              "backgroundColor": {
+                "r": 0.9803921580314636,
+                "g": 0.9803921580314636,
+                "b": 0.9803921580314636,
+                "a": 1
+              }
+            },
+            {
+              "id": "I2115:109095;267:4106",
+              "name": "Icon / Circle",
+              "type": "INSTANCE",
+              "depth": 3,
+              "size": {
+                "width": 16,
+                "height": 16
+              },
+              "componentId": "56:16445",
+              "children": [
+                {
+                  "id": "I2115:109095;267:4106;5197:735",
+                  "name": "Vector",
+                  "type": "VECTOR",
+                  "depth": 4,
+                  "size": {
+                    "width": 13,
+                    "height": 13
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

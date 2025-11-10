@@ -1,0 +1,50 @@
+{
+  "timestamp": "2025-11-10T14:00:37.643Z",
+  "results": [
+    {
+      "name": "Button",
+      "success": true,
+      "pixelScore": 0.8913194444444444,
+      "semanticScore": 0.8,
+      "combinedScore": 0.8273958333333333,
+      "cost": 0.0035475000000000003
+    },
+    {
+      "name": "Badge",
+      "success": true,
+      "pixelScore": 0.12291666666666667,
+      "semanticScore": 0.7,
+      "combinedScore": 0.526875,
+      "cost": 0.0042175
+    },
+    {
+      "name": "Card",
+      "success": true,
+      "pixelScore": 0.9731,
+      "semanticScore": 0.6,
+      "combinedScore": 0.71193,
+      "cost": 0.0050575
+    },
+    {
+      "name": "Input",
+      "success": true,
+      "pixelScore": 0.861875,
+      "semanticScore": 0.7,
+      "combinedScore": 0.7485624999999999,
+      "cost": 0.0040475
+    },
+    {
+      "name": "Dialog",
+      "success": true,
+      "pixelScore": 0.5473916666666667,
+      "semanticScore": 0.2,
+      "combinedScore": 0.30421750000000003,
+      "cost": 0.0050975
+    }
+  ],
+  "summary": {
+    "total": 5,
+    "successful": 5,
+    "averageScore": 0.6237961666666666
+  }
+}

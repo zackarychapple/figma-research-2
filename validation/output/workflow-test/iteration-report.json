@@ -1,0 +1,116 @@
+{
+  "figmaUrl": "https://www.figma.com/design/MMMjqwWNYZAg0YlIeL9aJZ/test?node-id=17085-177614",
+  "referenceImagePath": "/Users/zackarychapple/code/figma-research/validation/reports/shadcn-comparison/TestWrapper.png",
+  "totalIterations": 4,
+  "successfulIterations": 0,
+  "allResults": [
+    {
+      "strategyName": "basic__template",
+      "extractionStrategy": "basic",
+      "generationStrategy": "template",
+      "extractionSuccess": true,
+      "extractionLatency": 10978,
+      "totalNodes": 217,
+      "totalComponents": 74,
+      "generationSuccess": true,
+      "generationLatency": 0,
+      "codeLength": 3535,
+      "renderingSuccess": true,
+      "renderingLatency": 24079,
+      "comparisonSuccess": false,
+      "pixelScore": 0,
+      "semanticScore": 0.7,
+      "finalScore": 0.48999999999999994,
+      "recommendation": "FAIL",
+      "totalLatency": 48199,
+      "success": true,
+      "screenshotPath": "/Users/zackarychapple/code/figma-research/validation/output/workflow-test/Iteration_basic__template.png"
+    },
+    {
+      "strategyName": "basic__sonnet-4.5",
+      "extractionStrategy": "basic",
+      "generationStrategy": "sonnet-4.5",
+      "extractionSuccess": true,
+      "extractionLatency": 8286,
+      "totalNodes": 217,
+      "totalComponents": 74,
+      "generationSuccess": true,
+      "generationLatency": 4004,
+      "codeLength": 824,
+      "renderingSuccess": true,
+      "renderingLatency": 1550,
+      "comparisonSuccess": false,
+      "pixelScore": 0,
+      "semanticScore": 0.3,
+      "finalScore": 0.21,
+      "recommendation": "FAIL",
+      "totalLatency": 31495,
+      "success": true,
+      "screenshotPath": "/Users/zackarychapple/code/figma-research/validation/output/workflow-test/Iteration_basic__sonnet_4_5.png"
+    },
+    {
+      "strategyName": "basic__sonnet-3.5",
+      "extractionStrategy": "basic",
+      "generationStrategy": "sonnet-3.5",
+      "extractionSuccess": true,
+      "extractionLatency": 8552,
+      "totalNodes": 217,
+      "totalComponents": 74,
+      "generationSuccess": true,
+      "generationLatency": 1,
+      "codeLength": 3541,
+      "renderingSuccess": true,
+      "renderingLatency": 1399,
+      "comparisonSuccess": false,
+      "pixelScore": 0,
+      "semanticScore": 0.8,
+      "finalScore": 0.5599999999999999,
+      "recommendation": "FAIL",
+      "totalLatency": 20294,
+      "success": true,
+      "screenshotPath": "/Users/zackarychapple/code/figma-research/validation/output/workflow-test/Iteration_basic__sonnet_3_5.png"
+    },
+    {
+      "strategyName": "basic__haiku",
+      "extractionStrategy": "basic",
+      "generationStrategy": "haiku",
+      "extractionSuccess": true,
+      "extractionLatency": 8282,
+      "totalNodes": 217,
+      "totalComponents": 74,
+      "generationSuccess": true,
+      "generationLatency": 3158,
+      "codeLength": 1181,
+      "renderingSuccess": true,
+      "renderingLatency": 1415,
+      "comparisonSuccess": false,
+      "pixelScore": 0,
+      "semanticScore": 0.7,
+      "finalScore": 0.48999999999999994,
+      "recommendation": "FAIL",
+      "totalLatency": 24780,
+      "success": true,
+      "screenshotPath": "/Users/zackarychapple/code/figma-research/validation/output/workflow-test/Iteration_basic__haiku.png"
+    }
+  ],
+  "improvements": [
+    {
+      "strategy": "basic__sonnet-3.5",
+      "improvement": 14.285714285714288
+    },
+    {
+      "strategy": "basic__template",
+      "improvement": 0
+    },
+    {
+      "strategy": "basic__haiku",
+      "improvement": 0
+    },
+    {
+      "strategy": "basic__sonnet-4.5",
+      "improvement": -57.14285714285713
+    }
+  ],
+  "summary": "Total Iterations: 4\nSuccessful: 4\n\nSCORE DISTRIBUTION:\n  PASS (≥85%): 0\n  NEEDS REVIEW (70-85%): 0\n  FAIL (<70%): 4\n\nTOP 5 STRATEGIES:\n  1. basic__sonnet-3.5 - 56.0%\n  2. basic__template - 49.0%\n  3. basic__haiku - 49.0%\n  4. basic__sonnet-4.5 - 21.0%\n",
+  "timestamp": "2025-11-10T13:58:30.715Z"
+}

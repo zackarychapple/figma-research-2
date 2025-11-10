@@ -1,0 +1,2711 @@
+{
+  "4:5016": {
+    "key": "a2ed9b4c6cc48562d551392727811721f7234d79",
+    "name": "text-base/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5029": {
+    "key": "e409a654793d711cf432c2b8a8e5c49e13af27be",
+    "name": "text-base/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5030": {
+    "key": "7e760288534021d9f616dd0c2d2f5c71c5ac4f67",
+    "name": "text-base/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5031": {
+    "key": "21506dd8f092ac3d508755d655af744dfcff82d8",
+    "name": "text-base/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5032": {
+    "key": "cc4b85021c993db9798868c630eb1a450265c3e5",
+    "name": "text-base/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5039": {
+    "key": "23357e0a3b8d0f3d7f2646ec8811b55848eda70b",
+    "name": "text-base/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5040": {
+    "key": "52ea2ca8826439d0337fbe3a869bdc590ef2c64d",
+    "name": "text-sm/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5041": {
+    "key": "283ed2bc2dff5f458c396d48889150bc7cf430bd",
+    "name": "text-sm/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5042": {
+    "key": "37d2c29fdb503f517482d0b77a71c25ee60a38b7",
+    "name": "text-sm/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5043": {
+    "key": "8db46cd843b487dccc5efd2625392e0f9569556c",
+    "name": "text-sm/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5044": {
+    "key": "bede75b010ddc160fabfa26bb69e37f1efb03cbe",
+    "name": "text-sm/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "4:5045": {
+    "key": "6a562fe94406a2eb7291464c5fb8cfe5c8c9959c",
+    "name": "text-sm/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:83": {
+    "key": "9e519b5354b4439b3638e26b776ccb968272f682",
+    "name": "text-base/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:118": {
+    "key": "3add845709415850eeb58f419e3ab87b30968fb6",
+    "name": "text-sm/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:293": {
+    "key": "f79448e203ef8fafce6aa312b6a3f043f56498c6",
+    "name": "text-lg/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:294": {
+    "key": "1a3fbfe37cd70037c86fd1918c45eadf1c60bc96",
+    "name": "text-lg/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:295": {
+    "key": "abcb65186f59dee63e80c55cb1f7990fa685c521",
+    "name": "text-lg/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:296": {
+    "key": "40a6b7c7685978ab738f04bb6a036f8bf21e1d72",
+    "name": "text-lg/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:297": {
+    "key": "109ee22487dd0269afd3de56d1f7cd70c2cb7985",
+    "name": "text-lg/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:298": {
+    "key": "584b1d58bbc8d66ae0070841c92609d53693a400",
+    "name": "text-lg/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "22:299": {
+    "key": "dc050688bd96bd21f60f21c9a8721e5911b69e78",
+    "name": "text-lg/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "26:174": {
+    "key": "ec7b6b2db80a8f52f7d095c24196fb1b5da387e4",
+    "name": "text-xs/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "26:175": {
+    "key": "1f08a027683c05b903b3349f35754f26811565eb",
+    "name": "text-xs/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "26:176": {
+    "key": "c88dafa857fc749bc4fd1202f516fac63f6dc215",
+    "name": "text-xs/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "26:177": {
+    "key": "08451f407fb6a149a73acd51f6262b746f73ae64",
+    "name": "text-xs/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "26:178": {
+    "key": "641bccdf5ebb20e0717319b9e8820ba1bbb48e15",
+    "name": "text-xs/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "26:179": {
+    "key": "7642f25815784635da2a580077f2a044759554ab",
+    "name": "text-xs/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "26:180": {
+    "key": "99a123ab675c685ac536bc1da8d6f7a7fa438bf6",
+    "name": "text-xs/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "40:167": {
+    "key": "2a18a8a616e23dc79d22514ee142fbfe2530bb53",
+    "name": "shadow/xs",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:168": {
+    "key": "c6c2e4abe4f042609cd02767b04f3d28a9795198",
+    "name": "shadow/sm",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:169": {
+    "key": "9a7d3bb5c67b3c796204da5220a847417d0cb4eb",
+    "name": "shadow/md",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:170": {
+    "key": "bdf8e5f327dcde7e5ea08c322802dec6b1ebcbc4",
+    "name": "shadow/lg",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:171": {
+    "key": "4f0551ca1c8a4c911c3220553f0c96c1417f66eb",
+    "name": "shadow/xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:172": {
+    "key": "dd0bcd2a8dbdb53eef7d137a8e64f1d47503bbf1",
+    "name": "shadow/2xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:184": {
+    "key": "d366f33ce9fda3810812d9a78b82f3ee3f42f5ba",
+    "name": "blur/none",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:185": {
+    "key": "bd9be4e06a7ec160927ae2b1ddd1e8585d2dab7a",
+    "name": "blur/sm",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:187": {
+    "key": "634f23283b100664296a685182d9324678089423",
+    "name": "blur/md",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:188": {
+    "key": "d08d6a1ecfffc2834f1d37b8c3661c0074820895",
+    "name": "blur/lg",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:189": {
+    "key": "bfb478549bfb84e76fe2a5ebd589f892dbf28ea1",
+    "name": "blur/xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:190": {
+    "key": "60354e5372ef7d386641878078febbfaf3217dfe",
+    "name": "blur/2xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:191": {
+    "key": "6b882c75593ea5a61614a3a4f5023dbb809e05b4",
+    "name": "blur/3xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:192": {
+    "key": "786215f54e28003a53515c5de978bc59ed5132c1",
+    "name": "backdrop-blur/none",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:193": {
+    "key": "a8e0b272bd594461e94a414ae0d50ad20c4e7f80",
+    "name": "backdrop-blur/sm",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:195": {
+    "key": "616869186a26a3883bebee4387b354eea253fa3b",
+    "name": "backdrop-blur/md",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:196": {
+    "key": "415e9b8c7d9e37ee4fd7c7813598e2c1cadd3005",
+    "name": "backdrop-blur/lg",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:197": {
+    "key": "0e4d646f332583416afbde1f4dfe9cd1b841b85b",
+    "name": "backdrop-blur/xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:198": {
+    "key": "824a406184bc611ebfdd826976823794f21d8fb0",
+    "name": "backdrop-blur/2xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "40:199": {
+    "key": "357aedeebf23bbf3305472415bb9846b2e4a13c5",
+    "name": "backdrop-blur/3xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3905": {
+    "key": "b35cfe4433c6cb5ad7b8a3110761dfbd6e5b1a6e",
+    "name": "text-xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3938": {
+    "key": "928b196be32bece64196dcca99a19f4b46cca54a",
+    "name": "text-xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3939": {
+    "key": "5598ab7210640115d225d8304716fbb4cb0686d2",
+    "name": "text-xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3940": {
+    "key": "547ee5f0c75c1af29924c1eff1ceac25f9d1ab39",
+    "name": "text-xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3941": {
+    "key": "b0b446122908773cfebbc06ff53c08a0aa167e50",
+    "name": "text-xl/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3942": {
+    "key": "b99dfffaa1d155789446e83603ed48097f8eb70a",
+    "name": "text-xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3944": {
+    "key": "a8f20cc62e5108b493484411d4cd94d5fe7315de",
+    "name": "text-xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3945": {
+    "key": "9b75107fc15e9ef351ae376c70e42f22ab7c2e00",
+    "name": "text-2xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3946": {
+    "key": "767c5ab9f27d88e16f007afb1bde7404c2d7a8cd",
+    "name": "text-2xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3947": {
+    "key": "364ea444fa7964309fb3e1d8998dad4b8afaada5",
+    "name": "text-2xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3948": {
+    "key": "02cf8df58e9ff05fece39f6aacb9b667d2881cfe",
+    "name": "text-2xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3949": {
+    "key": "b1073067a079a18017f557941c2a8d15ed5be3ac",
+    "name": "text-2xl/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3950": {
+    "key": "077a753948efe022a2a782062d0f7fc1d55aebe8",
+    "name": "text-2xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "217:3951": {
+    "key": "4f67be26ad28ab48bac4a3cb3de6258368a945a9",
+    "name": "text-2xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "239:1108": {
+    "key": "d25dbbdec244b49d461bb365fdf41074266defdd",
+    "name": "text-4xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "239:1285": {
+    "key": "9cb76491ba3f2b0a61ee9e82a44c44909d366b59",
+    "name": "text-3xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "269:3113": {
+    "key": "abe145b95048967d677e8b2b0b726f83ddeb220f",
+    "name": "text-base/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1618": {
+    "key": "913fe737e66035bb6e9fcf64b697045a5c85e7b6",
+    "name": "text-base/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1619": {
+    "key": "4783259db39c654017b02fb6e350dbaec4b2e0c5",
+    "name": "text-base/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1780": {
+    "key": "56dc8cb94b7e2d8c79eeb6c95d4fd1170b035d2c",
+    "name": "text-4xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1781": {
+    "key": "d620f92ef5671207718386a2f50a047ea3ce8ec4",
+    "name": "text-2xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1782": {
+    "key": "6419038687e46bbb563432cb829d38eba9d1a75d",
+    "name": "text-lg/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1783": {
+    "key": "191d9f87794600e852522284109f716091e4727b",
+    "name": "text-sm/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1784": {
+    "key": "bae36de03f1cd21268caf68403de3197f2d658eb",
+    "name": "text-xs/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1785": {
+    "key": "f9f1b7aeff2fc8537a8ac4f2e6cfbb6524c223d3",
+    "name": "text-4xl/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1786": {
+    "key": "b995ed4c8df56431eaa8de5ca4aabd249ba7cfc1",
+    "name": "text-2xl/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1787": {
+    "key": "2e7b7d52f699cbec7764f2e1b6c8c8cdb768b213",
+    "name": "text-4xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1788": {
+    "key": "8c6ea03c880b8902f31c68df8793cd4e7f505d82",
+    "name": "text-lg/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1789": {
+    "key": "84b4b23ab1d38b67f0962751c23847d8fae014ca",
+    "name": "text-sm/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1790": {
+    "key": "19bb25cbfb985ed1d71886cb9df018a372e5ec66",
+    "name": "text-xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1791": {
+    "key": "7817dad7cc4169354b6bca5e9416c3500734d5d0",
+    "name": "text-xs/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1792": {
+    "key": "d3e9cafa704c985bcf637e65f4d858e97d38e6b4",
+    "name": "text-4xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1793": {
+    "key": "558963e91ac0591b2d17151845f4d198d3a26fc8",
+    "name": "text-4xl/leading-none/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1794": {
+    "key": "b3664e7bafd19ef186deed70e88b62caa5b412f2",
+    "name": "text-3xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1795": {
+    "key": "5bdcaf33e8de315efcc723fbc94bd30517ac5832",
+    "name": "text-2xl/leading-none/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1796": {
+    "key": "b59a9009d520757a7de51159f383408138f766ae",
+    "name": "text-lg/leading-none/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1797": {
+    "key": "2b12c7987dd52bc7ad52d19698e948b5db226aeb",
+    "name": "text-xl/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1798": {
+    "key": "2cbb456ca11ecff30f569e082fe99b7b9b9f203d",
+    "name": "text-sm/leading-none/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1799": {
+    "key": "ca1d095efca273624695feee95538c172264f64c",
+    "name": "text-3xl/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1800": {
+    "key": "78f4c34a95009afd8686b0aa0ed3f69b1ecf1404",
+    "name": "text-4xl/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1801": {
+    "key": "05b1536c0f3f2c93662344851d5aa0878223fc32",
+    "name": "text-3xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1802": {
+    "key": "3dc5f1d1b10f3e3ae9cdd43503e747cfefeb3409",
+    "name": "text-xs/leading-none/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1803": {
+    "key": "d371e74dd7cbacf1cf7daac902147dc2f3cd4b92",
+    "name": "text-4xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1804": {
+    "key": "4471525b27a4111a5bfcff434f365daee259d9e9",
+    "name": "text-2xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1805": {
+    "key": "515b8157259b6462a6464ecc451054374a600f04",
+    "name": "text-xl/leading-none/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1806": {
+    "key": "931c2738a96fbdcf5284fe522ffe19ed69b76bba",
+    "name": "text-3xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1807": {
+    "key": "3ac041444c44b30ca1e2d913c82f6ef783a84d8e",
+    "name": "text-3xl/leading-none/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1808": {
+    "key": "44e956b6dfd15abea5c2c116074ca31d33b5340f",
+    "name": "text-lg/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1809": {
+    "key": "63dd8b0c0d1d3e567debfa6468e77ecf815cbf5f",
+    "name": "text-4xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1810": {
+    "key": "da443af4e92cefd650afe90eab05996802853488",
+    "name": "text-sm/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1811": {
+    "key": "b42252b01252f8866be457927b6e3398e046dfb0",
+    "name": "text-xs/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1812": {
+    "key": "9fc8f11259622c2d45288cf5ad27630258301900",
+    "name": "text-3xl/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1813": {
+    "key": "040b35a88efd8a5c9b856ac6d0d8b4bd191f15e3",
+    "name": "text-xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1814": {
+    "key": "a9ea14ebfc00864ee2911754f985be4ee7b7670f",
+    "name": "text-3xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1815": {
+    "key": "86786ec8b93d4fd82d4783761b3944df4a2df4ad",
+    "name": "text-4xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1816": {
+    "key": "6620ad5cfea1a3b3d48a7945e3068f3bf53493fc",
+    "name": "text-2xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1817": {
+    "key": "68e988bf250f2194e3a4a408fc6800c7442b3487",
+    "name": "text-lg/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1818": {
+    "key": "4bd9e61811048b92783fecf8c33809bbb67ebb25",
+    "name": "text-3xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1819": {
+    "key": "4bdfed051d0b4df88479dd60a4f37524226261c7",
+    "name": "text-4xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1820": {
+    "key": "80ae0416b6db183efa5d7aa82f7a023e813a07dc",
+    "name": "text-sm/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1821": {
+    "key": "6dbed9812be328adb949bf114b8c699909711e9d",
+    "name": "text-xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1822": {
+    "key": "35997a70676c748019b1fa330456394f693d2072",
+    "name": "text-3xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1823": {
+    "key": "7f1bb7ffbd097aaafc0d537cb6095aa38e8fd33f",
+    "name": "text-xs/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1824": {
+    "key": "4eb77e124b2e0d061accb5481ac671cf3072c2c8",
+    "name": "text-4xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1825": {
+    "key": "658660c62edf4c143f3bd65adb25e465829963fb",
+    "name": "text-3xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1826": {
+    "key": "9cabb38731fa9c55c36e0bbcdd993429bd290bf3",
+    "name": "text-2xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1827": {
+    "key": "b07551f7d0b9b81aa5fe17ed41b2673bde0ff2f5",
+    "name": "text-4xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1828": {
+    "key": "b19fbeacf2d2b7fd53398b446817bd0cdc51c629",
+    "name": "text-lg/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1829": {
+    "key": "2e252352993a66908c8bf4d97306cffc824f02e3",
+    "name": "text-3xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1830": {
+    "key": "e195d268962c4afd5386e0a71d644f49b2487154",
+    "name": "text-xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1831": {
+    "key": "87b640cdce81529fd9bf42a2751c4e909fd8b5d8",
+    "name": "text-3xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1832": {
+    "key": "257717299970a8d3448a1d90ec08598459d4e348",
+    "name": "text-sm/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1833": {
+    "key": "29356eba145590a9325d986673ff10d0dbeff34b",
+    "name": "text-xs/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1834": {
+    "key": "471dad187c58f67ddddf3c18be90cff175421efa",
+    "name": "text-4xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1836": {
+    "key": "82da6d8d9e601e0f79f1c08ceaeb3debf44293e2",
+    "name": "text-3xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1838": {
+    "key": "a4dbf46b59310aceaa0696903fe8bfc7f9702575",
+    "name": "text-2xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1839": {
+    "key": "3587e2603b5155545970867b3b1fe6d5c781e3d4",
+    "name": "text-xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1840": {
+    "key": "95ee8bacc6018fd3865e68737a316935a2bc7c7f",
+    "name": "text-lg/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1841": {
+    "key": "95576d35ad3396e5da711e078a7fce611c4232ba",
+    "name": "text-sm/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1842": {
+    "key": "bbf2f9ed041cc073c4a6f57a443fa057a1297a51",
+    "name": "text-xs/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1843": {
+    "key": "af8ca7b4dc136ad0a82abc1013c64ced769ee38d",
+    "name": "text-base/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1844": {
+    "key": "a0a85101723b72886e1f50500a9d761860bc733f",
+    "name": "text-base/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1845": {
+    "key": "a0863e69be99fd3a3e0e55b98679bf700d2e9bd1",
+    "name": "text-base/leading-none/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "282:1847": {
+    "key": "3b441784f4ff2c818643e2048c9c3556d9d0452e",
+    "name": "text-base/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "980:10964": {
+    "key": "5b1e203fd0e9d5c0f599db793ace2d602f8b2024",
+    "name": "text-sm/leading-normal/underlined (medium)",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "980:10966": {
+    "key": "1a3ed178b5b4fd7a5e08c965ef9f1d96e4653c58",
+    "name": "text-base/leading-normal/underlined (medium)",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17003:1849": {
+    "key": "ada54dce7e1e160d8129c4ed0bd13e2ab4e1cffe",
+    "name": "text-5xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17003:1850": {
+    "key": "4edc560747d073f01e16828bf5ea550d8f4f2b30",
+    "name": "text-5xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17003:1851": {
+    "key": "62d09da5aa63dae8087dcd7b3facfddddb5fe4a3",
+    "name": "text-5xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17003:1852": {
+    "key": "9ae5c9d11b0359193f08ed1b9e60c0670a09c281",
+    "name": "text-5xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17003:1853": {
+    "key": "4a2861d4e607f495b365ede393d4949d710484e1",
+    "name": "text-5xl/leading-normal/italic",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17003:1854": {
+    "key": "0ddcb7ccfab55f005efdc79a2f23d32ea5bd602a",
+    "name": "text-5xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17003:1855": {
+    "key": "077d696c61f524fb7aec202bce3776dd9453f963",
+    "name": "text-5xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17031:45313": {
+    "key": "06cbe4aca856afa27b03c582069f8ea854031c75",
+    "name": "text-xs/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17031:45314": {
+    "key": "7f18271958e185798cc6cdf9ba7306f723f5d0bb",
+    "name": "text-xs/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17031:45315": {
+    "key": "7dc7bc86fe3a3e980b4ed95057e0fb417606083c",
+    "name": "text-xs/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17031:45316": {
+    "key": "260ecbb8a79062aa27b9c1af2e021dae7827f70d",
+    "name": "text-xs/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:187537": {
+    "key": "06879f39433b5126b28d480ac57d5b8db1cdb874",
+    "name": "text-xs/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:187538": {
+    "key": "71792eb6adaf259c55380522721113a0fa1a7a32",
+    "name": "text-xs/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:187539": {
+    "key": "d8f916167569b1c516b7c5ed4527ddfc758bf0a9",
+    "name": "text-xs/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:187540": {
+    "key": "304e44c04397fa3127d65fef7ecb43f7e54d7230",
+    "name": "text-xs/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:187979": {
+    "key": "ccecf966f86cd8bc717640146e0070a3e8dc16e3",
+    "name": "text-sm/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:188717": {
+    "key": "712c9f1e0969899f0d0dc459f36923b161957685",
+    "name": "text-sm/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:191307": {
+    "key": "eb31c88aef8dda188e928bfadf41c10b62c77b86",
+    "name": "text-sm/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:191308": {
+    "key": "0614e528596d5af5742405372ec97b12c21f561e",
+    "name": "text-sm/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:191311": {
+    "key": "7f8256b3066fd3d18f9d426781589d24d63de186",
+    "name": "text-sm/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:191340": {
+    "key": "d5d56e4e4c96cd686f09595a6d1daa0b05c9f12c",
+    "name": "text-sm/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:191342": {
+    "key": "bb3b56f78009d5d577a241e7fabb4c0da16667d3",
+    "name": "text-sm/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17053:191343": {
+    "key": "891218423ea2c73960917fc6e9f3b163b08d52a5",
+    "name": "text-sm/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191507": {
+    "key": "dd627e40b557b1e75769fa84ac6d583cd7d3ae35",
+    "name": "text-base/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191508": {
+    "key": "e007ed7e43f82e802f277405d0f288b9def83b43",
+    "name": "text-base/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191509": {
+    "key": "e575190b6abe7a9e177311bff36e319a7f1dc65a",
+    "name": "text-base/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191510": {
+    "key": "86afd84eb5390606505f1aa159250b10f48a7885",
+    "name": "text-base/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191511": {
+    "key": "febe99e6e5b57480395cd2e135659bc57d72e7bf",
+    "name": "text-base/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191512": {
+    "key": "b5a098aef386449b9cdbb5cda9d16451f130a37e",
+    "name": "text-base/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191513": {
+    "key": "0a89e990dfeb43b1647a743ae97cc540781558f5",
+    "name": "text-base/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191514": {
+    "key": "60afc26b2d795f7006ebeffed2fe6fa7d41e95d4",
+    "name": "text-base/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191531": {
+    "key": "7a1965fbc7b8b6a7f5d51f4c1674988312f423f9",
+    "name": "text-lg/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191532": {
+    "key": "ad09e117728f580d3c342a55fcd9631b8d863ae7",
+    "name": "text-lg/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191533": {
+    "key": "04f5fd35da0aadc062cdfc9bfdcfb46fa5c8a050",
+    "name": "text-lg/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191534": {
+    "key": "cfe8aa9113bfe399ada898b807e0fd44d41a54ed",
+    "name": "text-lg/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191535": {
+    "key": "cc17642e9a4c2459db4cd12a76f9ffe643ba4d22",
+    "name": "text-lg/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191536": {
+    "key": "aa0d8fc4ecc45f625bc0cceea821633477ab8b8e",
+    "name": "text-lg/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191537": {
+    "key": "7d57d4deffaa4a6e60ed25944efc5d3e982d3e17",
+    "name": "text-lg/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191538": {
+    "key": "916b1b3419f00b083ac84f24d48fa02a4a1fbf2d",
+    "name": "text-lg/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191550": {
+    "key": "62727b6ea3586a357ec26397827298220bd031da",
+    "name": "text-xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191551": {
+    "key": "7b4535be696990a209b094f23154bb731cbd81af",
+    "name": "text-xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191552": {
+    "key": "8da3980bfcb46d044d865e3625b9fdf0e03a4cd4",
+    "name": "text-xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191553": {
+    "key": "b3a625383f4709677b4603b42dc3b7beb44a637a",
+    "name": "text-xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191554": {
+    "key": "8cda8b9860f5450683c13bc71d811d351a464537",
+    "name": "text-xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191555": {
+    "key": "f54fc956ec2de9ab10388cf3eeaac274e781dfd6",
+    "name": "text-xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191556": {
+    "key": "f751db954e22dcc3b37a6e1c068d824ef775d512",
+    "name": "text-xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191557": {
+    "key": "f121b4aba29c5333c741707dedbe13b98d08ece5",
+    "name": "text-xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191571": {
+    "key": "fbe3a9a8c40caee257db200f678424901fcdf326",
+    "name": "text-2xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191572": {
+    "key": "5640f8ed3f5c6ab8f0d9c11c192663d664466a12",
+    "name": "text-2xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191573": {
+    "key": "447ce50e18f6e1d14432e386cf6a9c2e98547aab",
+    "name": "text-2xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191574": {
+    "key": "9e88977d3b759ea5c2209337975d28d6c989c2cf",
+    "name": "text-2xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191575": {
+    "key": "5b69b8e7e492eb12993487e2cedd07a900ecfad8",
+    "name": "text-2xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191576": {
+    "key": "3f03bea4fd04f0ec686549700f4ce32a368a370b",
+    "name": "text-2xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191577": {
+    "key": "27d6736909fdc84ca8f7a106f4ab65cbd19561a4",
+    "name": "text-2xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17054:191578": {
+    "key": "ace11dedf78c43cd3fff2d20992851c67006f1b7",
+    "name": "text-2xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1812": {
+    "key": "0deeaaad394e0bab3078af6e21abc6b6a7556638",
+    "name": "text-3xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1813": {
+    "key": "8525a30b119d32d2e006c31e646c1bb09cbf0748",
+    "name": "text-3xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1814": {
+    "key": "6133a54c6d417b49a3d3e8acb61f79a34397cc60",
+    "name": "text-3xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1815": {
+    "key": "69a246dc442cd2580e890e12592563fda8ff500d",
+    "name": "text-3xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1816": {
+    "key": "a3996b68b2fcb394d3f354b838bd4f378732be52",
+    "name": "text-3xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1817": {
+    "key": "6cc072d238055915f01949077fc7eaa42ebf1b1f",
+    "name": "text-3xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1818": {
+    "key": "0b54dde9d52958da9e4527153a0089c4979ae258",
+    "name": "text-3xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1819": {
+    "key": "4669e46ab1e9d772495c5cabe8b17bc3cb2a80c6",
+    "name": "text-3xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1832": {
+    "key": "42dfa417bef3f94456b0fbad75e0fe9c970653e5",
+    "name": "text-4xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1833": {
+    "key": "50a605ff5310d51ca72dc05f499ffd105285cedf",
+    "name": "text-4xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1834": {
+    "key": "deef3c3507222da369ea30434cce5cc051f1a480",
+    "name": "text-4xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1835": {
+    "key": "bb8c001c718d9ebb00a729de83a5a172fc64ed0a",
+    "name": "text-4xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1836": {
+    "key": "f4bacb35857cc9268ce77c845fd7ef32b6b8f7be",
+    "name": "text-4xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1837": {
+    "key": "27230034f7d6282effbe1c2f75b0dedb16c18de3",
+    "name": "text-4xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1838": {
+    "key": "38aa1c30eb37122abf2336492a9b99a67463390c",
+    "name": "text-4xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1839": {
+    "key": "a11b6f907eab5ac1b7d6fa33d4617397e2544e02",
+    "name": "text-4xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1853": {
+    "key": "776c392a75b660fe4cb7db0bcd6783c2a17d0907",
+    "name": "text-5xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1854": {
+    "key": "a7319578313b19783e1c04494c6f61e80b77e0f3",
+    "name": "text-5xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1855": {
+    "key": "7109d2db03f83a3cf751029c438392796375c428",
+    "name": "text-5xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1856": {
+    "key": "0a3114e30351f5f16e509a72717a2eef7ae84f00",
+    "name": "text-5xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1857": {
+    "key": "b21a1aec2a4537a7c50466f551341aa251b41d0d",
+    "name": "text-5xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1858": {
+    "key": "a447d911ba55978044ee40b5ff8666fd26736e73",
+    "name": "text-5xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1859": {
+    "key": "5bb161da8f9deb0da199cefa4ab886baae72b261",
+    "name": "text-5xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1860": {
+    "key": "5ba0391ac6ee94a204724043b156e7ad7d455115",
+    "name": "text-5xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1868": {
+    "key": "172814ab417ee38a5ff0892a048ee1f5857b0a9a",
+    "name": "text-5xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1869": {
+    "key": "c10261474e8224bf144ded11d7e2231947473850",
+    "name": "text-5xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1870": {
+    "key": "236937b5b8f323774e3365d80e09af6d9ba607b4",
+    "name": "text-5xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1871": {
+    "key": "4787ff526e94903981f8c572859cb6f178e53709",
+    "name": "text-5xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1872": {
+    "key": "03733fc5ea0803f82d22c5c672fa5ae1ef4a2b71",
+    "name": "text-5xl/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1873": {
+    "key": "ddc12e0232b02f8f17b297c44d16c7c516a2a3b1",
+    "name": "text-5xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1874": {
+    "key": "6329fcc4ed0afba90185ad5d9480ee02c612aef2",
+    "name": "text-xs/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1875": {
+    "key": "d348ee63b1ebbae9d950a500277f867962a2e0e0",
+    "name": "text-xs/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1876": {
+    "key": "a55394c800d25c0547cabf594e89a0fbacb7f302",
+    "name": "text-sm/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1877": {
+    "key": "68ce49332ae35cc58e3b83a2a054c4ec480cc9d4",
+    "name": "text-sm/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1878": {
+    "key": "1e7075f0c5482e57ada8692dd9fed66436f073a6",
+    "name": "text-base/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1879": {
+    "key": "2536c1034a98d6de1b57616512a7bb214647823e",
+    "name": "text-base/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1880": {
+    "key": "9c1f2af3d3f304f877c8ef496afd5407647378c5",
+    "name": "text-lg/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1881": {
+    "key": "13c05acaf5641ecfc237fc653c229a74e649c1ae",
+    "name": "text-lg/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1882": {
+    "key": "64da21b62137a2dc16bbced04e66938c9e6a31fa",
+    "name": "text-xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1883": {
+    "key": "288725cf1b77a72ab38909d2bd387038c2b20ec0",
+    "name": "text-xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1884": {
+    "key": "aff94fc6b9ac4264778daabd5f4c1238767c884f",
+    "name": "text-2xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1885": {
+    "key": "f9d2fb95b12037588fa951c01f32a8ed14103e7e",
+    "name": "text-2xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1886": {
+    "key": "9a66aa9aee2f450981cbb56d2dee19c33d20c44e",
+    "name": "text-3xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1887": {
+    "key": "0e4a957166bb29bc0818ab5aa0e0b8152e8b73d7",
+    "name": "text-3xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1888": {
+    "key": "42b012ac55dba3ee0ccb25c2804cf9966807ff3e",
+    "name": "text-4xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1889": {
+    "key": "b263e96665064f2f4226ee3120f697480626f5c2",
+    "name": "text-4xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1890": {
+    "key": "4a3cf657d4917fd028fa8690af1ed0aa86ee22fa",
+    "name": "text-5xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1891": {
+    "key": "9c94b2f047a6ae87a589ca8465481bbb98ea348d",
+    "name": "text-5xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1892": {
+    "key": "0f3eef6174bd80c865fb81bbb0f6577810891528",
+    "name": "text-6xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1893": {
+    "key": "7dac6e3805307099741903aa0d4f775f2a090334",
+    "name": "text-6xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1894": {
+    "key": "4728e869fdc9e73bef77e1fcc802fd0cf2ba6bfa",
+    "name": "text-6xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1896": {
+    "key": "15496eaedf8bc488dc26934c77fecd6d919fd501",
+    "name": "text-6xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1897": {
+    "key": "98c8e560eacc450dc8271c0c60b8ee730bfb101c",
+    "name": "text-6xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1898": {
+    "key": "44e3e2dbaf48ec3eff836ebbc5d90112550c893e",
+    "name": "text-6xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1899": {
+    "key": "c8a3670950e312f0638026eca22ab9b2932ee86e",
+    "name": "text-6xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1900": {
+    "key": "e2599d6f4e43d62d56ce8755791d18a4ed4ef622",
+    "name": "text-6xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1901": {
+    "key": "f1892ca2f86c93296c1b502ff50038c31ac297d3",
+    "name": "text-6xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1902": {
+    "key": "cd20d08d73f0d4bf42f10e096915f1c48cdf69a6",
+    "name": "text-6xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1905": {
+    "key": "e5c5fc31887a66f8e0b9ec3852341e27bea312bf",
+    "name": "text-6xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1906": {
+    "key": "bd39af8a16c2402e804f3574632d3031b77553b4",
+    "name": "text-6xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1907": {
+    "key": "fbec61d4ab56c5984f1198a4af5c78b8eb648cc7",
+    "name": "text-6xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1908": {
+    "key": "cf7c4945b15cd3f88d10f8b623d6de52eddb42f7",
+    "name": "text-6xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1909": {
+    "key": "71e904b98cb591d8ca0cb27a7143b74994249607",
+    "name": "text-6xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1910": {
+    "key": "aa1c0cfb9a77794942963bf43550f3ba68f87c78",
+    "name": "text-6xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1911": {
+    "key": "0e2add2370d871173c5e82a37f23659ab7095778",
+    "name": "text-6xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1912": {
+    "key": "a6147809527ea7074b0cc0efe03d262ed8165818",
+    "name": "text-6xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1913": {
+    "key": "ca425fa7e6c1c51e78b5d006c43f128594caa089",
+    "name": "text-6xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1914": {
+    "key": "4901dfb63420e5c18872fbc937456276c7029868",
+    "name": "text-6xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1915": {
+    "key": "515dcb9a837185109ce2aeaf02dbbb7b68765ffb",
+    "name": "text-6xl/leading-none/untitled",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1916": {
+    "key": "2366b0a62626d30a470626a66adde59a010f8058",
+    "name": "text-6xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1917": {
+    "key": "6a620ad6ece2a98c9539ccb53fe4dfe9de232c99",
+    "name": "text-7xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1918": {
+    "key": "5143d9902ea407efaf740e4e9011eb7e413b1fff",
+    "name": "text-7xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1919": {
+    "key": "474551db0df121cd7b98c5e49c13ae87da753b42",
+    "name": "text-7xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1920": {
+    "key": "27011e670740d98f3792bfaf2fada2a07d15e4ac",
+    "name": "text-7xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1921": {
+    "key": "66d435f299b19c8e47ac468b2094b5870fe5023e",
+    "name": "text-7xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1922": {
+    "key": "2634e2df49b75c1b67173d4b675d1236be629c40",
+    "name": "text-7xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1923": {
+    "key": "7ea1a11170765da925b03240384a623abc532099",
+    "name": "text-7xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1924": {
+    "key": "7d721fd333cf884c661d855042a6263f44dabc9b",
+    "name": "text-7xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1925": {
+    "key": "cbe30d7e8306377a74edfc2b77742586aa9e3d5e",
+    "name": "text-7xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1926": {
+    "key": "2918eb4ef5db70a69a04c87791a6fc61e0919723",
+    "name": "text-7xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1927": {
+    "key": "3f5bb83f1225c9516c05015cf41cefa5f2697d2b",
+    "name": "text-7xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1928": {
+    "key": "be3b0c06ec8b3811d58b09c6dfa0afaf0a492ff9",
+    "name": "text-7xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1929": {
+    "key": "26a8f9c166c5cf18ef3628508e0e93c9b1e62c62",
+    "name": "text-7xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1930": {
+    "key": "7955837ea2c527427a44455a968dd9f0ea050b1f",
+    "name": "text-7xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1931": {
+    "key": "87cffdab634e07e944df3e1aed5209aca615059b",
+    "name": "text-7xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1932": {
+    "key": "897e710a2080bff464573451d104ea59363e4ac2",
+    "name": "text-7xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1933": {
+    "key": "32274e539333490becbd900282c04252ada902f9",
+    "name": "text-7xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1934": {
+    "key": "981a50e2e7ae310bed02f3879b6af57b4e7aae20",
+    "name": "text-7xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1935": {
+    "key": "b73acb78f52cab10213696ba5dfad5dc998767e1",
+    "name": "text-7xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1936": {
+    "key": "104e453653ed89484a3f74fbb4f35c62f09d13df",
+    "name": "text-7xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1937": {
+    "key": "cf30c57fb8c452b71c9fc85ea11109e5bc0ee112",
+    "name": "text-7xl/leading-none/untitled",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:1938": {
+    "key": "b4fe74be59331918d57aa3a5fe65bec60d5b2a91",
+    "name": "text-7xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17062:164368": {
+    "key": "90c7b4d2182b980a64b486fc63eb215f441031b5",
+    "name": "text-8xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164369": {
+    "key": "16e7a9dd34d5d1d58521ef47d17d4c172e499f06",
+    "name": "text-8xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164370": {
+    "key": "e1f146db805123517cc456c97994cc11a204310c",
+    "name": "text-8xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164371": {
+    "key": "411e0e9d9a93c7bca29b71ce212ff9a83d1f18fd",
+    "name": "text-8xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164372": {
+    "key": "b94f93a5d9b60d922c1c8e459873d31e3c485481",
+    "name": "text-8xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164373": {
+    "key": "a3d49a479cfbda8e5848f15902d70c77dc918290",
+    "name": "text-8xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164374": {
+    "key": "1df6d2a8881c24204593b28d1b9cd510e8231508",
+    "name": "text-8xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164375": {
+    "key": "a07e39525febbc080b7ef83cddc3e542a529e0f9",
+    "name": "text-8xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164376": {
+    "key": "cd6699679cac4eb5019d9d3cb76719483f60a861",
+    "name": "text-8xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164377": {
+    "key": "7f9fdf3aea99b86dd3961631bec15deeacbc0fc9",
+    "name": "text-8xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164378": {
+    "key": "8c822b3e8e7994a748f5dc3379ecf512b9510dbe",
+    "name": "text-8xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164379": {
+    "key": "58231bed1707f8ecb4bbe8c616104d6d1041550d",
+    "name": "text-8xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164380": {
+    "key": "b262f3bd4799060206c3bfc72e6369a3e110ac68",
+    "name": "text-8xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164381": {
+    "key": "05d5d4bc6b1695f0f9dac693ae8fd86df4b1f32e",
+    "name": "text-8xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164382": {
+    "key": "30974c4d219dd5d7e908ce0d3b5e2be47a71f7a6",
+    "name": "text-8xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164383": {
+    "key": "3d8218fa1437b6e66c70cd2c33941f59ae2b7c84",
+    "name": "text-8xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164384": {
+    "key": "bdd67635f9e3cfb629474d87516bc0a7921d5ce4",
+    "name": "text-8xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164385": {
+    "key": "bbd4bdbe0813b912132c473405665e7982160258",
+    "name": "text-8xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164386": {
+    "key": "aa73eae62b2065d0e9f39a12f6a8d115630100ff",
+    "name": "text-8xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164387": {
+    "key": "05e09eee4b1491a22cfc952eb1b82e49dbe080b2",
+    "name": "text-8xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164388": {
+    "key": "f27831cf8ef281862f199998c981da9359de8e68",
+    "name": "text-8xl/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164389": {
+    "key": "f70b74d8b4dba5bf8167074d566ea739c48429c4",
+    "name": "text-8xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164390": {
+    "key": "a1dfa8430d42a5c5d7e97d74968dd1a8c85fbb18",
+    "name": "text-9xl/leading-normal/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164391": {
+    "key": "222325e5ebb2106fe92859c63c1f79411458c488",
+    "name": "text-9xl/leading-normal/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164392": {
+    "key": "d077e877a8b98a788092f92231a4f01ca86dac99",
+    "name": "text-9xl/leading-normal/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164393": {
+    "key": "b8103b7331f5d4fc9c9e02a42f583a100e4c91dc",
+    "name": "text-9xl/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164425": {
+    "key": "bff166dddcc5e7a6cacb8c7632cb0ecb9f5aca5b",
+    "name": "text-9xl/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164426": {
+    "key": "f80c6e8b2be0f2c5a84062120e2c3a327440e7b0",
+    "name": "text-9xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164440": {
+    "key": "189b563b52f2abe3e6b5c2def6f10c6a4ad21ea7",
+    "name": "text-9xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164441": {
+    "key": "3931430f06ad8797b7d2f5b90728821ea1c74c8b",
+    "name": "text-9xl/leading-normal/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164442": {
+    "key": "62a63e3df79969baf2950e4133eece0735458a36",
+    "name": "text-9xl/leading-normal/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164443": {
+    "key": "a20069473cfff327becb186a34371de1818bc521",
+    "name": "text-9xl/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164463": {
+    "key": "90cf445522b576444d1156672d56dd928e13e4bf",
+    "name": "text-9xl/leading-normal/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164464": {
+    "key": "8489bf08f90e863df9f457c0a22286c5bc748a01",
+    "name": "text-9xl/leading-none/thin",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164486": {
+    "key": "5ef271d5cd22c97519ccc73f589263f89dd3a4c1",
+    "name": "text-9xl/leading-none/extralight",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164494": {
+    "key": "c69ea885479e388e8072c236864f9fdde01be020",
+    "name": "text-9xl/leading-none/light",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164495": {
+    "key": "97f5586019475fdedfbbb9334d41878698ab1b83",
+    "name": "text-9xl/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164496": {
+    "key": "a95d4cfafcee6966bdc061536498d98e466d86d9",
+    "name": "text-9xl/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164497": {
+    "key": "e128763e7b792828faac8965b5ca8da69ca26129",
+    "name": "text-9xl/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164498": {
+    "key": "409a3d42d089c9c493d732be8d1501e14cc703a2",
+    "name": "text-9xl/leading-none/extrabold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164499": {
+    "key": "60822e16540749f2499d3739b83e8d2839cc7ca8",
+    "name": "text-9xl/leading-none/bold",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164500": {
+    "key": "34f1d036f82092b5c96c80bc92161c12b58c3603",
+    "name": "text-9xl/leading-none/black",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164501": {
+    "key": "43ac05fc45075fb146882a2e8e1a4be720023600",
+    "name": "text-9xl/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17068:164502": {
+    "key": "045f20616ff9c73aff188d559e1e727db171d5df",
+    "name": "text-9xl/leading-none/strikethrough",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17071:164632": {
+    "key": "676a44a6bde67e5a508000f487594f3410a3189e",
+    "name": "shadow/2xs",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17072:164637": {
+    "key": "c9d50f4028195834bb34b69d22559efc09fa8ecd",
+    "name": "inset-shadow/2xs",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17072:164640": {
+    "key": "f29e2d21220c284e68ebb06e2fc46a936deb3873",
+    "name": "inset-shadow/xs",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17073:164642": {
+    "key": "d1d0dad560518a5e08b31f80cc73c82d6530dee9",
+    "name": "inset-shadow/sm",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17073:164643": {
+    "key": "29ad035bd6046ca243210788395e4e3ef6f6c85f",
+    "name": "blur/xs",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17073:164648": {
+    "key": "52b49c6e938b5e09631a45bc8f076ce7a5df7b9b",
+    "name": "drop-shadow/xs",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17074:164649": {
+    "key": "c5fd6d81cc8ce960f83ab54764cda05000f20542",
+    "name": "drop-shadow/sm",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17074:164650": {
+    "key": "7a526a8df9f67b5b13811655d87e317689a09ac6",
+    "name": "drop-shadow/md",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17074:164652": {
+    "key": "48759628c0742b8d768777e7f79b2ebb28c69124",
+    "name": "drop-shadow/lg",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17074:164653": {
+    "key": "9a5c5acecc8f77658f18505902d434c518a74721",
+    "name": "drop-shadow/xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17077:4559": {
+    "key": "90384fb72852f8de51fb9f2dc92dc099293204a6",
+    "name": "drop-shadow/2xl",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17077:4562": {
+    "key": "30462a1f821f351edc7ab8935fe1f015dfe90c56",
+    "name": "backdrop-blur/xs",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17378:14646": {
+    "key": "c401e56c9cabd876c1e94ee424530f42c83a3ffa",
+    "name": "focus/default",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17421:103670": {
+    "key": "d4b167c328eda8c2137d0efc105e954789bd0332",
+    "name": "focus/destructive",
+    "styleType": "EFFECT",
+    "remote": false,
+    "description": ""
+  },
+  "17548:88988": {
+    "key": "d7a7a5871b35bf63841226abfa42fc439e07d474",
+    "name": "custom/heading-xl",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17548:106950": {
+    "key": "09a62c89594ebda41f35ee6ca9ee788d728de8f3",
+    "name": "custom/heading-lg",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17548:114052": {
+    "key": "7544cdd26806eccd955100c1ea3c6f9c7bdef59a",
+    "name": "custom/heading-md",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "17548:116412": {
+    "key": "08304bed278e1e7063ff86144577b7fbbe64c682",
+    "name": "custom/heading-sm",
+    "styleType": "TEXT",
+    "remote": false,
+    "description": ""
+  },
+  "24357:171992": {
+    "key": "2ad411c344765785c1e89864411fea5d989ad077",
+    "name": "custom/heading-sm",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:25142": {
+    "key": "a2eb33a07cb756593976b9e089a6c4ac9e889ad3",
+    "name": "text-xs/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:25091": {
+    "key": "ff61039947dafc9cfdb29a1fd83f4a520551daba",
+    "name": "shadow/xs",
+    "styleType": "EFFECT",
+    "remote": true,
+    "description": ""
+  },
+  "24363:11505": {
+    "key": "55cab02d0d9a3b28bb7db0093b3e94af409f49dd",
+    "name": "text-sm/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:172039": {
+    "key": "80a33c85c0e69fbb8b54f16910d5079628ae50cb",
+    "name": "text-sm/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:173672": {
+    "key": "49ee0493a1a53e7c00191d3078e9c89a53e3c15e",
+    "name": "text-base/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24363:11504": {
+    "key": "e372be8388736a7ca1b58a7d40273881fc48a56a",
+    "name": "text-sm/leading-none/underlined",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:171976": {
+    "key": "e31e56c8265a4915619f138887dc113c83c6ef8f",
+    "name": "text-base/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:171939": {
+    "key": "4ec58f475254ca8738dd70c2e7a99bc34650c9e2",
+    "name": "text-sm/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:173694": {
+    "key": "5d51fb205d968c0afe6f1670d762a3bcf38d9a72",
+    "name": "text-xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:173695": {
+    "key": "de6da5192a29089d341f629da4daea35d9e745d9",
+    "name": "text-lg/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:173705": {
+    "key": "d62c1e39d782f7277fc8557f619a7f6e43192cea",
+    "name": "text-base/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:171918": {
+    "key": "1ed22bb50414abb81f7a8f76937b59ec63093814",
+    "name": "shadow/xs",
+    "styleType": "EFFECT",
+    "remote": true,
+    "description": ""
+  },
+  "24357:172038": {
+    "key": "cf92e4192185f321dde901e3f4c479e59452afc2",
+    "name": "text-sm/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:25172": {
+    "key": "d5c04edd78e968e5b3b906da40e17379a57e65e2",
+    "name": "focus/default",
+    "styleType": "EFFECT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:25258": {
+    "key": "39436f44c87e114aea46d3a3aaaf301061aeaeca",
+    "name": "focus/destructive",
+    "styleType": "EFFECT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:25121": {
+    "key": "7d27c3f61b7484ef2a90c1606b21b0560f190766",
+    "name": "text-sm/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:54929": {
+    "key": "ef4082f1eb94c342021788a6a60e6257ed7af1dc",
+    "name": "shadow/md",
+    "styleType": "EFFECT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:55074": {
+    "key": "916b3db47f2243092250bf94f96c3bf25519d572",
+    "name": "text-4xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:55099": {
+    "key": "90c8ba2a4a59bb0d3d0d7014af4e95f054e4fc97",
+    "name": "text-base/leading-normal/underlined (medium)",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:55081": {
+    "key": "a0e48f44a49c29387fa51ca456c9a2bef4a348e1",
+    "name": "text-lg/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:55104": {
+    "key": "a7fe2a4f8a36022094f149610f1a9b0f74237910",
+    "name": "text-xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:54399": {
+    "key": "da7d9592cdb452b9ca76b1c15cdc8388860b2f76",
+    "name": "text-sm/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:25156": {
+    "key": "16fb310f0510c357190163cc94352fa7fe2fe235",
+    "name": "text-xs/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24189:2106": {
+    "key": "ca252339b2fb7bb05f0ed3aefc593f10525adcdd",
+    "name": "text-4xl/leading-normal/bold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24189:2145": {
+    "key": "030d58e6da787d3c6ae7f3687851cad1c2e3e3d1",
+    "name": "text-base/leading-normal/underlined (medium)",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24189:2126": {
+    "key": "94907f3d8883bf0c15d4097e3a667d1ec978b3da",
+    "name": "text-lg/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24189:2158": {
+    "key": "ee219997b24983590d05e5947d6f20868ca15fcd",
+    "name": "text-xl/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24189:2181": {
+    "key": "95edaaa5c315eee1afee8deb75f27414c236da45",
+    "name": "text-sm/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24189:2170": {
+    "key": "c3127cf4c081e963bfce27eaeb30727559f8d1e0",
+    "name": "shadow/xs",
+    "styleType": "EFFECT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:2098": {
+    "key": "d0339ac59e468da3fdbb55b2c72323bdac23c60d",
+    "name": "text-base/leading-none/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:2094": {
+    "key": "7355987fbc240e8997ab965e3285d07e8dc42dd6",
+    "name": "shadow/sm",
+    "styleType": "EFFECT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:4783": {
+    "key": "6ac2b9026a1641e475077a434cb4fc1ae574b60c",
+    "name": "text-base/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:4784": {
+    "key": "a43ebb153d87d80fe24b4ece7183647a9e4c3752",
+    "name": "text-sm/leading-normal/underlined",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:5038": {
+    "key": "72260f3bd721441ba0e15b7e4ec7222f97393456",
+    "name": "text-sm/leading-none/normal",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:4858": {
+    "key": "1c325fe4468e7c598880aad37810e5e7ba9c847a",
+    "name": "text-sm/leading-none/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:5053": {
+    "key": "464987211f7949ac5bbf5426824441281daf2542",
+    "name": "shadow/lg",
+    "styleType": "EFFECT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:25242": {
+    "key": "5c74dddf479258b5fefab3782bfa1cb2f5bc2149",
+    "name": "text-sm/leading-normal/underlined (medium)",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24193:2920": {
+    "key": "32ae0227c84bb8e33802d0b9ffb99d43fd5c7753",
+    "name": "text-xs/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24193:2919": {
+    "key": "7507694b3b865465de79ebafcc91ad1e7d047ca0",
+    "name": "text-xs/leading-normal/normal",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:14962": {
+    "key": "9d63ad7e5b795d5a04d6c29524f12fce3d59d9b0",
+    "name": "text-xs/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24341:2116": {
+    "key": "99dc3bb6e98ad89e84003a9646de8ef82344e8ef",
+    "name": "text-lg/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24340:54899": {
+    "key": "8ac2a044c97d3030152e796410b84f9714f08ce8",
+    "name": "text-sm/leading-normal/semibold",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  },
+  "24193:2221": {
+    "key": "4774c7d47f5abc0791526dd8850b151009449695",
+    "name": "text-sm/leading-normal/medium",
+    "styleType": "TEXT",
+    "remote": true,
+    "description": ""
+  }
+}

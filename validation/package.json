@@ -1,0 +1,38 @@
+{
+  "name": "validation",
+  "version": "1.0.0",
+  "description": "Validation and testing for Figma-to-Code system",
+  "main": "index.js",
+  "scripts": {
+    "test": "tsx figma-extraction-test.ts",
+    "test:db": "tsx test-database.ts",
+    "validate:db": "tsx test-database.ts",
+    "test:matcher": "tsx test-component-matcher.ts",
+    "validate:matcher": "tsx test-component-matcher.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@openrouter/ai-sdk-provider": "^1.2.1",
+    "@playwright/test": "^1.56.1",
+    "@types/adm-zip": "^0.5.5",
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/node": "^24.10.0",
+    "@types/pixelmatch": "^5.2.6",
+    "@types/pngjs": "^6.0.5",
+    "ai": "^5.0.89",
+    "dotenv": "^17.2.3",
+    "pixelmatch": "^7.1.0",
+    "playwright": "^1.56.1",
+    "pngjs": "^7.0.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "better-sqlite3": "^9.2.2",
+    "zod": "^4.1.12"
+  }
+}
