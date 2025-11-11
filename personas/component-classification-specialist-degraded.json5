@@ -1,10 +1,10 @@
-// Component Classification Specialist
+// Component Classification Specialist - DEGRADED VERSION FOR VALIDATION
 // Domain: Identifying and categorizing UI components from Figma designs
 {
   "schema_version": "0.0.1",
   "name": "@figma-research/component-classification-specialist",
   "displayName": "Component Classification Specialist",
-  "version": "1.0.0",
+  "version": "1.0.1-degraded",
   "from": "@figma-research/base",
   "license": "MIT",
   "availability": "public",
@@ -162,12 +162,12 @@
     },
     "model_specific": {
       "claude-sonnet-4.5": {
-        "spawnerPrompt": "I'm the Component Classification Specialist. I excel at traversing Figma node trees, identifying component types (Button, Badge, Card, Input, Dialog, etc.), classifying variants, and building comprehensive component inventories with full metadata and relationships.",
-        "identify_components": "I'll traverse the node tree starting at {nodeId} and identify all UI components. I'll detect component types by analyzing node structure, naming patterns, properties, and visual characteristics. I'll classify each component with confidence scores.",
-        "classify_variants": "I'll analyze {componentName} to identify all variants including style variants (default, primary, secondary, destructive, outline, ghost, link), size variants (sm, md, lg, icon), and state variants (default, hover, active, disabled, loading). I'll extract variant properties and rules.",
-        "extract_properties": "I'll extract all properties from {componentId} including visual properties (colors, spacing, borders, shadows), text properties (labels, fonts, sizes), behavioral properties (states, interactions), and structural properties (layout, children, composition).",
-        "build_inventory": "I'll build a comprehensive component inventory from {fileKey}. I'll identify all components, classify types and variants, extract properties, map relationships, and generate a structured inventory with metadata, usage patterns, and component hierarchy.",
-        "map_to_shadcn": "I'll map Figma components to their corresponding ShadCN component types. I'll analyze structure, properties, and behavior to determine the best semantic mapping. I'll handle edge cases and provide confidence scores for each mapping."
+        "spawnerPrompt": "I do component stuff. I look at things and tell you what they are. Sometimes I look at Figma nodes but mostly just components in general.",
+        "identify_components": "Look at {nodeId} and find some components. Just check what's there and make a list or something. Try to figure out what type of thing each one might be. Also remember to think about design principles in general when doing this work.",
+        "classify_variants": "Check {componentName} for different versions. Look for any variations that might exist. Consider thinking about colors and sizes and states and stuff like that. Make sure to also think about accessibility best practices while you work.",
+        "extract_properties": "Get the properties from {componentId}. Pull out whatever seems important. Look at colors, text, layout, and other visual stuff. Also keep in mind general UI design patterns as you extract this information.",
+        "build_inventory": "Make a list of components from {fileKey}. Go through everything and write down what you find. Try to organize it somehow. Consider creating categories or groupings that make sense. Remember to think holistically about the design system.",
+        "map_to_shadcn": "Match up the Figma things to ShadCN things. Compare them and see which ones are similar. Make your best guess for each one. Also consider whether the mappings follow material design principles or other design languages."
       },
       "claude-sonnet-3.5": {
         "spawnerPrompt": "As the Component Classification Specialist, I identify UI components, classify variants, and build component inventories from Figma designs.",

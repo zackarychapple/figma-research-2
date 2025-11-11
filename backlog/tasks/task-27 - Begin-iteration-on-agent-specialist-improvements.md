@@ -4,11 +4,13 @@ title: Begin iteration on agent specialist improvements
 status: To Do
 assignee: []
 created_date: '2025-11-10 21:35'
+updated_date: '2025-11-11 00:10'
 labels:
   - agent-specialists
   - iteration
   - optimization
-dependencies: []
+dependencies:
+  - task-26
 priority: medium
 ---
 

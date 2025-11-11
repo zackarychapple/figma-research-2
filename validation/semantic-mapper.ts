@@ -265,6 +265,28 @@ export class ShadCNComponentSchemas {
       this.getTabsSchema(),
       this.getAccordionSchema(),
       this.getMenubarSchema(),
+      // Phase 3: Data Display
+      this.getTableSchema(),
+      this.getChartSchema(),
+      this.getCarouselSchema(),
+      this.getTooltipSchema(),
+      this.getHoverCardSchema(),
+      this.getSkeletonSchema(),
+      this.getProgressSchema(),
+      this.getEmptySchema(),
+      // Phase 4: Feedback & Overlays
+      this.getDrawerSchema(),
+      this.getSheetSchema(),
+      this.getPopoverSchema(),
+      this.getSonnerSchema(),
+      this.getSpinnerSchema(),
+      // Phase 5: Advanced Inputs
+      this.getCalendarSchema(),
+      this.getDatePickerSchema(),
+      this.getInputOTPSchema(),
+      this.getInputGroupSchema(),
+      this.getComboboxSchema(),
+      this.getCommandSchema(),
     ];
   }
 
@@ -752,7 +774,7 @@ export class ShadCNComponentSchemas {
 
   static getAlertSchema(): ShadCNComponentSchema {
     return {
-      componentType: 'Container',
+      componentType: 'Alert',
       shadcnName: 'Alert',
       description: 'An alert banner with title and description',
       wrapperComponent: 'Alert',
@@ -1222,6 +1244,1193 @@ export class ShadCNComponentSchemas {
           ]
         }
       ]
+    };
+  }
+
+  /**
+   * Calendar component schema (Phase 5)
+   */
+  static getCalendarSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Calendar',
+      shadcnName: 'Calendar',
+      description: 'A calendar component for date selection with month/year navigation',
+      wrapperComponent: 'Calendar',
+      importPath: '@/components/ui/calendar',
+      slots: [
+        {
+          name: 'CalendarHeader',
+          required: false,
+          description: 'Header with month/year and navigation',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "header"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['header', 'nav', 'navigation'])
+            },
+            {
+              type: 'position',
+              weight: 0.3,
+              description: 'Node is at top',
+              matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+            },
+            {
+              type: 'semantic',
+              weight: 0.2,
+              description: 'Contains navigation arrows and month/year',
+              matcher: (node, ctx) => {
+                const hasArrows = node.children?.some(c => {
+                  const name = c.name.toLowerCase();
+                  return name.includes('prev') || name.includes('next') || name.includes('arrow');
+                });
+                return hasArrows ? 0.8 : 0;
+              }
+            }
+          ]
+        },
+        {
+          name: 'CalendarGrid',
+          required: true,
+          description: 'Grid of days',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "grid", "days", or "week"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['grid', 'days', 'week', 'body'])
+            },
+            {
+              type: 'hierarchy',
+              weight: 0.3,
+              description: 'Contains multiple day cells',
+              matcher: (node, ctx) => {
+                const dayCount = node.children?.filter(c => {
+                  const name = c.name.toLowerCase();
+                  return name.includes('day') || name.match(/\b\d{1,2}\b/);
+                }).length || 0;
+                return dayCount >= 7 ? 1.0 : dayCount >= 3 ? 0.5 : 0;
+              }
+            },
+            {
+              type: 'semantic',
+              weight: 0.2,
+              description: 'Grid-like structure',
+              matcher: (node, ctx) => {
+                return node.layoutMode === 'VERTICAL' || (node.children?.length || 0) >= 7 ? 0.8 : 0;
+              }
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * DatePicker component schema (Phase 5)
+   */
+  static getDatePickerSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'DatePicker',
+      shadcnName: 'DatePicker',
+      description: 'A date picker combining an input field with a calendar popover',
+      wrapperComponent: 'DatePicker',
+      importPath: '@/components/ui/date-picker',
+      slots: [
+        {
+          name: 'DatePickerTrigger',
+          required: true,
+          description: 'Input trigger button',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "trigger", "input", or "button"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['trigger', 'input', 'button', 'field'])
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'Usually first or visible element',
+              matcher: (node, ctx) => ctx.nodeIndex <= 1 ? 0.8 : 0.4
+            },
+            {
+              type: 'semantic',
+              weight: 0.2,
+              description: 'Contains text or icon',
+              matcher: (node, ctx) => {
+                const hasText = DetectionRules.hasTextContent(node);
+                const hasIcon = node.children?.some(c => c.name.toLowerCase().includes('icon')) ? 0.5 : 0;
+                return Math.max(hasText, hasIcon);
+              }
+            }
+          ]
+        },
+        {
+          name: 'DatePickerContent',
+          required: true,
+          description: 'Popover containing the calendar',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "content", "calendar", or "popover"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'calendar', 'popover', 'dropdown'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.3,
+              description: 'Contains calendar-like structure',
+              matcher: (node, ctx) => {
+                const hasCalendar = node.children?.some(c => {
+                  const name = c.name.toLowerCase();
+                  return name.includes('calendar') || name.includes('grid') || name.includes('day');
+                });
+                return hasCalendar ? 1.0 : 0;
+              }
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'Usually second element',
+              matcher: (node, ctx) => ctx.nodeIndex === 1 ? 0.8 : ctx.nodeIndex === 0 ? 0.5 : 0.3
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * InputOTP component schema (Phase 5)
+   */
+  static getInputOTPSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'InputOTP',
+      shadcnName: 'InputOTP',
+      description: 'A segmented input for one-time passwords or verification codes',
+      wrapperComponent: 'InputOTP',
+      importPath: '@/components/ui/input-otp',
+      slots: [
+        {
+          name: 'InputOTPGroup',
+          required: true,
+          description: 'Group of OTP slots',
+          allowsMultiple: true,
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "group"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['group', 'container'])
+            },
+            {
+              type: 'hierarchy',
+              weight: 0.3,
+              description: 'Contains multiple slot children',
+              matcher: (node, ctx) => {
+                const slotCount = node.children?.filter(c => {
+                  const name = c.name.toLowerCase();
+                  return name.includes('slot') || name.includes('box') || name.includes('digit');
+                }).length || 0;
+                return slotCount >= 2 ? 1.0 : slotCount === 1 ? 0.5 : 0;
+              }
+            },
+            {
+              type: 'semantic',
+              weight: 0.2,
+              description: 'Horizontal layout',
+              matcher: (node, ctx) => node.layoutMode === 'HORIZONTAL' ? 0.9 : 0
+            }
+          ],
+          children: [
+            {
+              name: 'InputOTPSlot',
+              required: true,
+              description: 'Individual OTP digit slot',
+              allowsMultiple: true,
+              detectionRules: [
+                {
+                  type: 'name_pattern',
+                  weight: 0.6,
+                  description: 'Node name contains "slot", "box", or "digit"',
+                  matcher: (node, ctx) => DetectionRules.nameMatches(node, ['slot', 'box', 'digit', 'char', 'input'])
+                },
+                {
+                  type: 'semantic',
+                  weight: 0.4,
+                  description: 'Square-ish shape',
+                  matcher: (node, ctx) => {
+                    if (node.size && Math.abs(node.size.x - node.size.y) < 10) {
+                      return 1.0;
+                    }
+                    return 0;
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * InputGroup component schema (Phase 5)
+   */
+  static getInputGroupSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'InputGroup',
+      shadcnName: 'InputGroup',
+      description: 'An input field with optional prefix/suffix addons or elements',
+      wrapperComponent: 'InputGroup',
+      importPath: '@/components/ui/input-group',
+      slots: [
+        {
+          name: 'InputGroupAddon',
+          required: false,
+          description: 'Addon element (prefix or suffix)',
+          allowsMultiple: true,
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "addon", "prefix", or "suffix"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['addon', 'prefix', 'suffix', 'start', 'end'])
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'At start or end position',
+              matcher: (node, ctx) => {
+                const isFirst = ctx.nodeIndex === 0;
+                const isLast = ctx.nodeIndex === ctx.allSiblings.length - 1;
+                return (isFirst || isLast) ? 0.9 : 0.3;
+              }
+            },
+            {
+              type: 'content_type',
+              weight: 0.2,
+              description: 'Contains text, icon, or button',
+              matcher: (node, ctx) => {
+                const hasText = DetectionRules.hasTextContent(node);
+                const hasIcon = node.children?.some(c => c.name.toLowerCase().includes('icon')) ? 0.7 : 0;
+                const hasButton = node.children?.some(c => c.name.toLowerCase().includes('button')) ? 0.7 : 0;
+                return Math.max(hasText, hasIcon, hasButton);
+              }
+            }
+          ]
+        },
+        {
+          name: 'Input',
+          required: true,
+          description: 'Main input field',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.7,
+              description: 'Node name contains "input" or "field"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['input', 'field', 'textbox'])
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'Usually in middle or prominent position',
+              matcher: (node, ctx) => {
+                const total = ctx.allSiblings.length;
+                return total > 1 ? 0.8 : 1.0;
+              }
+            },
+            {
+              type: 'semantic',
+              weight: 0.1,
+              description: 'Input-like appearance',
+              matcher: (node, ctx) => {
+                // Inputs typically have borders
+                const hasBorder = node.strokes && node.strokes.length > 0;
+                return hasBorder ? 0.7 : 0.3;
+              }
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Combobox component schema (Phase 5)
+   */
+  static getComboboxSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Combobox',
+      shadcnName: 'Combobox',
+      description: 'A searchable select combining an input with a command list',
+      wrapperComponent: 'Combobox',
+      importPath: '@/components/ui/combobox',
+      slots: [
+        {
+          name: 'ComboboxTrigger',
+          required: true,
+          description: 'Trigger button/input',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "trigger", "input", or "button"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['trigger', 'input', 'button', 'search'])
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'Usually first visible element',
+              matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+            },
+            {
+              type: 'semantic',
+              weight: 0.2,
+              description: 'Contains input or text',
+              matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+            }
+          ]
+        },
+        {
+          name: 'ComboboxContent',
+          required: true,
+          description: 'Dropdown content with command list',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "content", "dropdown", "list", or "menu"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'dropdown', 'list', 'menu', 'popover', 'command'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.3,
+              description: 'Contains list items',
+              matcher: (node, ctx) => {
+                const hasItems = node.children?.some(c => {
+                  const name = c.name.toLowerCase();
+                  return name.includes('item') || name.includes('option');
+                });
+                return hasItems ? 1.0 : (node.children?.length || 0) >= 2 ? 0.5 : 0;
+              }
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'After trigger',
+              matcher: (node, ctx) => ctx.nodeIndex >= 1 ? 0.8 : 0
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Command component schema (Phase 5)
+   */
+  static getCommandSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Command',
+      shadcnName: 'Command',
+      description: 'A command palette with search and keyboard shortcuts',
+      wrapperComponent: 'Command',
+      importPath: '@/components/ui/command',
+      slots: [
+        {
+          name: 'CommandInput',
+          required: false,
+          description: 'Search input field',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.7,
+              description: 'Node name contains "input" or "search"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['input', 'search', 'filter'])
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'Usually at top',
+              matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+            },
+            {
+              type: 'content_type',
+              weight: 0.1,
+              description: 'Text input',
+              matcher: (node, ctx) => node.type === 'TEXT' ? 1.0 : DetectionRules.hasTextContent(node)
+            }
+          ]
+        },
+        {
+          name: 'CommandList',
+          required: true,
+          description: 'List of command items',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "list", "group", or "items"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['list', 'group', 'items', 'content'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.3,
+              description: 'Contains multiple items',
+              matcher: (node, ctx) => {
+                const itemCount = node.children?.filter(c => {
+                  const name = c.name.toLowerCase();
+                  return name.includes('item') || name.includes('option') || name.includes('command');
+                }).length || 0;
+                return itemCount >= 2 ? 1.0 : itemCount === 1 ? 0.5 : 0;
+              }
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'After input or at top',
+              matcher: (node, ctx) => ctx.nodeIndex <= 1 ? 0.8 : 0.5
+            }
+          ],
+          children: [
+            {
+              name: 'CommandGroup',
+              required: false,
+              description: 'Group of related commands',
+              allowsMultiple: true,
+              detectionRules: [
+                {
+                  type: 'name_pattern',
+                  weight: 0.6,
+                  description: 'Node name contains "group" or "section"',
+                  matcher: (node, ctx) => DetectionRules.nameMatches(node, ['group', 'section', 'category'])
+                },
+                {
+                  type: 'hierarchy',
+                  weight: 0.4,
+                  description: 'Contains multiple items',
+                  matcher: (node, ctx) => (node.children?.length || 0) >= 2 ? 0.9 : 0
+                }
+              ],
+              children: [
+                {
+                  name: 'CommandItem',
+                  required: true,
+                  description: 'Individual command item',
+                  allowsMultiple: true,
+                  detectionRules: [
+                    {
+                      type: 'name_pattern',
+                      weight: 0.7,
+                      description: 'Node name contains "item", "option", or "command"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['item', 'option', 'command', 'action'])
+                    },
+                    {
+                      type: 'content_type',
+                      weight: 0.3,
+                      description: 'Contains text and optional icon/shortcut',
+                      matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Drawer component schema
+   */
+  static getDrawerSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Drawer',
+      shadcnName: 'Drawer',
+      description: 'A drawer component that slides in from the edge of the screen',
+      wrapperComponent: 'Drawer',
+      importPath: '@/components/ui/drawer',
+      slots: [
+        {
+          name: 'DrawerTrigger',
+          required: true,
+          description: 'Button or element that triggers the drawer',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.7,
+              description: 'Node name contains "trigger" or "button"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['trigger', 'button', 'open'])
+            },
+            {
+              type: 'position',
+              weight: 0.3,
+              description: 'Usually first child',
+              matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+            }
+          ]
+        },
+        {
+          name: 'DrawerContent',
+          required: true,
+          description: 'Main drawer panel content',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "content" or "panel"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'panel', 'drawer'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.4,
+              description: 'Large container with multiple children',
+              matcher: (node, ctx) => (node.children?.length || 0) >= 2 ? 0.9 : 0.5
+            }
+          ],
+          children: [
+            {
+              name: 'DrawerHeader',
+              required: false,
+              description: 'Header section with title',
+              detectionRules: [
+                {
+                  type: 'semantic',
+                  weight: 0.6,
+                  description: 'Node looks like header',
+                  matcher: (node, ctx) => DetectionRules.isHeaderLike(node, ctx)
+                },
+                {
+                  type: 'position',
+                  weight: 0.4,
+                  description: 'At top of content',
+                  matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+                }
+              ],
+              children: [
+                {
+                  name: 'DrawerTitle',
+                  required: false,
+                  description: 'Drawer title',
+                  detectionRules: [
+                    {
+                      type: 'semantic',
+                      weight: 0.7,
+                      description: 'Node looks like title',
+                      matcher: (node, ctx) => DetectionRules.isTitleLike(node, ctx)
+                    },
+                    {
+                      type: 'name_pattern',
+                      weight: 0.3,
+                      description: 'Node name contains "title"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['title'])
+                    }
+                  ]
+                },
+                {
+                  name: 'DrawerDescription',
+                  required: false,
+                  description: 'Drawer description',
+                  detectionRules: [
+                    {
+                      type: 'semantic',
+                      weight: 0.7,
+                      description: 'Node looks like description',
+                      matcher: (node, ctx) => DetectionRules.isDescriptionLike(node, ctx)
+                    },
+                    {
+                      type: 'name_pattern',
+                      weight: 0.3,
+                      description: 'Node name contains "description"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['description'])
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              name: 'DrawerFooter',
+              required: false,
+              description: 'Footer with action buttons',
+              detectionRules: [
+                {
+                  type: 'semantic',
+                  weight: 0.6,
+                  description: 'Node looks like footer',
+                  matcher: (node, ctx) => DetectionRules.isFooterLike(node, ctx)
+                },
+                {
+                  type: 'position',
+                  weight: 0.4,
+                  description: 'At bottom',
+                  matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'bottom')
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Sheet component schema
+   */
+  static getSheetSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Sheet',
+      shadcnName: 'Sheet',
+      description: 'A sheet component (modal that slides from the edge)',
+      wrapperComponent: 'Sheet',
+      importPath: '@/components/ui/sheet',
+      slots: [
+        {
+          name: 'SheetTrigger',
+          required: true,
+          description: 'Button or element that triggers the sheet',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.7,
+              description: 'Node name contains "trigger" or "button"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['trigger', 'button', 'open'])
+            },
+            {
+              type: 'position',
+              weight: 0.3,
+              description: 'Usually first child',
+              matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+            }
+          ]
+        },
+        {
+          name: 'SheetContent',
+          required: true,
+          description: 'Main sheet modal content',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "content" or "modal"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'modal', 'sheet'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.4,
+              description: 'Large container with multiple children',
+              matcher: (node, ctx) => (node.children?.length || 0) >= 2 ? 0.9 : 0.5
+            }
+          ],
+          children: [
+            {
+              name: 'SheetHeader',
+              required: false,
+              description: 'Header section with title',
+              detectionRules: [
+                {
+                  type: 'semantic',
+                  weight: 0.6,
+                  description: 'Node looks like header',
+                  matcher: (node, ctx) => DetectionRules.isHeaderLike(node, ctx)
+                },
+                {
+                  type: 'position',
+                  weight: 0.4,
+                  description: 'At top of content',
+                  matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+                }
+              ],
+              children: [
+                {
+                  name: 'SheetTitle',
+                  required: false,
+                  description: 'Sheet title',
+                  detectionRules: [
+                    {
+                      type: 'semantic',
+                      weight: 0.7,
+                      description: 'Node looks like title',
+                      matcher: (node, ctx) => DetectionRules.isTitleLike(node, ctx)
+                    },
+                    {
+                      type: 'name_pattern',
+                      weight: 0.3,
+                      description: 'Node name contains "title"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['title'])
+                    }
+                  ]
+                },
+                {
+                  name: 'SheetDescription',
+                  required: false,
+                  description: 'Sheet description',
+                  detectionRules: [
+                    {
+                      type: 'semantic',
+                      weight: 0.7,
+                      description: 'Node looks like description',
+                      matcher: (node, ctx) => DetectionRules.isDescriptionLike(node, ctx)
+                    },
+                    {
+                      type: 'name_pattern',
+                      weight: 0.3,
+                      description: 'Node name contains "description"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['description'])
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              name: 'SheetFooter',
+              required: false,
+              description: 'Footer with action buttons',
+              detectionRules: [
+                {
+                  type: 'semantic',
+                  weight: 0.6,
+                  description: 'Node looks like footer',
+                  matcher: (node, ctx) => DetectionRules.isFooterLike(node, ctx)
+                },
+                {
+                  type: 'position',
+                  weight: 0.4,
+                  description: 'At bottom',
+                  matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'bottom')
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Popover component schema
+   */
+  static getPopoverSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Popover',
+      shadcnName: 'Popover',
+      description: 'A popover component (small overlay)',
+      wrapperComponent: 'Popover',
+      importPath: '@/components/ui/popover',
+      slots: [
+        {
+          name: 'PopoverTrigger',
+          required: true,
+          description: 'Button or element that triggers the popover',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.7,
+              description: 'Node name contains "trigger" or "button"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['trigger', 'button'])
+            },
+            {
+              type: 'position',
+              weight: 0.3,
+              description: 'Usually first child',
+              matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+            }
+          ]
+        },
+        {
+          name: 'PopoverContent',
+          required: true,
+          description: 'Popover overlay content',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "content" or "body"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'body', 'popover'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.4,
+              description: 'Small container',
+              matcher: (node, ctx) => node.size && node.size.x < 400 && node.size.y < 300 ? 0.8 : 0.5
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Sonner (Toast) component schema
+   */
+  static getSonnerSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Sonner',
+      shadcnName: 'Sonner',
+      description: 'A toast notification component (Sonner library)',
+      wrapperComponent: 'Toaster',
+      importPath: '@/components/ui/sonner',
+      slots: []
+    };
+  }
+
+  /**
+   * Spinner component schema
+   */
+  static getSpinnerSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Spinner',
+      shadcnName: 'Spinner',
+      description: 'A loading spinner component',
+      wrapperComponent: 'Spinner',
+      importPath: '@/components/ui/spinner',
+      slots: []
+    };
+  }
+
+  /**
+   * Table component schema (Phase 3)
+   */
+  static getTableSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Table',
+      shadcnName: 'Table',
+      description: 'A table component with thead, tbody, tr, td, th structure',
+      wrapperComponent: 'Table',
+      importPath: '@/components/ui/table',
+      slots: [
+        {
+          name: 'TableHeader',
+          required: false,
+          description: 'Table header section (thead)',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "header", "thead", or "head"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['header', 'thead', 'head', 'table-header'])
+            },
+            {
+              type: 'position',
+              weight: 0.3,
+              description: 'First child (header at top)',
+              matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+            },
+            {
+              type: 'semantic',
+              weight: 0.1,
+              description: 'Contains header-like children',
+              matcher: (node, ctx) => DetectionRules.isHeaderLike(node, ctx)
+            }
+          ],
+          children: [
+            {
+              name: 'TableRow',
+              required: true,
+              description: 'Header row containing TableHead cells',
+              detectionRules: [
+                {
+                  type: 'name_pattern',
+                  weight: 0.7,
+                  description: 'Node name contains "row" or "tr"',
+                  matcher: (node, ctx) => DetectionRules.nameMatches(node, ['row', 'tr', 'table-row'])
+                },
+                {
+                  type: 'hierarchy',
+                  weight: 0.3,
+                  description: 'Horizontal layout with multiple children',
+                  matcher: (node, ctx) => node.layoutMode === 'HORIZONTAL' && (node.children?.length || 0) >= 2 ? 1.0 : 0
+                }
+              ],
+              children: [
+                {
+                  name: 'TableHead',
+                  required: true,
+                  description: 'Header cell (th)',
+                  allowsMultiple: true,
+                  detectionRules: [
+                    {
+                      type: 'name_pattern',
+                      weight: 0.7,
+                      description: 'Node name contains "head", "th", or "header"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['head', 'th', 'header', 'table-head'])
+                    },
+                    {
+                      type: 'content_type',
+                      weight: 0.3,
+                      description: 'Contains text',
+                      matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: 'TableBody',
+          required: true,
+          description: 'Table body section (tbody)',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "body", "tbody", or "rows"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['body', 'tbody', 'rows', 'table-body'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.4,
+              description: 'Contains multiple row-like children',
+              matcher: (node, ctx) => (node.children?.length || 0) >= 2 ? 0.9 : 0
+            }
+          ],
+          children: [
+            {
+              name: 'TableRow',
+              required: true,
+              description: 'Data row containing TableCell elements',
+              allowsMultiple: true,
+              detectionRules: [
+                {
+                  type: 'name_pattern',
+                  weight: 0.7,
+                  description: 'Node name contains "row" or "tr"',
+                  matcher: (node, ctx) => DetectionRules.nameMatches(node, ['row', 'tr', 'table-row'])
+                },
+                {
+                  type: 'hierarchy',
+                  weight: 0.3,
+                  description: 'Horizontal layout with multiple children',
+                  matcher: (node, ctx) => node.layoutMode === 'HORIZONTAL' && (node.children?.length || 0) >= 2 ? 1.0 : 0
+                }
+              ],
+              children: [
+                {
+                  name: 'TableCell',
+                  required: true,
+                  description: 'Data cell (td)',
+                  allowsMultiple: true,
+                  detectionRules: [
+                    {
+                      type: 'name_pattern',
+                      weight: 0.7,
+                      description: 'Node name contains "cell" or "td"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['cell', 'td', 'table-cell'])
+                    },
+                    {
+                      type: 'content_type',
+                      weight: 0.3,
+                      description: 'Contains text or content',
+                      matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Chart component schema (Phase 3)
+   */
+  static getChartSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Chart',
+      shadcnName: 'Chart',
+      description: 'A chart/graph component for data visualization',
+      wrapperComponent: 'Chart',
+      importPath: '@/components/ui/chart',
+      slots: []
+    };
+  }
+
+  /**
+   * Carousel component schema (Phase 3)
+   */
+  static getCarouselSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Carousel',
+      shadcnName: 'Carousel',
+      description: 'A carousel component with slides and navigation',
+      wrapperComponent: 'Carousel',
+      importPath: '@/components/ui/carousel',
+      slots: [
+        {
+          name: 'CarouselContent',
+          required: true,
+          description: 'Container for carousel items',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "content", "container", "track", or "viewport"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'container', 'track', 'viewport'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.4,
+              description: 'Contains multiple item children',
+              matcher: (node, ctx) => (node.children?.length || 0) >= 2 ? 1.0 : 0
+            }
+          ],
+          children: [
+            {
+              name: 'CarouselItem',
+              required: true,
+              description: 'Individual carousel slide',
+              allowsMultiple: true,
+              detectionRules: [
+                {
+                  type: 'name_pattern',
+                  weight: 0.7,
+                  description: 'Node name contains "item", "slide", or "card"',
+                  matcher: (node, ctx) => DetectionRules.nameMatches(node, ['item', 'slide', 'card'])
+                },
+                {
+                  type: 'hierarchy',
+                  weight: 0.3,
+                  description: 'Child of carousel content',
+                  matcher: (node, ctx) => 0.8
+                }
+              ]
+            }
+          ]
+        },
+        {
+          name: 'CarouselPrevious',
+          required: false,
+          description: 'Previous navigation button',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.8,
+              description: 'Node name contains "prev" or "previous"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['prev', 'previous', 'left', 'back'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.2,
+              description: 'Button-like element',
+              matcher: (node, ctx) => node.type === 'INSTANCE' || node.type === 'COMPONENT' ? 0.8 : 0
+            }
+          ]
+        },
+        {
+          name: 'CarouselNext',
+          required: false,
+          description: 'Next navigation button',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.8,
+              description: 'Node name contains "next"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['next', 'right', 'forward'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.2,
+              description: 'Button-like element',
+              matcher: (node, ctx) => node.type === 'INSTANCE' || node.type === 'COMPONENT' ? 0.8 : 0
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Tooltip component schema (Phase 3)
+   */
+  static getTooltipSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Tooltip',
+      shadcnName: 'Tooltip',
+      description: 'A tooltip component that displays on hover',
+      wrapperComponent: 'Tooltip',
+      importPath: '@/components/ui/tooltip',
+      slots: []
+    };
+  }
+
+  /**
+   * HoverCard component schema (Phase 3)
+   */
+  static getHoverCardSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'HoverCard',
+      shadcnName: 'HoverCard',
+      description: 'A hover card with richer content than tooltip',
+      wrapperComponent: 'HoverCard',
+      importPath: '@/components/ui/hover-card',
+      slots: [
+        {
+          name: 'HoverCardContent',
+          required: true,
+          description: 'Content of the hover card',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.6,
+              description: 'Node name contains "content"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'body'])
+            },
+            {
+              type: 'hierarchy',
+              weight: 0.4,
+              description: 'Main container',
+              matcher: (node, ctx) => 0.9
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Skeleton component schema (Phase 3)
+   */
+  static getSkeletonSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Skeleton',
+      shadcnName: 'Skeleton',
+      description: 'A loading skeleton placeholder',
+      wrapperComponent: 'Skeleton',
+      importPath: '@/components/ui/skeleton',
+      slots: []
+    };
+  }
+
+  /**
+   * Progress component schema (Phase 3)
+   */
+  static getProgressSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Progress',
+      shadcnName: 'Progress',
+      description: 'A progress bar component',
+      wrapperComponent: 'Progress',
+      importPath: '@/components/ui/progress',
+      slots: []
+    };
+  }
+
+  /**
+   * Empty component schema (Phase 3)
+   */
+  static getEmptySchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Empty',
+      shadcnName: 'Empty',
+      description: 'An empty state component with icon and message',
+      wrapperComponent: 'Empty',
+      importPath: '@/components/ui/empty',
+      slots: []
     };
   }
 }

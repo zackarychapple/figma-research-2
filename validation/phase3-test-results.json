@@ -1,0 +1,177 @@
+{
+  "timestamp": "2025-11-11T00:28:19.929Z",
+  "summary": {
+    "total": 25,
+    "passed": 14,
+    "failed": 11,
+    "byComponent": {
+      "Table": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      },
+      "Chart": {
+        "total": 4,
+        "passed": 4,
+        "failed": 0
+      },
+      "Carousel": {
+        "total": 2,
+        "passed": 1,
+        "failed": 1
+      },
+      "Tooltip": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      },
+      "HoverCard": {
+        "total": 2,
+        "passed": 0,
+        "failed": 2
+      },
+      "Skeleton": {
+        "total": 3,
+        "passed": 0,
+        "failed": 3
+      },
+      "Progress": {
+        "total": 4,
+        "passed": 2,
+        "failed": 2
+      },
+      "Empty": {
+        "total": 4,
+        "passed": 1,
+        "failed": 3
+      }
+    }
+  },
+  "failedTests": [
+    {
+      "name": "Carousel, Orientation=Horizontal, Dots=Yes, Arrows=Yes",
+      "expected": "Carousel",
+      "actual": "Table",
+      "confidence": 0.4,
+      "description": "Horizontal carousel with navigation",
+      "reasons": [
+        "Has 2 row-like children",
+        "Size suggests table layout"
+      ]
+    },
+    {
+      "name": "HoverCard, Side=Top",
+      "expected": "HoverCard",
+      "actual": "Tooltip",
+      "confidence": 0.8999999999999999,
+      "description": "Hover card with header and content",
+      "reasons": [
+        "Has Side variant (tooltip positioning)",
+        "Contains arrow/pointer element",
+        "Contains text content",
+        "Has shadow (floating appearance)"
+      ]
+    },
+    {
+      "name": "Hover Popover Card",
+      "expected": "HoverCard",
+      "actual": "Tooltip",
+      "confidence": 0.4,
+      "description": "Hover card with multiple sections",
+      "reasons": [
+        "Contains text content",
+        "Has shadow (floating appearance)"
+      ]
+    },
+    {
+      "name": "Skeleton, Shape=Rectangle, Animated=Yes",
+      "expected": "Skeleton",
+      "actual": "Tooltip",
+      "confidence": 0.4,
+      "description": "Animated skeleton rectangle",
+      "reasons": [
+        "Small size typical of tooltip",
+        "Has border or background"
+      ]
+    },
+    {
+      "name": "Skeleton, Shape=Circle",
+      "expected": "Skeleton",
+      "actual": "Tooltip",
+      "confidence": 0.4,
+      "description": "Circular skeleton",
+      "reasons": [
+        "Small size typical of tooltip",
+        "Has border or background"
+      ]
+    },
+    {
+      "name": "Loading Placeholder",
+      "expected": "Skeleton",
+      "actual": "HoverCard",
+      "confidence": 0.5,
+      "description": "Multi-line skeleton placeholder",
+      "reasons": [
+        "Multiple content sections (richer than tooltip)",
+        "Medium size typical of hover card"
+      ]
+    },
+    {
+      "name": "Progress, Type=Linear, Value=50",
+      "expected": "Progress",
+      "actual": "Chart",
+      "confidence": 0.6,
+      "description": "Linear progress bar",
+      "reasons": [
+        "Contains chart type: line",
+        "Has Type variant with chart type value"
+      ]
+    },
+    {
+      "name": "ProgressBar",
+      "expected": "Progress",
+      "actual": "Chart",
+      "confidence": 0.5,
+      "description": "Progress bar with track and indicator",
+      "reasons": [
+        "Contains chart type: bar",
+        "Contains data visualization elements"
+      ]
+    },
+    {
+      "name": "Empty State",
+      "expected": "Empty",
+      "actual": "HoverCard",
+      "confidence": 0.8,
+      "description": "Complete empty state with icon, text, and action",
+      "reasons": [
+        "Has structured content sections",
+        "Multiple content sections (richer than tooltip)",
+        "Medium size typical of hover card"
+      ]
+    },
+    {
+      "name": "Zero State",
+      "expected": "Empty",
+      "actual": "HoverCard",
+      "confidence": 0.8,
+      "description": "Zero state placeholder",
+      "reasons": [
+        "Has structured content sections",
+        "Multiple content sections (richer than tooltip)",
+        "Medium size typical of hover card"
+      ]
+    },
+    {
+      "name": "Blank Slate",
+      "expected": "Empty",
+      "actual": "HoverCard",
+      "confidence": 0.6,
+      "description": "Blank slate empty state",
+      "reasons": [
+        "Has structured content sections",
+        "Medium size typical of hover card"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "summary": {
+    "totalTests": 4,
+    "correctTests": 1,
+    "incorrectTests": 3,
+    "accuracy": "25.00%",
+    "averageConfidence": "0.613",
+    "passedTarget": false,
+    "defaultAlerts": 3,
+    "defaultAccuracy": "33.33%",
+    "destructiveAlerts": 1,
+    "destructiveAccuracy": "0.00%"
+  },
+  "failures": [
+    {
+      "name": "Alert: Variant=Default",
+      "expected": "Alert",
+      "actual": "HoverCard",
+      "confidence": 0.5,
+      "reasons": [
+        "Has structured content sections",
+        "Multiple content sections (richer than tooltip)"
+      ],
+      "description": "Default alert with icon, title, and description"
+    },
+    {
+      "name": "Alert: Variant=Destructive",
+      "expected": "Alert",
+      "actual": "HoverCard",
+      "confidence": 0.5,
+      "reasons": [
+        "Has structured content sections",
+        "Multiple content sections (richer than tooltip)"
+      ],
+      "description": "Destructive alert with error message"
+    },
+    {
+      "name": "Custom Alert Component",
+      "expected": "Alert",
+      "actual": "Empty",
+      "confidence": 0.55,
+      "reasons": [
+        "Contains icon/illustration",
+        "Contains title/heading text"
+      ],
+      "description": "Custom alert with alternative naming"
+    }
+  ],
+  "allResults": [
+    {
+      "name": "Alert: Variant=Default",
+      "expected": "Alert",
+      "actual": "HoverCard",
+      "confidence": 0.5,
+      "reasons": [
+        "Has structured content sections",
+        "Multiple content sections (richer than tooltip)"
+      ],
+      "correct": false,
+      "description": "Default alert with icon, title, and description",
+      "variant": "default"
+    },
+    {
+      "name": "Alert: Variant=Destructive",
+      "expected": "Alert",
+      "actual": "HoverCard",
+      "confidence": 0.5,
+      "reasons": [
+        "Has structured content sections",
+        "Multiple content sections (richer than tooltip)"
+      ],
+      "correct": false,
+      "description": "Destructive alert with error message",
+      "variant": "destructive"
+    },
+    {
+      "name": "Alert",
+      "expected": "Alert",
+      "actual": "Alert",
+      "confidence": 0.9,
+      "reasons": [
+        "Name contains \"alert\" (but not \"dialog\")",
+        "Wide horizontal layout typical of alert banner"
+      ],
+      "correct": true,
+      "description": "Minimal alert with just message",
+      "variant": "default"
+    },
+    {
+      "name": "Custom Alert Component",
+      "expected": "Alert",
+      "actual": "Empty",
+      "confidence": 0.55,
+      "reasons": [
+        "Contains icon/illustration",
+        "Contains title/heading text"
+      ],
+      "correct": false,
+      "description": "Custom alert with alternative naming",
+      "variant": "default"
+    }
+  ]
+}

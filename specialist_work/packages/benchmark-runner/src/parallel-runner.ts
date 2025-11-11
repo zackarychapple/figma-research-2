@@ -172,7 +172,7 @@ async function executeZeBenchmark(
   evaluationDetails?: any;
 }> {
   return new Promise((resolve, reject) => {
-    const benchCmd = resolvePath(executionConfig.zeBenchmarksPath, 'packages/harness/dist/cli.js');
+    const benchCmd = resolvePath(executionConfig.zeBenchmarksPath, 'packages/harness/src/cli.ts');
 
     // Determine agent based on model
     const agent = determineAgent(model);
@@ -188,9 +188,9 @@ async function executeZeBenchmark(
       '--no-json',
     ];
 
-    logger.debug(`Executing: node ${args.join(' ')}`);
+    logger.debug(`Executing: tsx ${args.join(' ')}`);
 
-    const proc = spawn('node', args, {
+    const proc = spawn('tsx', args, {
       cwd: executionConfig.zeBenchmarksPath,
       env: {
         ...process.env,
