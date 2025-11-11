@@ -191,3 +191,167 @@
 [DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-coordination --tier L0-minimal --agent openrouter --model gpt-4o --no-json
 [==========================                        ] 53% (68/129) - figma-research/orchestration-coordination/L1-basic[DEBUG] Executing: figma-research/orchestration-coordination/L1-basic with gpt-4o
 [DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-coordination --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[==========================                        ] 53% (69/129) - figma-research/orchestration-coordination/L2-directed[DEBUG] Executing: figma-research/orchestration-coordination/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-coordination --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[===========================                       ] 54% (70/129) - figma-research/orchestration-errors/L0-minimal[DEBUG] Executing: figma-research/orchestration-errors/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-errors --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[===========================                       ] 55% (71/129) - figma-research/orchestration-errors/L1-basic[DEBUG] Executing: figma-research/orchestration-errors/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-errors --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[============================                      ] 56% (72/129) - figma-research/orchestration-errors/L2-directed[DEBUG] Executing: figma-research/orchestration-errors/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-errors --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[============================                      ] 57% (73/129) - figma-research/orchestration-iterations/L0-minimal[DEBUG] Executing: figma-research/orchestration-iterations/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-iterations --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[============================                      ] 57% (74/129) - figma-research/orchestration-iterations/L1-basic[DEBUG] Executing: figma-research/orchestration-iterations/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-iterations --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[=============================                     ] 58% (75/129) - figma-research/orchestration-iterations/L2-directed[DEBUG] Executing: figma-research/orchestration-iterations/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-iterations --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[=============================                     ] 59% (76/129) - figma-research/orchestration-metrics/L0-minimal[DEBUG] Executing: figma-research/orchestration-metrics/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-metrics --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[==============================                    ] 60% (77/129) - figma-research/orchestration-metrics/L1-basic[DEBUG] Executing: figma-research/orchestration-metrics/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-metrics --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[==============================                    ] 60% (78/129) - figma-research/orchestration-metrics/L2-directed[DEBUG] Executing: figma-research/orchestration-metrics/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-metrics --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[==============================                    ] 61% (79/129) - figma-research/orchestration-performance/L0-minimal[DEBUG] Executing: figma-research/orchestration-performance/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-performance --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[===============================                   ] 62% (80/129) - figma-research/orchestration-performance/L1-basic[DEBUG] Executing: figma-research/orchestration-performance/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-performance --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[===============================                   ] 63% (81/129) - figma-research/orchestration-performance/L2-directed[DEBUG] Executing: figma-research/orchestration-performance/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research orchestration-performance --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[================================                  ] 64% (82/129) - figma-research/performance-bottlenecks/L0-minimal[DEBUG] Executing: figma-research/performance-bottlenecks/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-bottlenecks --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[================================                  ] 64% (83/129) - figma-research/performance-bottlenecks/L1-basic[DEBUG] Executing: figma-research/performance-bottlenecks/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-bottlenecks --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[================================                  ] 65% (84/129) - figma-research/performance-bottlenecks/L2-directed[DEBUG] Executing: figma-research/performance-bottlenecks/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-bottlenecks --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[=================================                 ] 66% (85/129) - figma-research/performance-cache-hits/L0-minimal[DEBUG] Executing: figma-research/performance-cache-hits/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-cache-hits --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[=================================                 ] 67% (86/129) - figma-research/performance-cache-hits/L1-basic[DEBUG] Executing: figma-research/performance-cache-hits/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-cache-hits --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[=================================                 ] 67% (87/129) - figma-research/performance-cache-hits/L2-directed[DEBUG] Executing: figma-research/performance-cache-hits/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-cache-hits --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[==================================                ] 68% (88/129) - figma-research/performance-costs/L0-minimal[DEBUG] Executing: figma-research/performance-costs/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-costs --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[==================================                ] 69% (89/129) - figma-research/performance-costs/L1-basic[DEBUG] Executing: figma-research/performance-costs/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-costs --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[===================================               ] 70% (90/129) - figma-research/performance-costs/L2-directed[DEBUG] Executing: figma-research/performance-costs/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-costs --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[===================================               ] 71% (91/129) - figma-research/performance-latency/L0-minimal[DEBUG] Executing: figma-research/performance-latency/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-latency --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[===================================               ] 71% (92/129) - figma-research/performance-latency/L1-basic[DEBUG] Executing: figma-research/performance-latency/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-latency --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[====================================              ] 72% (93/129) - figma-research/performance-latency/L2-directed[DEBUG] Executing: figma-research/performance-latency/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-latency --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[====================================              ] 73% (94/129) - figma-research/performance-parallel/L0-minimal[DEBUG] Executing: figma-research/performance-parallel/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-parallel --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[=====================================             ] 74% (95/129) - figma-research/performance-parallel/L1-basic[DEBUG] Executing: figma-research/performance-parallel/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-parallel --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[=====================================             ] 74% (96/129) - figma-research/performance-parallel/L2-directed[DEBUG] Executing: figma-research/performance-parallel/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research performance-parallel --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[=====================================             ] 75% (97/129) - figma-research/tokens-consistency/L0-minimal[DEBUG] Executing: figma-research/tokens-consistency/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-consistency --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[======================================            ] 76% (98/129) - figma-research/tokens-consistency/L1-basic[DEBUG] Executing: figma-research/tokens-consistency/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-consistency --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[======================================            ] 77% (99/129) - figma-research/tokens-consistency/L2-directed[DEBUG] Executing: figma-research/tokens-consistency/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-consistency --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[=======================================           ] 78% (100/129) - figma-research/tokens-extraction/L0-minimal[DEBUG] Executing: figma-research/tokens-extraction/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-extraction --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[=======================================           ] 78% (101/129) - figma-research/tokens-extraction/L1-basic[DEBUG] Executing: figma-research/tokens-extraction/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-extraction --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[=======================================           ] 79% (102/129) - figma-research/tokens-extraction/L2-directed[DEBUG] Executing: figma-research/tokens-extraction/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-extraction --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[========================================          ] 80% (103/129) - figma-research/tokens-formats/L0-minimal[DEBUG] Executing: figma-research/tokens-formats/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-formats --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[========================================          ] 81% (104/129) - figma-research/tokens-formats/L1-basic[DEBUG] Executing: figma-research/tokens-formats/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-formats --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[========================================          ] 81% (105/129) - figma-research/tokens-formats/L2-directed[DEBUG] Executing: figma-research/tokens-formats/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-formats --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[=========================================         ] 82% (106/129) - figma-research/tokens-performance/L0-minimal[DEBUG] Executing: figma-research/tokens-performance/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-performance --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[=========================================         ] 83% (107/129) - figma-research/tokens-performance/L1-basic[DEBUG] Executing: figma-research/tokens-performance/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-performance --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[==========================================        ] 84% (108/129) - figma-research/tokens-performance/L2-directed[DEBUG] Executing: figma-research/tokens-performance/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-performance --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[==========================================        ] 84% (109/129) - figma-research/tokens-semantic/L0-minimal[DEBUG] Executing: figma-research/tokens-semantic/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-semantic --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[==========================================        ] 85% (110/129) - figma-research/tokens-semantic/L1-basic[DEBUG] Executing: figma-research/tokens-semantic/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-semantic --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[===========================================       ] 86% (111/129) - figma-research/tokens-semantic/L2-directed[DEBUG] Executing: figma-research/tokens-semantic/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research tokens-semantic --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[===========================================       ] 87% (112/129) - figma-research/visual-validation-feedback/L0-minimal[DEBUG] Executing: figma-research/visual-validation-feedback/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-feedback --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[============================================      ] 88% (113/129) - figma-research/visual-validation-feedback/L1-basic[DEBUG] Executing: figma-research/visual-validation-feedback/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-feedback --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[============================================      ] 88% (114/129) - figma-research/visual-validation-feedback/L2-directed[DEBUG] Executing: figma-research/visual-validation-feedback/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-feedback --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[============================================      ] 89% (115/129) - figma-research/visual-validation-latency/L0-minimal[DEBUG] Executing: figma-research/visual-validation-latency/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-latency --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[=============================================     ] 90% (116/129) - figma-research/visual-validation-latency/L1-basic[DEBUG] Executing: figma-research/visual-validation-latency/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-latency --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[=============================================     ] 91% (117/129) - figma-research/visual-validation-latency/L2-directed[DEBUG] Executing: figma-research/visual-validation-latency/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-latency --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[=============================================     ] 91% (118/129) - figma-research/visual-validation-pixel/L0-minimal[DEBUG] Executing: figma-research/visual-validation-pixel/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-pixel --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[==============================================    ] 92% (119/129) - figma-research/visual-validation-pixel/L1-basic[DEBUG] Executing: figma-research/visual-validation-pixel/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-pixel --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[==============================================    ] 93% (120/129) - figma-research/visual-validation-pixel/L2-directed[DEBUG] Executing: figma-research/visual-validation-pixel/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-pixel --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[===============================================   ] 94% (121/129) - figma-research/visual-validation-rendering/L0-minimal[DEBUG] Executing: figma-research/visual-validation-rendering/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-rendering --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[===============================================   ] 95% (122/129) - figma-research/visual-validation-rendering/L1-basic[DEBUG] Executing: figma-research/visual-validation-rendering/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-rendering --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[===============================================   ] 95% (123/129) - figma-research/visual-validation-rendering/L2-directed[DEBUG] Executing: figma-research/visual-validation-rendering/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-rendering --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[================================================  ] 96% (124/129) - figma-research/visual-validation-semantic/L0-minimal[DEBUG] Executing: figma-research/visual-validation-semantic/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-semantic --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[================================================  ] 97% (125/129) - figma-research/visual-validation-semantic/L1-basic[DEBUG] Executing: figma-research/visual-validation-semantic/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-semantic --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[================================================= ] 98% (126/129) - figma-research/visual-validation-semantic/L2-directed[DEBUG] Executing: figma-research/visual-validation-semantic/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research visual-validation-semantic --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[================================================= ] 98% (127/129) - figma-research/workspace-creation/L0-minimal[DEBUG] Executing: figma-research/workspace-creation/L0-minimal with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research workspace-creation --tier L0-minimal --agent openrouter --model gpt-4o --no-json
+[================================================= ] 99% (128/129) - figma-research/workspace-creation/L1-basic[DEBUG] Executing: figma-research/workspace-creation/L1-basic with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research workspace-creation --tier L1-basic --agent openrouter --model gpt-4o --no-json
+[==================================================] 100% (129/129) - figma-research/workspace-creation/L2-directed
+[DEBUG] Executing: figma-research/workspace-creation/L2-directed with gpt-4o
+[DEBUG] Executing: tsx /Users/zackarychapple/code/figma-research-clean/reference-repos/ze-benchmarks/packages/harness/src/cli.ts figma-research workspace-creation --tier L2-directed --agent openrouter --model gpt-4o --no-json
+[32m[SUCCESS][0m Completed 129 benchmark runs
+[INFO] Aggregating benchmark results
+[32m[SUCCESS][0m Aggregation complete: 128/129 successful
+[INFO] Generating specialist report
+
+================================================================================
+SPECIALIST BENCHMARK REPORT: @figma-research/quick-validation-degraded
+Version: 1.0.1
+Generated: 2025-11-11T01:55:16.504Z
+================================================================================
+
+SUMMARY
+--------------------------------------------------------------------------------
+Total Benchmarks: 129
+Pass Rate: 99.2%
+Average Score: 8.93/10
+Total Duration: 13372.2s
+
+MODEL PERFORMANCE
+--------------------------------------------------------------------------------
+gpt-4o:
+  Average Score: 8.93/10
+  Weighted Score: 8.93/10
+  Success Rate: 99.2%
+  Benchmarks: 129
+  Total Duration: 13372.2s
+
+BENCHMARK TYPE ANALYSIS
+--------------------------------------------------------------------------------
+ACCURACY:
+  Average Score: 8.93/10
+  Success Rate: 99.2%
+  Benchmarks: 129
+
+RECOMMENDATIONS
+--------------------------------------------------------------------------------
+- Best performing model: gpt-4o (weighted score: 8.93)
+
+================================================================================
+[32m[SUCCESS][0m Report saved to: /Users/zackarychapple/code/figma-research-clean/quick-degraded-results.json
+[32m[SUCCESS][0m Benchmark run completed successfully

@@ -25,6 +25,11 @@ export {
   saveReportAsJSON,
 } from './result-aggregator.js';
 export { logger, LogLevel } from './utils/logger.js';
+export {
+  buildCombinedPrompt,
+  interpolatePrompt,
+  type CombinedPrompt,
+} from './prompt-builder.js';
 export * from './types/template.js';
 export * from './types/benchmark.js';
 
@@ -71,6 +76,7 @@ export async function runSpecialistBenchmarks(options: RunOptions) {
   const executionConfig: ExecutionConfig = {
     zeBenchmarksPath: options.zeBenchmarksPath,
     concurrency: options.concurrency,
+    template, // Pass template for prompt combination
   };
 
   const results = await runBenchmarksParallel(configs, executionConfig);

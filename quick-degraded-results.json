@@ -1,0 +1,2873 @@
+{
+  "summary": {
+    "templateName": "@figma-research/quick-validation-degraded",
+    "templateVersion": "1.0.1",
+    "totalBenchmarks": 129,
+    "passRate": 0.9922480620155039,
+    "averageScore": 8.925366406249992,
+    "totalDuration": 13372241,
+    "timestamp": "2025-11-11T01:55:16.504Z"
+  },
+  "modelPerformance": [
+    {
+      "model": "gpt-4o",
+      "averageScore": 8.925366406249992,
+      "averageWeightedScore": 8.925366406249992,
+      "benchmarksRun": 129,
+      "successRate": 0.9922480620155039,
+      "totalDuration": 13372241
+    }
+  ],
+  "benchmarkTypeAnalysis": [
+    {
+      "type": "accuracy",
+      "averageScore": 8.925366406249992,
+      "benchmarksRun": 129,
+      "successRate": 0.9922480620155039
+    }
+  ],
+  "recommendations": [
+    "Best performing model: gpt-4o (weighted score: 8.93)"
+  ],
+  "detailedResults": [
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-costs",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 134160,
+      "timestamp": "2025-11-11T00:42:10.972Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-performance",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 41340,
+      "timestamp": "2025-11-11T00:42:52.312Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-costs",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 7.1447,
+      "weightedScore": 7.1447,
+      "success": true,
+      "duration": 177631,
+      "timestamp": "2025-11-11T00:42:54.443Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-costs",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9211,
+      "weightedScore": 6.9211,
+      "success": true,
+      "duration": 210671,
+      "timestamp": "2025-11-11T00:43:27.479Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-performance",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 65681,
+      "timestamp": "2025-11-11T00:43:57.994Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-prompts",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7632,
+      "weightedScore": 9.7632,
+      "success": true,
+      "duration": 51956,
+      "timestamp": "2025-11-11T00:44:19.436Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-prompts",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 53324,
+      "timestamp": "2025-11-11T00:44:51.318Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-performance",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 127078,
+      "timestamp": "2025-11-11T00:45:01.521Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-prompts",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.5263,
+      "weightedScore": 9.5263,
+      "success": true,
+      "duration": 111594,
+      "timestamp": "2025-11-11T00:46:11.041Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-reliability",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.6447,
+      "weightedScore": 6.6447,
+      "success": true,
+      "duration": 202001,
+      "timestamp": "2025-11-11T00:49:33.042Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-selection",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.5,
+      "weightedScore": 9.5,
+      "success": true,
+      "duration": 39466,
+      "timestamp": "2025-11-11T00:50:12.509Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-selection",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.7237,
+      "weightedScore": 6.7237,
+      "success": true,
+      "duration": 34192,
+      "timestamp": "2025-11-11T00:50:46.701Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-reliability",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.8947,
+      "weightedScore": 6.8947,
+      "success": true,
+      "duration": 357263,
+      "timestamp": "2025-11-11T00:50:48.582Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-detection",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 37749,
+      "timestamp": "2025-11-11T00:51:26.331Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-detection",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7632,
+      "weightedScore": 9.7632,
+      "success": true,
+      "duration": 54456,
+      "timestamp": "2025-11-11T00:52:20.787Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-selection",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.5921,
+      "weightedScore": 9.5921,
+      "success": true,
+      "duration": 103787,
+      "timestamp": "2025-11-11T00:52:30.489Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-inventory",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7632,
+      "weightedScore": 9.7632,
+      "success": true,
+      "duration": 40863,
+      "timestamp": "2025-11-11T00:53:11.352Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-inventory",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 47632,
+      "timestamp": "2025-11-11T00:53:58.984Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-detection",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 104401,
+      "timestamp": "2025-11-11T00:54:05.188Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-properties",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 48736,
+      "timestamp": "2025-11-11T00:54:53.924Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "ai-integration-reliability",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 0,
+      "weightedScore": 0,
+      "success": false,
+      "error": "Benchmark timed out after 600000ms",
+      "duration": 600004,
+      "timestamp": "2025-11-11T00:55:01.526Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-inventory",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 65554,
+      "timestamp": "2025-11-11T00:55:04.538Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-properties",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 43173,
+      "timestamp": "2025-11-11T00:55:37.097Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-semantic",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7632,
+      "weightedScore": 9.7632,
+      "success": true,
+      "duration": 39276,
+      "timestamp": "2025-11-11T00:55:43.814Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-properties",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 66288,
+      "timestamp": "2025-11-11T00:56:07.814Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-semantic",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 52129,
+      "timestamp": "2025-11-11T00:56:35.943Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-semantic",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 63183,
+      "timestamp": "2025-11-11T00:56:40.280Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-variants",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8553,
+      "weightedScore": 9.8553,
+      "success": true,
+      "duration": 46488,
+      "timestamp": "2025-11-11T00:56:54.302Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-variants",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 55878,
+      "timestamp": "2025-11-11T00:57:31.821Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-accessibility",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 44701,
+      "timestamp": "2025-11-11T00:57:39.003Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "classification-variants",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 91917,
+      "timestamp": "2025-11-11T00:58:12.197Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-accessibility",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8553,
+      "weightedScore": 9.8553,
+      "success": true,
+      "duration": 111846,
+      "timestamp": "2025-11-11T00:59:23.667Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-accuracy",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.7237,
+      "weightedScore": 6.7237,
+      "success": true,
+      "duration": 30799,
+      "timestamp": "2025-11-11T00:59:54.466Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-accessibility",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.8684,
+      "weightedScore": 6.8684,
+      "success": true,
+      "duration": 150141,
+      "timestamp": "2025-11-11T01:00:09.144Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-accuracy",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 56125,
+      "timestamp": "2025-11-11T01:00:50.591Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-latency",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.4342,
+      "weightedScore": 9.4342,
+      "success": true,
+      "duration": 51271,
+      "timestamp": "2025-11-11T01:01:00.415Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-latency",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 54116,
+      "timestamp": "2025-11-11T01:01:44.707Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-accuracy",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 242866,
+      "timestamp": "2025-11-11T01:02:15.063Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-latency",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7632,
+      "weightedScore": 9.7632,
+      "success": true,
+      "duration": 76729,
+      "timestamp": "2025-11-11T01:02:17.144Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-semantic",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7763,
+      "weightedScore": 9.7763,
+      "success": true,
+      "duration": 46630,
+      "timestamp": "2025-11-11T01:02:31.338Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-types",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8553,
+      "weightedScore": 9.8553,
+      "success": true,
+      "duration": 36789,
+      "timestamp": "2025-11-11T01:03:08.127Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-semantic",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 86099,
+      "timestamp": "2025-11-11T01:03:43.243Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-types",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 68917,
+      "timestamp": "2025-11-11T01:04:17.045Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-types",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.5,
+      "weightedScore": 9.5,
+      "success": true,
+      "duration": 64707,
+      "timestamp": "2025-11-11T01:04:47.950Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-caching",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8553,
+      "weightedScore": 9.8553,
+      "success": true,
+      "duration": 71078,
+      "timestamp": "2025-11-11T01:05:28.124Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-caching",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7632,
+      "weightedScore": 9.7632,
+      "success": true,
+      "duration": 56343,
+      "timestamp": "2025-11-11T01:05:44.294Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "code-generation-semantic",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 7.0263,
+      "weightedScore": 7.0263,
+      "success": true,
+      "duration": 255857,
+      "timestamp": "2025-11-11T01:06:30.920Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-latency",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6974,
+      "weightedScore": 9.6974,
+      "success": true,
+      "duration": 73626,
+      "timestamp": "2025-11-11T01:06:57.920Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-latency",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.4868,
+      "weightedScore": 9.4868,
+      "success": true,
+      "duration": 69506,
+      "timestamp": "2025-11-11T01:08:07.426Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-node-extraction",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6053,
+      "weightedScore": 9.6053,
+      "success": true,
+      "duration": 47272,
+      "timestamp": "2025-11-11T01:08:54.698Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-caching",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.7237,
+      "weightedScore": 6.7237,
+      "success": true,
+      "duration": 211258,
+      "timestamp": "2025-11-11T01:08:59.382Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-latency",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 161352,
+      "timestamp": "2025-11-11T01:09:12.273Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-node-extraction",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 73403,
+      "timestamp": "2025-11-11T01:10:08.102Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-rate-limiting",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6579,
+      "weightedScore": 9.6579,
+      "success": true,
+      "duration": 94600,
+      "timestamp": "2025-11-11T01:11:42.702Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-rate-limiting",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9605,
+      "weightedScore": 6.9605,
+      "success": true,
+      "duration": 76272,
+      "timestamp": "2025-11-11T01:12:58.974Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-node-extraction",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.6447,
+      "weightedScore": 6.6447,
+      "success": true,
+      "duration": 268442,
+      "timestamp": "2025-11-11T01:13:27.824Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-rate-limiting",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.8026,
+      "weightedScore": 6.8026,
+      "success": true,
+      "duration": 335193,
+      "timestamp": "2025-11-11T01:14:47.466Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-url-parsing",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.6842,
+      "weightedScore": 6.6842,
+      "success": true,
+      "duration": 266867,
+      "timestamp": "2025-11-11T01:17:25.841Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "migration",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 54127,
+      "timestamp": "2025-11-11T01:18:19.969Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-url-parsing",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.6447,
+      "weightedScore": 6.6447,
+      "success": true,
+      "duration": 301611,
+      "timestamp": "2025-11-11T01:18:29.435Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "figma-api-url-parsing",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.6711,
+      "weightedScore": 6.6711,
+      "success": true,
+      "duration": 276185,
+      "timestamp": "2025-11-11T01:19:23.651Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "migration",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.5263,
+      "weightedScore": 9.5263,
+      "success": true,
+      "duration": 116295,
+      "timestamp": "2025-11-11T01:20:16.264Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "optimization",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 55405,
+      "timestamp": "2025-11-11T01:20:19.056Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "migration",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.5921,
+      "weightedScore": 9.5921,
+      "success": true,
+      "duration": 183769,
+      "timestamp": "2025-11-11T01:21:33.204Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "optimization",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6053,
+      "weightedScore": 9.6053,
+      "success": true,
+      "duration": 149598,
+      "timestamp": "2025-11-11T01:22:48.654Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-coordination",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 61811,
+      "timestamp": "2025-11-11T01:23:50.466Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-coordination",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 7.0526,
+      "weightedScore": 7.0526,
+      "success": true,
+      "duration": 143326,
+      "timestamp": "2025-11-11T01:23:56.531Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "optimization",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.3026,
+      "weightedScore": 9.3026,
+      "success": true,
+      "duration": 242735,
+      "timestamp": "2025-11-11T01:24:19.000Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-errors",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 51746,
+      "timestamp": "2025-11-11T01:24:48.277Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-errors",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7895,
+      "weightedScore": 9.7895,
+      "success": true,
+      "duration": 69236,
+      "timestamp": "2025-11-11T01:25:28.237Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-errors",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 8.9474,
+      "weightedScore": 8.9474,
+      "success": true,
+      "duration": 79168,
+      "timestamp": "2025-11-11T01:26:07.445Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-coordination",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8553,
+      "weightedScore": 9.8553,
+      "success": true,
+      "duration": 165097,
+      "timestamp": "2025-11-11T01:26:35.563Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-iterations",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 69747,
+      "timestamp": "2025-11-11T01:27:17.192Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-iterations",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 111586,
+      "timestamp": "2025-11-11T01:27:19.823Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-metrics",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7237,
+      "weightedScore": 9.7237,
+      "success": true,
+      "duration": 52370,
+      "timestamp": "2025-11-11T01:28:12.193Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-metrics",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 10,
+      "weightedScore": 10,
+      "success": true,
+      "duration": 70396,
+      "timestamp": "2025-11-11T01:28:27.588Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-iterations",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.2763,
+      "weightedScore": 9.2763,
+      "success": true,
+      "duration": 202243,
+      "timestamp": "2025-11-11T01:29:57.806Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-metrics",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6184,
+      "weightedScore": 9.6184,
+      "success": true,
+      "duration": 110399,
+      "timestamp": "2025-11-11T01:30:02.592Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-performance",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 94932,
+      "timestamp": "2025-11-11T01:31:37.524Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-performance",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6579,
+      "weightedScore": 9.6579,
+      "success": true,
+      "duration": 190550,
+      "timestamp": "2025-11-11T01:31:38.138Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-bottlenecks",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 46696,
+      "timestamp": "2025-11-11T01:32:24.834Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-bottlenecks",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7632,
+      "weightedScore": 9.7632,
+      "success": true,
+      "duration": 78829,
+      "timestamp": "2025-11-11T01:32:56.353Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-cache-hits",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 49279,
+      "timestamp": "2025-11-11T01:33:45.633Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-bottlenecks",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 113318,
+      "timestamp": "2025-11-11T01:34:18.152Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "orchestration-performance",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 7.1842,
+      "weightedScore": 7.1842,
+      "success": true,
+      "duration": 273281,
+      "timestamp": "2025-11-11T01:34:31.087Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-cache-hits",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8553,
+      "weightedScore": 9.8553,
+      "success": true,
+      "duration": 73033,
+      "timestamp": "2025-11-11T01:34:58.666Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-cache-hits",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8158,
+      "weightedScore": 9.8158,
+      "success": true,
+      "duration": 77771,
+      "timestamp": "2025-11-11T01:35:35.924Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-costs",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7632,
+      "weightedScore": 9.7632,
+      "success": true,
+      "duration": 68473,
+      "timestamp": "2025-11-11T01:35:39.560Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-latency",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6579,
+      "weightedScore": 9.6579,
+      "success": true,
+      "duration": 96280,
+      "timestamp": "2025-11-11T01:37:15.840Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-costs",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.75,
+      "weightedScore": 9.75,
+      "success": true,
+      "duration": 138362,
+      "timestamp": "2025-11-11T01:37:17.028Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-costs",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 113740,
+      "timestamp": "2025-11-11T01:37:29.664Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-parallel",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 69060,
+      "timestamp": "2025-11-11T01:38:38.724Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-latency",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 148480,
+      "timestamp": "2025-11-11T01:39:44.321Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-parallel",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8553,
+      "weightedScore": 9.8553,
+      "success": true,
+      "duration": 128673,
+      "timestamp": "2025-11-11T01:40:47.397Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-latency",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.5132,
+      "weightedScore": 9.5132,
+      "success": true,
+      "duration": 215751,
+      "timestamp": "2025-11-11T01:40:52.779Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "performance-parallel",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 7.1447,
+      "weightedScore": 7.1447,
+      "success": true,
+      "duration": 140794,
+      "timestamp": "2025-11-11T01:42:05.115Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-consistency",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 101556,
+      "timestamp": "2025-11-11T01:42:34.335Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-extraction",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 49004,
+      "timestamp": "2025-11-11T01:43:23.339Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-consistency",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8158,
+      "weightedScore": 9.8158,
+      "success": true,
+      "duration": 114922,
+      "timestamp": "2025-11-11T01:44:00.037Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-consistency",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 204252,
+      "timestamp": "2025-11-11T01:44:11.649Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-extraction",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8421,
+      "weightedScore": 9.8421,
+      "success": true,
+      "duration": 71946,
+      "timestamp": "2025-11-11T01:44:35.285Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-extraction",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 76001,
+      "timestamp": "2025-11-11T01:45:16.038Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-formats",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 52000,
+      "timestamp": "2025-11-11T01:45:27.285Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-formats",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 7.0526,
+      "weightedScore": 7.0526,
+      "success": true,
+      "duration": 99000,
+      "timestamp": "2025-11-11T01:45:50.649Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-performance",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7368,
+      "weightedScore": 9.7368,
+      "success": true,
+      "duration": 47035,
+      "timestamp": "2025-11-11T01:46:14.320Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-performance",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8553,
+      "weightedScore": 9.8553,
+      "success": true,
+      "duration": 62740,
+      "timestamp": "2025-11-11T01:46:53.390Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-performance",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 60105,
+      "timestamp": "2025-11-11T01:47:14.426Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-semantic",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.7237,
+      "weightedScore": 6.7237,
+      "success": true,
+      "duration": 36089,
+      "timestamp": "2025-11-11T01:47:29.479Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-semantic",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8026,
+      "weightedScore": 9.8026,
+      "success": true,
+      "duration": 50061,
+      "timestamp": "2025-11-11T01:48:04.488Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-formats",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.4868,
+      "weightedScore": 9.4868,
+      "success": true,
+      "duration": 185675,
+      "timestamp": "2025-11-11T01:48:21.715Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "tokens-semantic",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.8158,
+      "weightedScore": 9.8158,
+      "success": true,
+      "duration": 71275,
+      "timestamp": "2025-11-11T01:48:40.754Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-feedback",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9474,
+      "weightedScore": 6.9474,
+      "success": true,
+      "duration": 42369,
+      "timestamp": "2025-11-11T01:48:46.857Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-feedback",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.7237,
+      "weightedScore": 6.7237,
+      "success": true,
+      "duration": 34189,
+      "timestamp": "2025-11-11T01:48:55.904Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-feedback",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.6974,
+      "weightedScore": 6.6974,
+      "success": true,
+      "duration": 32501,
+      "timestamp": "2025-11-11T01:49:13.256Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-latency",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9868,
+      "weightedScore": 6.9868,
+      "success": true,
+      "duration": 43900,
+      "timestamp": "2025-11-11T01:49:39.805Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-latency",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9868,
+      "weightedScore": 6.9868,
+      "success": true,
+      "duration": 56909,
+      "timestamp": "2025-11-11T01:49:43.766Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-latency",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 7,
+      "weightedScore": 7,
+      "success": true,
+      "duration": 40003,
+      "timestamp": "2025-11-11T01:49:53.259Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-pixel",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9342,
+      "weightedScore": 6.9342,
+      "success": true,
+      "duration": 39698,
+      "timestamp": "2025-11-11T01:50:23.465Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-pixel",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.8553,
+      "weightedScore": 6.8553,
+      "success": true,
+      "duration": 45164,
+      "timestamp": "2025-11-11T01:50:24.969Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-pixel",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9737,
+      "weightedScore": 6.9737,
+      "success": true,
+      "duration": 64310,
+      "timestamp": "2025-11-11T01:50:57.569Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-rendering",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9605,
+      "weightedScore": 6.9605,
+      "success": true,
+      "duration": 68841,
+      "timestamp": "2025-11-11T01:52:06.411Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-rendering",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 5.2632,
+      "weightedScore": 5.2632,
+      "success": true,
+      "duration": 118673,
+      "timestamp": "2025-11-11T01:52:22.140Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-rendering",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.9737,
+      "weightedScore": 6.9737,
+      "success": true,
+      "duration": 129440,
+      "timestamp": "2025-11-11T01:52:34.409Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-semantic",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.7237,
+      "weightedScore": 6.7237,
+      "success": true,
+      "duration": 30170,
+      "timestamp": "2025-11-11T01:52:36.581Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-semantic",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 6.7237,
+      "weightedScore": 6.7237,
+      "success": true,
+      "duration": 34043,
+      "timestamp": "2025-11-11T01:52:56.184Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "visual-validation-semantic",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 7.1316,
+      "weightedScore": 7.1316,
+      "success": true,
+      "duration": 42081,
+      "timestamp": "2025-11-11T01:53:16.490Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "workspace-creation",
+        "tier": "L0-minimal",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.7763,
+      "weightedScore": 9.7763,
+      "success": true,
+      "duration": 44177,
+      "timestamp": "2025-11-11T01:53:20.758Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "workspace-creation",
+        "tier": "L2-directed",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6447,
+      "weightedScore": 9.6447,
+      "success": true,
+      "duration": 48965,
+      "timestamp": "2025-11-11T01:54:05.455Z"
+    },
+    {
+      "config": {
+        "suite": "figma-research",
+        "scenario": "workspace-creation",
+        "tier": "L1-basic",
+        "templateName": "@figma-research/quick-validation-degraded",
+        "templateVersion": "1.0.1",
+        "preferredModels": [
+          {
+            "model": "gpt-4o",
+            "weight": 1
+          }
+        ],
+        "type": "accuracy"
+      },
+      "model": "gpt-4o",
+      "score": 9.6842,
+      "weightedScore": 9.6842,
+      "success": true,
+      "duration": 140319,
+      "timestamp": "2025-11-11T01:55:16.503Z"
+    }
+  ]
+}

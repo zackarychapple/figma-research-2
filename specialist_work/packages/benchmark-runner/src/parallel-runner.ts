@@ -6,6 +6,7 @@ import { spawn } from 'child_process';
 import { resolve as resolvePath } from 'path';
 import { logger } from './utils/logger.js';
 import type { BenchmarkConfig, BenchmarkResult, ModelPreference } from './types/benchmark.js';
+import type { SpecialistTemplate } from './types/template.js';
 
 /**
  * Configuration for benchmark execution
@@ -15,6 +16,7 @@ export interface ExecutionConfig {
   concurrency?: number;
   maxRetries?: number;
   timeoutMs?: number;
+  template?: SpecialistTemplate;
 }
 
 /**
@@ -26,7 +28,7 @@ export function calculateConcurrency(benchmarkCount: number): number {
   if (benchmarkCount <= 5) return 2;
   if (benchmarkCount <= 15) return 3;
   if (benchmarkCount <= 30) return 5;
-  return 8;
+  return 20; // Increased from 8 to 20 for better parallelization of API-based benchmarks
 }
 
 /**
@@ -48,6 +50,8 @@ export async function runBenchmarksParallel(
 
   const results: BenchmarkResult[] = [];
   const errors: Error[] = [];
+  const startTime = Date.now();
+  let completedRuns = 0;
 
   await executeWithConcurrency(
     configs,
@@ -56,15 +60,40 @@ export async function runBenchmarksParallel(
       try {
         logger.progress(index + 1, configs.length, `${config.suite}/${config.scenario}/${config.tier}`);
 
-        // Execute benchmark for each preferred model
-        for (const modelPref of config.preferredModels) {
-          const result = await executeSingleBenchmark(
-            config,
-            modelPref,
-            executionConfig
-          );
-          results.push(result);
-        }
+        // Execute all models in parallel using Promise.allSettled for graceful failure handling
+        const modelPromises = config.preferredModels.map((modelPref) =>
+          executeSingleBenchmark(config, modelPref, executionConfig)
+        );
+
+        const settledResults = await Promise.allSettled(modelPromises);
+
+        // Process all results, including failures
+        settledResults.forEach((settledResult, idx) => {
+          if (settledResult.status === 'fulfilled') {
+            results.push(settledResult.value);
+            completedRuns++;
+          } else {
+            const modelPref = config.preferredModels[idx];
+            const errorMsg = settledResult.reason instanceof Error
+              ? settledResult.reason.message
+              : 'Unknown error';
+
+            logger.error(`Failed to run benchmark ${config.suite}/${config.scenario} with ${modelPref?.model}: ${errorMsg}`);
+            errors.push(settledResult.reason instanceof Error ? settledResult.reason : new Error(errorMsg));
+
+            // Add failed result
+            results.push({
+              config,
+              model: modelPref?.model || 'unknown',
+              score: 0,
+              weightedScore: 0,
+              success: false,
+              error: errorMsg,
+              duration: 0,
+              timestamp: new Date(),
+            });
+          }
+        });
       } catch (error) {
         const errorMsg = error instanceof Error ? error.message : 'Unknown error';
         logger.error(`Failed to run benchmark ${config.suite}/${config.scenario}: ${errorMsg}`);
@@ -85,11 +114,19 @@ export async function runBenchmarksParallel(
     }
   );
 
+  // Calculate and log performance metrics
+  const totalDuration = Date.now() - startTime;
+  const durationMinutes = totalDuration / 60000;
+  const scenariosPerMin = configs.length / durationMinutes;
+  const modelsPerMin = completedRuns / durationMinutes;
+
   if (errors.length > 0) {
     logger.warn(`${errors.length} benchmarks failed`);
   }
 
-  logger.success(`Completed ${results.length} benchmark runs`);
+  logger.success(`Completed ${results.length} benchmark runs in ${durationMinutes.toFixed(2)} minutes`);
+  logger.info(`Performance: ${scenariosPerMin.toFixed(2)} scenarios/min, ${modelsPerMin.toFixed(2)} models/min`);
+
   return results;
 }
 
@@ -171,7 +208,26 @@ async function executeZeBenchmark(
   error?: string;
   evaluationDetails?: any;
 }> {
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
+    // Build combined prompt if template is provided
+    if (executionConfig.template) {
+      // TODO: Implement injectCombinedPrompt functionality
+      logger.info('Template provided but prompt injection not yet implemented');
+      // try {
+      //   await injectCombinedPrompt(
+      //     executionConfig.template,
+      //     config,
+      //     model,
+      //     executionConfig.zeBenchmarksPath
+      //   );
+      // } catch (error) {
+      //   logger.warn(
+      //     `Failed to inject combined prompt: ${error instanceof Error ? error.message : error}`
+      //   );
+      //   // Continue with default tier prompt
+      // }
+    }
+
     const benchCmd = resolvePath(executionConfig.zeBenchmarksPath, 'packages/harness/src/cli.ts');
 
     // Determine agent based on model
@@ -211,8 +267,8 @@ async function executeZeBenchmark(
 
     const timeout = setTimeout(() => {
       proc.kill('SIGTERM');
-      reject(new Error(`Benchmark timed out after ${executionConfig.timeoutMs || 600000}ms`));
-    }, executionConfig.timeoutMs || 600000); // Default 10 minutes
+      reject(new Error(`Benchmark timed out after ${executionConfig.timeoutMs || 180000}ms`));
+    }, executionConfig.timeoutMs || 180000); // Default 3 minutes (reduced from 10 for API-based benchmarks)
 
     proc.on('close', (code: number | null) => {
       clearTimeout(timeout);
@@ -386,3 +442,51 @@ export async function retryBenchmark(
     timestamp: new Date(),
   };
 }
+
+/**
+ * Inject combined prompt by writing it to a temporary tier prompt file
+ * This allows the specialist template persona and model-specific prompts
+ * to be combined with the tier prompt before execution
+ *
+ * TODO: This function is not yet implemented - needs buildCombinedPrompt,
+ * joinPath, existsSync, mkdir, and writeFile to be imported
+ */
+// async function injectCombinedPrompt(
+//   template: SpecialistTemplate,
+//   config: BenchmarkConfig,
+//   model: string,
+//   zeBenchmarksPath: string
+// ): Promise<void> {
+//   // Build combined prompt
+//   const combinedPrompt = await buildCombinedPrompt(
+//     template,
+//     config,
+//     model,
+//     zeBenchmarksPath
+//   );
+
+//   // Write to tier prompt location
+//   // Path: suites/{suite}/prompts/{scenario}/{tier}.md
+//   const promptDir = joinPath(
+//     zeBenchmarksPath,
+//     'suites',
+//     config.suite,
+//     'prompts',
+//     config.scenario
+//   );
+
+//   // Ensure directory exists
+//   if (!existsSync(promptDir)) {
+//     await mkdir(promptDir, { recursive: true });
+//   }
+
+//   // Find existing tier file pattern (e.g., L0-minimal.md, L1-basic.md)
+//   // For now, use a simple pattern: {tier}.md
+//   const tierFile = `${config.tier}.md`;
+//   const promptPath = joinPath(promptDir, tierFile);
+
+//   // Write combined prompt
+//   await writeFile(promptPath, combinedPrompt.full, 'utf-8');
+
+//   logger.debug(`Injected combined prompt to: ${promptPath}`);
+// }
