@@ -1,0 +1,47 @@
+{
+  "schema_version": "0.0.1",
+  "name": "@test/simple-specialist",
+  "displayName": "Simple Test Specialist",
+  "version": "1.0.0",
+  "license": "MIT",
+  "availability": "public",
+  "persona": {
+    "purpose": "Test specialist for benchmark runner",
+    "values": ["Accuracy", "Performance"],
+    "attributes": ["Reliable", "Fast"],
+    "tech_stack": ["Node.js", "TypeScript"]
+  },
+  "capabilities": {
+    "tags": ["testing", "benchmarking"],
+    "descriptions": {
+      "testing": "Runs test benchmarks",
+      "benchmarking": "Measures performance"
+    }
+  },
+  "dependencies": {
+    "available_tools": ["node", "npm"]
+  },
+  "benchmarks": {
+    "test_suites": [
+      {
+        "name": "update-deps",
+        "path": "../../../reference-repos/ze-benchmarks/suites/update-deps",
+        "type": "functional"
+      }
+    ],
+    "scoring": {
+      "methodology": "weighted_average",
+      "update_frequency": "weekly"
+    }
+  },
+  "preferred_models": [
+    {
+      "model": "claude-sonnet-4",
+      "weight": 0.9,
+      "benchmarks": {
+        "code_generation": 0.95,
+        "debugging": 0.92
+      }
+    }
+  ]
+}

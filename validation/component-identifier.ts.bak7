@@ -1,0 +1,660 @@
+/**
+ * Component Identifier
+ *
+ * Traverses Figma node hierarchy and identifies UI components (Button, Badge, Card, Input, Dialog, etc.)
+ * Maps Figma component instances to ShadCN component equivalents with properties.
+ */
+
+import type { FigmaNode } from './figma-url-extractor.js';
+
+// ============================================================================
+// TYPES
+// ============================================================================
+
+export type ShadCNComponentType =
+  | 'Button'
+  | 'Badge'
+  | 'Card'
+  | 'Input'
+  | 'Dialog'
+  | 'Select'
+  | 'DatePicker'
+  | 'Checkbox'
+  | 'Radio'
+  | 'Switch'
+  | 'Toggle'
+  | 'Textarea'
+  | 'Label'
+  | 'Separator'
+  | 'Avatar'
+  | 'Icon'
+  | 'Container';
+
+export interface ComponentInstance {
+  id: string;
+  name: string;
+  figmaType: string;
+  componentType: ShadCNComponentType;
+  variant?: string;
+  size?: string;
+  text?: string;
+  icon?: string;
+  position: {
+    x: number;
+    y: number;
+  };
+  dimensions: {
+    width: number;
+    height: number;
+  };
+  properties: Record<string, any>;
+  children: ComponentInstance[];
+  rawNode: FigmaNode;
+}
+
+export interface ComponentInventory {
+  totalComponents: number;
+  byType: Record<ShadCNComponentType, ComponentInstance[]>;
+  hierarchy: ComponentInstance[];
+  metadata: {
+    figmaNodeId: string;
+    figmaNodeName: string;
+    extractedAt: string;
+  };
+}
+
+// ============================================================================
+// COMPONENT IDENTIFICATION RULES
+// ============================================================================
+
+/**
+ * Identify component type from Figma node
+ */
+function identifyComponentType(node: FigmaNode): ShadCNComponentType | null {
+  const nodeName = node.name.toLowerCase();
+  const nodeType = node.type;
+
+  // Button detection
+  if (nodeType === 'INSTANCE' && nodeName.includes('button')) {
+    return 'Button';
+  }
+
+  // Badge detection
+  if (nodeType === 'INSTANCE' && nodeName.includes('badge')) {
+    return 'Badge';
+  }
+
+  // Card detection
+  if (nodeType === 'INSTANCE' && nodeName.includes('card')) {
+    return 'Card';
+  }
+
+  // Input detection
+  if (nodeType === 'INSTANCE' && (nodeName.includes('input') || nodeName.includes('text field'))) {
+    return 'Input';
+  }
+
+  // Dialog/Modal detection
+  if (nodeType === 'INSTANCE' && (nodeName.includes('dialog') || nodeName.includes('modal'))) {
+    return 'Dialog';
+  }
+
+  // Select/Dropdown/Combobox detection
+  if (nodeType === 'INSTANCE' && (nodeName.includes('select') || nodeName.includes('dropdown') || nodeName.includes('combobox'))) {
+    return 'Select';
+  }
+
+  // Date Picker detection
+  if (nodeType === 'INSTANCE' && (nodeName.includes('date picker') || nodeName.includes('datepicker'))) {
+    return 'DatePicker';
+  }
+
+  // Checkbox detection
+  if (nodeType === 'INSTANCE' && nodeName.includes('checkbox')) {
+    return 'Checkbox';
+  }
+
+  // Radio detection
+  if (nodeType === 'INSTANCE' && nodeName.includes('radio')) {
+    return 'Radio';
+  }
+
+  // Toggle detection (button-like toggle)
+  if (nodeType === 'INSTANCE' && nodeName.includes('toggle') && !nodeName.includes('group')) {
+    return 'Toggle';
+  }
+
+  // Switch/Toggle detection (for pill-shaped switches)
+  if (nodeType === 'INSTANCE' && nodeName.includes('switch')) {
+    return 'Switch';
+  }
+
+  // Textarea detection
+  if (nodeType === 'INSTANCE' && nodeName.includes('textarea')) {
+    return 'Textarea';
+  }
+
+  // Label detection
+  if (nodeType === 'TEXT' && nodeName.includes('label')) {
+    return 'Label';
+  }
+
+  // Separator detection
+  if ((nodeType === 'LINE' || nodeType === 'RECTANGLE') &&
+      (nodeName.includes('separator') || nodeName.includes('divider'))) {
+    return 'Separator';
+  }
+
+  // Avatar detection
+  if (nodeType === 'INSTANCE' && nodeName.includes('avatar')) {
+    return 'Avatar';
+  }
+
+  // Icon detection
+  if (nodeType === 'INSTANCE' && nodeName.startsWith('icon')) {
+    return 'Icon';
+  }
+
+  // Container/Frame detection
+  if (nodeType === 'FRAME') {
+    return 'Container';
+  }
+
+  return null;
+}
+
+/**
+ * Extract component variant from node
+ */
+function extractVariant(node: FigmaNode, componentType: ShadCNComponentType): string | undefined {
+  const nodeName = node.name.toLowerCase();
+  const text = extractText(node)?.toLowerCase() || '';
+
+  if (componentType === 'Button') {
+    // Check both node name and text content for variant indicators
+    const combined = nodeName + ' ' + text;
+
+    if (combined.includes('outline')) return 'outline';
+    if (combined.includes('ghost')) return 'ghost';
+    if (combined.includes('link')) return 'link';
+    if (combined.includes('destructive') || combined.includes('desctructive')) return 'destructive';
+    if (combined.includes('secondary')) return 'secondary';
+    return 'default';
+  }
+
+  if (componentType === 'Badge') {
+    const combined = nodeName + ' ' + text;
+
+    if (combined.includes('destructive')) return 'destructive';
+    if (combined.includes('outline')) return 'outline';
+    if (combined.includes('secondary')) return 'secondary';
+    return 'default';
+  }
+
+  if (componentType === 'Switch') {
+    // Switch variants: Active (On/Off), Type (Default/Box), Side (Left/Right), State (Default/Focus/Disabled/Hover)
+    const combined = nodeName + ' ' + text;
+
+    // Extract Active state
+    const isActive = combined.includes('active=on') || combined.includes('checked');
+    const isInactive = combined.includes('active=off') || combined.includes('unchecked');
+
+    // Extract Type
+    const isBox = combined.includes('type=box');
+    const isDefault = combined.includes('type=default') || !isBox;
+
+    // Extract Side
+    const isRight = combined.includes('side=right');
+    const isLeft = combined.includes('side=left') || !isRight;
+
+    // Extract State
+    let state = 'default';
+    if (combined.includes('state=focus') || combined.includes('focused')) state = 'focus';
+    else if (combined.includes('state=disabled') || combined.includes('disabled')) state = 'disabled';
+    else if (combined.includes('state=hover') || combined.includes('hover')) state = 'hover';
+
+    // Build variant string
+    const parts: string[] = [];
+    if (isActive) parts.push('active');
+    if (isBox) parts.push('box');
+    if (isRight) parts.push('right');
+    if (state !== 'default') parts.push(state);
+
+    return parts.length > 0 ? parts.join('-') : 'default';
+  }
+
+  return undefined;
+}
+
+/**
+ * Extract size from node
+ */
+function extractSize(node: FigmaNode): string | undefined {
+  const nodeName = node.name.toLowerCase();
+
+  if (nodeName.includes('small') || nodeName.includes('sm')) return 'sm';
+  if (nodeName.includes('large') || nodeName.includes('lg')) return 'lg';
+  if (nodeName.includes('extra large') || nodeName.includes('xl')) return 'xl';
+
+  return undefined;
+}
+
+/**
+ * Extract text content from node and its children
+ */
+function extractText(node: FigmaNode): string | undefined {
+  // Direct text content
+  if (node.characters) {
+    return node.characters;
+  }
+
+  // Search children for text nodes
+  if (node.children) {
+    for (const child of node.children) {
+      if (child.type === 'TEXT' && child.characters) {
+        return child.characters;
+      }
+    }
+  }
+
+  return undefined;
+}
+
+/**
+ * Extract icon name from node
+ */
+function extractIcon(node: FigmaNode): string | undefined {
+  if (!node.children) return undefined;
+
+  for (const child of node.children) {
+    // Skip invisible nodes
+    if (child.visible === false) continue;
+
+    if (child.type === 'INSTANCE' && child.name.toLowerCase().startsWith('icon')) {
+      // Extract icon name from "Icon / Circle" -> "Circle"
+      const iconMatch = child.name.match(/Icon\s*\/\s*(\w+)/i);
+      if (iconMatch) {
+        return iconMatch[1];
+      }
+    }
+  }
+
+  return undefined;
+}
+
+/**
+ * Extract label information from component properties
+ */
+function extractLabelInfo(node: FigmaNode): { labelText?: string; showLabel?: boolean; placeholderText?: string } {
+  const result: { labelText?: string; showLabel?: boolean; placeholderText?: string } = {};
+
+  if (node.componentProperties) {
+    // Look for label text in component properties
+    for (const [key, prop] of Object.entries(node.componentProperties)) {
+      if (key.toLowerCase().includes('label text') && prop.type === 'TEXT') {
+        result.labelText = prop.value;
+      } else if (key.toLowerCase().includes('show label') && prop.type === 'BOOLEAN') {
+        result.showLabel = prop.value;
+      } else if (key === 'Label#435:0' && prop.type === 'BOOLEAN') {
+        // Combobox specific - Label#435:0 controls visibility
+        result.showLabel = prop.value;
+      } else if (key.startsWith('Text#') && prop.type === 'TEXT') {
+        // Combobox text/placeholder (e.g., "All projects")
+        result.placeholderText = prop.value;
+      }
+    }
+  }
+
+  return result;
+}
+
+/**
+ * Extract component properties
+ */
+function extractProperties(node: FigmaNode, componentType: ShadCNComponentType): Record<string, any> {
+  const properties: Record<string, any> = {};
+
+  // Extract label information
+  const labelInfo = extractLabelInfo(node);
+  if (labelInfo.labelText) {
+    properties.labelText = labelInfo.labelText;
+  }
+  if (labelInfo.showLabel !== undefined) {
+    properties.showLabel = labelInfo.showLabel;
+  }
+  if (labelInfo.placeholderText) {
+    properties.placeholder = labelInfo.placeholderText;
+  }
+
+  // Extract fills (colors)
+  if (node.fills && node.fills.length > 0) {
+    const fill = node.fills[0];
+    if (fill.type === 'SOLID' && fill.color) {
+      properties.backgroundColor = rgbToHex(fill.color);
+    }
+  }
+
+  // Extract strokes (borders)
+  if (node.strokes && node.strokes.length > 0) {
+    const stroke = node.strokes[0];
+    if (stroke.type === 'SOLID' && stroke.color) {
+      properties.borderColor = rgbToHex(stroke.color);
+    }
+  }
+
+  // Extract corner radius
+  if (node.cornerRadius !== undefined) {
+    properties.borderRadius = node.cornerRadius;
+  }
+
+  // Extract layout properties
+  if (node.layoutMode) {
+    properties.layout = node.layoutMode.toLowerCase();
+  }
+
+  if (node.paddingLeft !== undefined) {
+    properties.padding = {
+      left: node.paddingLeft,
+      right: node.paddingRight,
+      top: node.paddingTop,
+      bottom: node.paddingBottom
+    };
+  }
+
+  if (node.itemSpacing !== undefined) {
+    properties.gap = node.itemSpacing;
+  }
+
+  // Extract flex layout attributes
+  if (node.primaryAxisAlignItems) {
+    properties.primaryAxisAlignItems = node.primaryAxisAlignItems;
+  }
+
+  if (node.counterAxisAlignItems) {
+    properties.counterAxisAlignItems = node.counterAxisAlignItems;
+  }
+
+  if (node.primaryAxisSizingMode) {
+    properties.primaryAxisSizingMode = node.primaryAxisSizingMode;
+  }
+
+  if (node.counterAxisSizingMode) {
+    properties.counterAxisSizingMode = node.counterAxisSizingMode;
+  }
+
+  if (node.layoutAlign) {
+    properties.layoutAlign = node.layoutAlign;
+  }
+
+  if (node.layoutGrow !== undefined) {
+    properties.layoutGrow = node.layoutGrow;
+  }
+
+  if (node.layoutSizingHorizontal) {
+    properties.layoutSizingHorizontal = node.layoutSizingHorizontal;
+  }
+
+  if (node.layoutSizingVertical) {
+    properties.layoutSizingVertical = node.layoutSizingVertical;
+  }
+
+  // Extract opacity
+  if (node.opacity !== undefined && node.opacity !== 1) {
+    properties.opacity = node.opacity;
+  }
+
+  // Component-specific properties
+  if (node.componentProperties) {
+    properties.componentProperties = node.componentProperties;
+  }
+
+  return properties;
+}
+
+/**
+ * Convert Figma RGB color to hex
+ */
+function rgbToHex(color: { r: number; g: number; b: number }): string {
+  const r = Math.round(color.r * 255);
+  const g = Math.round(color.g * 255);
+  const b = Math.round(color.b * 255);
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+}
+
+// ============================================================================
+// COMPONENT IDENTIFICATION
+// ============================================================================
+
+/**
+ * Identify components in a Figma node tree
+ */
+export function identifyComponents(node: FigmaNode): ComponentInstance | null {
+  // Skip invisible nodes
+  if (node.visible === false) {
+    return null;
+  }
+
+  const componentType = identifyComponentType(node);
+
+  // If this node is not a recognized component, process children
+  if (!componentType) {
+    // Process children and return container if it has component children
+    if (node.children && node.children.length > 0) {
+      const childComponents: ComponentInstance[] = [];
+
+      for (const child of node.children) {
+        const childComponent = identifyComponents(child);
+        if (childComponent) {
+          childComponents.push(childComponent);
+        }
+      }
+
+      // If we found child components, return a container
+      if (childComponents.length > 0) {
+        return {
+          id: node.id,
+          name: node.name,
+          figmaType: node.type,
+          componentType: 'Container',
+          position: {
+            x: node.absoluteBoundingBox?.x || 0,
+            y: node.absoluteBoundingBox?.y || 0
+          },
+          dimensions: {
+            width: node.absoluteBoundingBox?.width || 0,
+            height: node.absoluteBoundingBox?.height || 0
+          },
+          properties: extractProperties(node, 'Container'),
+          children: childComponents,
+          rawNode: node
+        };
+      }
+    }
+
+    return null;
+  }
+
+  // This node is a recognized component
+  const variant = extractVariant(node, componentType);
+  const size = extractSize(node);
+  const text = extractText(node);
+  const icon = extractIcon(node);
+
+  // Process children recursively
+  const childComponents: ComponentInstance[] = [];
+  if (node.children) {
+    for (const child of node.children) {
+      const childComponent = identifyComponents(child);
+      if (childComponent) {
+        childComponents.push(childComponent);
+      }
+    }
+  }
+
+  return {
+    id: node.id,
+    name: node.name,
+    figmaType: node.type,
+    componentType,
+    variant,
+    size,
+    text,
+    icon,
+    position: {
+      x: node.absoluteBoundingBox?.x || 0,
+      y: node.absoluteBoundingBox?.y || 0
+    },
+    dimensions: {
+      width: node.absoluteBoundingBox?.width || 0,
+      height: node.absoluteBoundingBox?.height || 0
+    },
+    properties: extractProperties(node, componentType),
+    children: childComponents,
+    rawNode: node
+  };
+}
+
+/**
+ * Build component inventory from node tree
+ */
+export function buildComponentInventory(rootNode: FigmaNode): ComponentInventory {
+  const rootComponent = identifyComponents(rootNode);
+
+  // Flatten component tree to count by type
+  const byType: Record<ShadCNComponentType, ComponentInstance[]> = {
+    Button: [],
+    Badge: [],
+    Card: [],
+    Input: [],
+    Dialog: [],
+    Select: [],
+    DatePicker: [],
+    Checkbox: [],
+    Radio: [],
+    Switch: [],
+    Textarea: [],
+    Label: [],
+    Separator: [],
+    Avatar: [],
+    Icon: [],
+    Container: []
+  };
+
+  function flattenComponents(component: ComponentInstance | null) {
+    if (!component) return;
+
+    byType[component.componentType].push(component);
+
+    for (const child of component.children) {
+      flattenComponents(child);
+    }
+  }
+
+  flattenComponents(rootComponent);
+
+  // Count total components (excluding containers)
+  const totalComponents = Object.entries(byType)
+    .filter(([type]) => type !== 'Container')
+    .reduce((sum, [_, components]) => sum + components.length, 0);
+
+  return {
+    totalComponents,
+    byType,
+    hierarchy: rootComponent ? [rootComponent] : [],
+    metadata: {
+      figmaNodeId: rootNode.id,
+      figmaNodeName: rootNode.name,
+      extractedAt: new Date().toISOString()
+    }
+  };
+}
+
+/**
+ * Print component inventory summary
+ */
+export function printInventorySummary(inventory: ComponentInventory): void {
+  console.log('\nComponent Inventory Summary');
+  console.log('='.repeat(80));
+  console.log(`Total Components: ${inventory.totalComponents}`);
+  console.log(`Figma Node: ${inventory.metadata.figmaNodeName} (${inventory.metadata.figmaNodeId})`);
+  console.log(`Extracted: ${inventory.metadata.extractedAt}\n`);
+
+  console.log('Components by Type:');
+  console.log('-'.repeat(80));
+
+  for (const [type, components] of Object.entries(inventory.byType)) {
+    if (components.length > 0 && type !== 'Container') {
+      console.log(`\n${type}: ${components.length}`);
+
+      // Show first few examples
+      const examples = components.slice(0, 3);
+      for (const component of examples) {
+        const details: string[] = [];
+        if (component.variant) details.push(`variant="${component.variant}"`);
+        if (component.size) details.push(`size="${component.size}"`);
+        if (component.text) details.push(`text="${component.text}"`);
+        if (component.icon) details.push(`icon="${component.icon}"`);
+
+        console.log(`  - ${component.name} ${details.length > 0 ? `(${details.join(', ')})` : ''}`);
+      }
+
+      if (components.length > 3) {
+        console.log(`  ... and ${components.length - 3} more`);
+      }
+    }
+  }
+
+  console.log('\n' + '='.repeat(80));
+}
+
+/**
+ * Get components by type
+ */
+export function getComponentsByType(
+  inventory: ComponentInventory,
+  type: ShadCNComponentType
+): ComponentInstance[] {
+  return inventory.byType[type] || [];
+}
+
+/**
+ * Filter components by criteria
+ */
+export function filterComponents(
+  inventory: ComponentInventory,
+  criteria: {
+    type?: ShadCNComponentType;
+    variant?: string;
+    size?: string;
+    hasText?: boolean;
+    hasIcon?: boolean;
+  }
+): ComponentInstance[] {
+  let results: ComponentInstance[] = [];
+
+  // Start with all components or filter by type
+  if (criteria.type) {
+    results = inventory.byType[criteria.type];
+  } else {
+    results = Object.values(inventory.byType).flat();
+  }
+
+  // Apply filters
+  if (criteria.variant !== undefined) {
+    results = results.filter(c => c.variant === criteria.variant);
+  }
+
+  if (criteria.size !== undefined) {
+    results = results.filter(c => c.size === criteria.size);
+  }
+
+  if (criteria.hasText !== undefined) {
+    results = results.filter(c => (c.text !== undefined) === criteria.hasText);
+  }
+
+  if (criteria.hasIcon !== undefined) {
+    results = results.filter(c => (c.icon !== undefined) === criteria.hasIcon);
+  }
+
+  return results;
+}

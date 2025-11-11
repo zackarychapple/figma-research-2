@@ -1,0 +1,183 @@
+  /**
+   * Field classification (Form Field Wrapper)
+   */
+  static classifyField(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Primary signal: Name contains "field" but NOT "textfield" (which is Input)
+    if (name.includes('field') && !name.includes('textfield')) {
+      confidence += 0.6;
+      reasons.push('Name contains "field"');
+    }
+
+    // Check for field-specific compound names
+    if (name.includes('formfield') || name.includes('form field') || name.includes('inputfield')) {
+      confidence += 0.5;
+      reasons.push('Name suggests form field component');
+    }
+
+    // Structural analysis: Look for field-like children
+    const children = node.children || [];
+
+    // Look for label child
+    const hasLabel = children.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('label') || childName.includes('title') || childName.includes('name');
+    });
+
+    // Look for input/control child
+    const hasInput = children.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('input') ||
+             childName.includes('control') ||
+             childName.includes('field') ||
+             childName.includes('textbox') ||
+             childName.includes('textarea') ||
+             childName.includes('select');
+    });
+
+    // Look for description/helper text
+    const hasDescription = children.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('description') ||
+             childName.includes('helper') ||
+             childName.includes('hint') ||
+             childName.includes('help') ||
+             childName.includes('caption') ||
+             childName.includes('subtitle');
+    });
+
+    // Look for error/validation message
+    const hasErrorMessage = children.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('error') ||
+             childName.includes('message') ||
+             childName.includes('invalid') ||
+             childName.includes('validation') ||
+             childName.includes('warning') ||
+             childName.includes('alert');
+    });
+
+    // Strong signal: has both label and input (classic field structure)
+    if (hasLabel && hasInput) {
+      confidence += 0.4;
+      reasons.push('Contains both label and input components');
+    }
+
+    // Additional signals
+    if (hasDescription) {
+      confidence += 0.1;
+      reasons.push('Contains description/helper text');
+    }
+    if (hasErrorMessage) {
+      confidence += 0.1;
+      reasons.push('Contains error/validation message');
+    }
+
+    // Variant signals
+    const hasDataInvalidVariant = /data\s*invalid\s*=\s*(true|false)/i.test(name);
+    if (hasDataInvalidVariant) {
+      confidence += 0.2;
+      reasons.push('Has "Data Invalid" variant');
+    }
+
+    const hasOrientationVariant = /orientation\s*=\s*(vertical|horizontal|responsive)/i.test(name);
+    if (hasOrientationVariant) {
+      confidence += 0.15;
+      reasons.push('Has "Orientation" variant');
+    }
+
+    const hasDescPlacementVariant = /description\s*placement\s*=/i.test(name);
+    if (hasDescPlacementVariant) {
+      confidence += 0.15;
+      reasons.push('Has "Description Placement" variant');
+    }
+
+    // Layout signals
+    if (node.layoutMode === 'VERTICAL') {
+      confidence += 0.05;
+      reasons.push('Vertical layout (typical for fields)');
+    }
+
+    // Child count heuristic (fields typically have 2-4 children)
+    if (children.length >= 2 && children.length <= 4) {
+      confidence += 0.05;
+      reasons.push('Child count matches field structure');
+    }
+
+    // Size heuristic (fields are typically medium height, not too tall or short)
+    if (node.size) {
+      if (node.size.y >= 60 && node.size.y <= 200) {
+        confidence += 0.05;
+        reasons.push('Height suggests field component');
+      }
+    }
+
+    return {
+      type: 'Field',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Form classification
+   */
+  static classifyForm(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('form')) {
+      confidence += 0.6;
+      reasons.push('Name contains "form"');
+    }
+
+    return {
+      type: 'Form',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Pagination classification
+   */
+  static classifyPagination(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('pagination') || name.includes('pager')) {
+      confidence += 0.7;
+      reasons.push('Name contains "pagination"');
+    }
+
+    return {
+      type: 'Pagination',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Tabs classification
+   */
+  static classifyTabs(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('tabs') || name.includes('tab group')) {
+      confidence += 0.7;
+      reasons.push('Name contains "tabs"');
+    }
+
+    return {
+      type: 'Tabs',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }

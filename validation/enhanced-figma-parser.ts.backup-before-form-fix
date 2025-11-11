@@ -1,0 +1,1688 @@
+/**
+ * Enhanced Figma Parser
+ *
+ * Extracts complete style definitions and automatically classifies components
+ * by type for better matching and code generation.
+ */
+
+// ============================================================================
+// TYPE DEFINITIONS
+// ============================================================================
+
+export interface FigmaNode {
+  id?: string;
+  guid?: { sessionID: number; localID: number };
+  name: string;
+  type: string;
+  visible?: boolean;
+  opacity?: number;
+
+  // Layout
+  size?: { x: number; y: number };
+  relativeTransform?: {
+    m00: number; m01: number; m02: number;
+    m10: number; m11: number; m12: number;
+  };
+  layoutMode?: string;
+  primaryAxisSizingMode?: string;
+  counterAxisSizingMode?: string;
+  primaryAxisAlignItems?: string;
+  counterAxisAlignItems?: string;
+  paddingLeft?: number;
+  paddingRight?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
+  itemSpacing?: number;
+  layoutGrow?: number;
+
+  // Style
+  fills?: any[];
+  strokes?: any[];
+  effects?: any[];
+  strokeWeight?: number;
+  strokeAlign?: string;
+  cornerRadius?: number;
+  rectangleCornerRadii?: number[];
+
+  // Typography
+  characters?: string;
+  fontSize?: number;
+  fontName?: { family: string; style: string };
+  fontWeight?: number;
+  textAlignHorizontal?: string;
+  textAlignVertical?: string;
+  letterSpacing?: { value: number; units: string };
+  lineHeight?: { value: number; units: string };
+
+  // Relationships
+  children?: FigmaNode[];
+  isComponent?: boolean;
+  isInstance?: boolean;
+}
+
+export interface ExtractedColor {
+  hex: string;
+  rgb: string;
+  rgba: string;
+  opacity: number;
+  type: 'fill' | 'stroke' | 'text' | 'shadow';
+}
+
+export interface ExtractedTypography {
+  fontFamily: string;
+  fontSize: number;
+  fontWeight: number | string;
+  fontStyle: string;
+  lineHeight: { value: number; unit: string };
+  letterSpacing: { value: number; unit: string };
+  textAlign: string;
+  textAlignVertical: string;
+}
+
+export interface ExtractedEffect {
+  type: 'DROP_SHADOW' | 'INNER_SHADOW' | 'LAYER_BLUR' | 'BACKGROUND_BLUR';
+  radius: number;
+  color?: ExtractedColor;
+  offset?: { x: number; y: number };
+  spread?: number;
+  visible: boolean;
+}
+
+export interface ExtractedSpacing {
+  padding: {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  };
+  margin?: {
+    top: number;
+    right: number;
+    bottom: number;
+    left: number;
+  };
+  gap?: number;
+}
+
+export interface ExtractedStyles {
+  colors: {
+    background?: ExtractedColor[];
+    text?: ExtractedColor[];
+    border?: ExtractedColor[];
+  };
+  typography?: ExtractedTypography;
+  effects: ExtractedEffect[];
+  spacing: ExtractedSpacing;
+  borderRadius: number | number[];
+  dimensions: { width: number; height: number };
+  layout?: {
+    mode: string;
+    direction: string;
+    align: string;
+    justify: string;
+  };
+}
+
+export interface ComponentClassification {
+  type: ComponentType;
+  confidence: number;
+  reasons: string[];
+}
+
+export type ComponentType =
+  | 'Button'
+  | 'Input'
+  | 'Card'
+  | 'Dialog'
+  | 'Select'
+  | 'Checkbox'
+  | 'Radio'
+  | 'RadioGroup'
+  | 'Switch'
+  | 'Toggle'
+  | 'Badge'
+  | 'Avatar'
+  | 'Icon'
+  | 'Sidebar'
+  | 'Tabs'
+  | 'DropdownMenu'
+  | 'NavigationMenu'
+  | 'Container'
+  | 'Text'
+  | 'Image'
+  | 'Form'
+  | 'Pagination'
+  | 'Unknown';
+
+export interface EnhancedComponent {
+  id: string;
+  name: string;
+  type: ComponentType;
+  confidence: number;
+  styles: ExtractedStyles;
+  tailwindClasses: string[];
+  cssProperties: Record<string, string>;
+  classification: ComponentClassification;
+  children?: EnhancedComponent[];
+}
+
+// ============================================================================
+// COLOR EXTRACTION
+// ============================================================================
+
+export class ColorExtractor {
+  /**
+   * Convert Figma color (0-1) to RGB (0-255)
+   */
+  static figmaColorToRgb(color: any): { r: number; g: number; b: number } {
+    return {
+      r: Math.round((color.r || 0) * 255),
+      g: Math.round((color.g || 0) * 255),
+      b: Math.round((color.b || 0) * 255)
+    };
+  }
+
+  /**
+   * Convert RGB to hex
+   */
+  static rgbToHex(r: number, g: number, b: number): string {
+    return '#' + [r, g, b]
+      .map(x => x.toString(16).padStart(2, '0'))
+      .join('');
+  }
+
+  /**
+   * Extract color with all formats
+   */
+  static extractColor(figmaColor: any, opacity: number = 1, type: 'fill' | 'stroke' | 'text' | 'shadow' = 'fill'): ExtractedColor {
+    const rgb = this.figmaColorToRgb(figmaColor);
+    const hex = this.rgbToHex(rgb.r, rgb.g, rgb.b);
+    const finalOpacity = opacity !== undefined ? opacity : (figmaColor.a !== undefined ? figmaColor.a : 1);
+
+    return {
+      hex,
+      rgb: `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`,
+      rgba: `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${finalOpacity.toFixed(3)})`,
+      opacity: finalOpacity,
+      type
+    };
+  }
+
+  /**
+   * Extract all fills from a node
+   */
+  static extractFills(node: FigmaNode): ExtractedColor[] {
+    if (!node.fills || node.fills.length === 0) return [];
+
+    return node.fills
+      .filter(fill => fill.visible !== false && fill.type === 'SOLID')
+      .map(fill => this.extractColor(fill.color, fill.opacity, 'fill'));
+  }
+
+  /**
+   * Extract all strokes from a node
+   */
+  static extractStrokes(node: FigmaNode): ExtractedColor[] {
+    if (!node.strokes || node.strokes.length === 0) return [];
+
+    return node.strokes
+      .filter(stroke => stroke.visible !== false && stroke.type === 'SOLID')
+      .map(stroke => this.extractColor(stroke.color, stroke.opacity, 'stroke'));
+  }
+
+  /**
+   * Extract text color from a text node
+   */
+  static extractTextColor(node: FigmaNode): ExtractedColor | null {
+    if (node.type !== 'TEXT' || !node.fills || node.fills.length === 0) return null;
+
+    const textFill = node.fills.find(fill => fill.visible !== false && fill.type === 'SOLID');
+    if (!textFill) return null;
+
+    return this.extractColor(textFill.color, textFill.opacity, 'text');
+  }
+}
+
+// ============================================================================
+// TYPOGRAPHY EXTRACTION
+// ============================================================================
+
+export class TypographyExtractor {
+  /**
+   * Map Figma font weights to CSS numeric values
+   */
+  static mapFontWeight(fontStyle: string): number {
+    const weightMap: Record<string, number> = {
+      'Thin': 100,
+      'Extra Light': 200,
+      'ExtraLight': 200,
+      'Light': 300,
+      'Regular': 400,
+      'Normal': 400,
+      'Medium': 500,
+      'Semi Bold': 600,
+      'SemiBold': 600,
+      'Bold': 700,
+      'Extra Bold': 800,
+      'ExtraBold': 800,
+      'Black': 900
+    };
+
+    return weightMap[fontStyle] || 400;
+  }
+
+  /**
+   * Extract complete typography information
+   */
+  static extractTypography(node: FigmaNode): ExtractedTypography | null {
+    if (node.type !== 'TEXT' || !node.fontName) return null;
+
+    return {
+      fontFamily: node.fontName.family,
+      fontSize: node.fontSize || 14,
+      fontWeight: this.mapFontWeight(node.fontName.style),
+      fontStyle: node.fontName.style,
+      lineHeight: node.lineHeight
+        ? { value: node.lineHeight.value, unit: node.lineHeight.units }
+        : { value: node.fontSize || 14, unit: 'PIXELS' },
+      letterSpacing: node.letterSpacing
+        ? { value: node.letterSpacing.value, unit: node.letterSpacing.units }
+        : { value: 0, unit: 'PIXELS' },
+      textAlign: node.textAlignHorizontal || 'LEFT',
+      textAlignVertical: node.textAlignVertical || 'TOP'
+    };
+  }
+}
+
+// ============================================================================
+// EFFECTS EXTRACTION
+// ============================================================================
+
+export class EffectsExtractor {
+  /**
+   * Extract shadow and blur effects
+   */
+  static extractEffects(node: FigmaNode): ExtractedEffect[] {
+    if (!node.effects || node.effects.length === 0) return [];
+
+    return node.effects
+      .filter(effect => effect.visible !== false)
+      .map(effect => {
+        const extracted: ExtractedEffect = {
+          type: effect.type,
+          radius: effect.radius || 0,
+          visible: effect.visible !== false
+        };
+
+        if (effect.color) {
+          extracted.color = ColorExtractor.extractColor(
+            effect.color,
+            effect.color.a,
+            'shadow'
+          );
+        }
+
+        if (effect.offset) {
+          extracted.offset = {
+            x: effect.offset.x || 0,
+            y: effect.offset.y || 0
+          };
+        }
+
+        if (effect.spread !== undefined) {
+          extracted.spread = effect.spread;
+        }
+
+        return extracted;
+      });
+  }
+
+  /**
+   * Convert effects to CSS box-shadow
+   */
+  static effectsToBoxShadow(effects: ExtractedEffect[]): string {
+    const shadows = effects
+      .filter(e => e.type === 'DROP_SHADOW' || e.type === 'INNER_SHADOW')
+      .map(effect => {
+        const inset = effect.type === 'INNER_SHADOW' ? 'inset ' : '';
+        const x = effect.offset?.x || 0;
+        const y = effect.offset?.y || 0;
+        const blur = effect.radius || 0;
+        const spread = effect.spread || 0;
+        const color = effect.color?.rgba || 'rgba(0,0,0,0.1)';
+
+        return `${inset}${x}px ${y}px ${blur}px ${spread}px ${color}`;
+      });
+
+    return shadows.join(', ');
+  }
+}
+
+// ============================================================================
+// SPACING EXTRACTION
+// ============================================================================
+
+export class SpacingExtractor {
+  /**
+   * Extract padding and spacing
+   */
+  static extractSpacing(node: FigmaNode): ExtractedSpacing {
+    return {
+      padding: {
+        top: node.paddingTop || 0,
+        right: node.paddingRight || 0,
+        bottom: node.paddingBottom || 0,
+        left: node.paddingLeft || 0
+      },
+      gap: node.itemSpacing
+    };
+  }
+
+  /**
+   * Check if spacing is uniform
+   */
+  static isUniformPadding(spacing: ExtractedSpacing): boolean {
+    const { top, right, bottom, left } = spacing.padding;
+    return top === right && right === bottom && bottom === left;
+  }
+
+  /**
+   * Check if spacing is symmetric (top/bottom and left/right pairs)
+   */
+  static isSymmetricPadding(spacing: ExtractedSpacing): boolean {
+    const { top, right, bottom, left } = spacing.padding;
+    return top === bottom && left === right;
+  }
+}
+
+// ============================================================================
+// COMPONENT CLASSIFICATION
+// ============================================================================
+
+export class ComponentClassifier {
+  /**
+   * Classify a component based on its properties
+   */
+  static classify(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const type = node.type;
+
+    // Try each classifier in order of specificity
+    const classifiers = [
+      this.classifySlider,
+      this.classifyPagination,
+      this.classifyTabs,
+      this.classifyButton,
+      this.classifyInput,
+      this.classifyTextarea,
+      this.classifyCheckbox,
+      this.classifyRadioGroup,
+      this.classifyRadio,
+      this.classifySwitch,
+      this.classifyToggleGroup,
+      this.classifySelect,
+      this.classifyDialog,
+      this.classifyCard,
+      this.classifyForm,
+      this.classifyBadge,
+      this.classifyAvatar,
+      this.classifyIcon,
+      this.classifyText,
+      this.classifyImage
+    ];
+
+    for (const classifier of classifiers) {
+      const result = classifier.call(this, node);
+      // Lowered threshold from 0.5 to 0.4 to catch more specific types
+      if (result.confidence >= 0.4) {
+        return result;
+      }
+    }
+
+    return {
+      type: 'Container',
+      confidence: 0.3,
+      reasons: ['No specific component type detected']
+    };
+  }
+
+  /**
+   * Button classification
+   */
+  static classifyButton(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Skip if this is an icon variant (let icon classifier handle it) (NEW)
+    if (/size\s*=\s*icon/i.test(name)) {
+      return {
+        type: 'Button',
+        confidence: 0,
+        reasons: ['Size=icon suggests icon component, skipping button classification']
+      };
+    }
+
+    // Name-based detection
+    if (name.includes('button') || name.includes('btn')) {
+      confidence += 0.5;
+      reasons.push('Name contains "button"');
+    }
+
+    // Variant pattern detection (NEW)
+    const hasVariantPattern = /variant\s*=/i.test(name) ||
+                             /state\s*=/i.test(name) ||
+                             /size\s*=/i.test(name);
+
+    if (hasVariantPattern) {
+      // Check for button-specific variant types
+      const variantType = name.match(/variant\s*=\s*(\w+)/i)?.[1]?.toLowerCase();
+      const isButtonVariant = variantType && ['default', 'primary', 'secondary', 'outline',
+                               'ghost', 'link', 'destructive', 'tertiary'].includes(variantType);
+
+      if (isButtonVariant) {
+        confidence += 0.5;
+        reasons.push(`Variant type "${variantType}" indicates button component`);
+      } else if (hasVariantPattern) {
+        confidence += 0.2;
+        reasons.push('Has variant/state/size properties (common for buttons)');
+      }
+    }
+
+    // Interactive state detection (NEW)
+    const hasInteractiveState = /state\s*=\s*(hover|focus|active|pressed|disabled|loading)/i.test(name);
+    if (hasInteractiveState) {
+      confidence += 0.3;
+      reasons.push('Has interactive state property (hover/focus/disabled/loading)');
+    }
+
+    // Additional button variant keywords (NEW)
+    const hasButtonKeywords = name.includes('primary') ||
+                             name.includes('secondary') ||
+                             name.includes('destructive') ||
+                             name.includes('outline') ||
+                             name.includes('ghost');
+    if (hasButtonKeywords && !name.includes('button')) {
+      confidence += 0.2;
+      reasons.push('Contains button variant keywords');
+    }
+
+    // Structure-based detection
+    const hasBackground = node.fills && node.fills.length > 0 &&
+                         node.fills.some(f => f.visible !== false);
+    const hasText = node.children?.some(c => c.type === 'TEXT');
+    const isInteractive = node.type === 'INSTANCE' || node.type === 'SYMBOL' || node.type === 'COMPONENT';
+
+    if (hasBackground && hasText && isInteractive) {
+      confidence += 0.2;
+      reasons.push('Has background, text, and is interactive');
+    } else if (hasBackground && isInteractive) {
+      confidence += 0.1;
+      reasons.push('Has background and is interactive');
+    }
+
+    // Size-based heuristic (buttons are typically small to medium)
+    if (node.size) {
+      // Reject if too tall - likely a textarea or other input
+      if (node.size.y > 70) {
+        confidence = 0;
+        reasons.push('Height > 70px suggests not a button (likely textarea/input)');
+      } else if (node.size.x > 40 && node.size.x < 300 &&
+                 node.size.y > 24 && node.size.y < 60) {
+        confidence += 0.05;
+        reasons.push('Size matches typical button dimensions');
+      }
+    }
+
+    // Has corner radius (common for buttons)
+    if (node.cornerRadius && node.cornerRadius > 0) {
+      confidence += 0.05;
+      reasons.push('Has rounded corners');
+    }
+
+    return {
+      type: 'Button',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Input field classification
+   */
+  static classifyInput(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('input') || name.includes('textfield') || name.includes('text field')) {
+      confidence += 0.6;
+      reasons.push('Name contains input-related keyword');
+    }
+
+    // Variant pattern detection for inputs (NEW)
+    const hasVariantPattern = /variant\s*=/i.test(name) ||
+                             /state\s*=/i.test(name);
+
+    if (hasVariantPattern && (name.includes('input') || name.includes('field'))) {
+      confidence += 0.3;
+      reasons.push('Has variant/state properties with input indicators');
+    }
+
+    // Interactive state detection (NEW)
+    const hasInputState = /state\s*=\s*(focus|error|disabled|filled|empty)/i.test(name);
+    if (hasInputState) {
+      confidence += 0.2;
+      reasons.push('Has input-specific state (focus/error/disabled)');
+    }
+
+    // Typical input structure: frame with border and text
+    const hasBorder = node.strokes && node.strokes.length > 0;
+    const hasText = node.children?.some(c => c.type === 'TEXT');
+
+    if (hasBorder && hasText) {
+      confidence += 0.2;
+      reasons.push('Has border and text field');
+    }
+
+    // Size heuristic (inputs are typically wider than tall)
+    if (node.size) {
+      // Reject if too tall - likely a textarea
+      if (node.size.y > 80) {
+        confidence = 0;
+        reasons.push('Height > 80px suggests textarea, not input');
+      } else if (node.size.x > node.size.y * 2) {
+        confidence += 0.1;
+        reasons.push('Width suggests input field');
+      }
+      // Additional rejection: if height >= 60 and not very wide, likely textarea
+      else if (node.size.y >= 60 && node.size.x / node.size.y < 3) {
+        confidence *= 0.5;  // Reduce confidence significantly
+        reasons.push('Height >= 60px with moderate width suggests possible textarea');
+      }
+    }
+
+    return {
+      type: 'Input',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Textarea field classification
+   */
+  static classifyTextarea(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('textarea') || name.includes('text area')) {
+      confidence += 0.7;
+      reasons.push('Name contains textarea-related keyword');
+    }
+
+    // Variant pattern detection for textareas
+    const hasVariantPattern = /variant\s*=/i.test(name) ||
+                             /state\s*=/i.test(name);
+
+    if (hasVariantPattern && name.includes('textarea')) {
+      confidence += 0.3;
+      reasons.push('Has variant/state properties with textarea indicators');
+    }
+
+    // Interactive state detection (same as Input but specific to textarea)
+    const hasTextareaState = /state\s*=\s*(focus|error|disabled|filled|default)/i.test(name);
+    if (hasTextareaState) {
+      confidence += 0.1;
+      reasons.push('Has textarea-specific state (focus/error/disabled/filled)');
+    }
+
+    // Typical textarea structure: frame with border and text, multiline
+    const hasBorder = node.strokes && node.strokes.length > 0;
+    const hasText = node.children?.some(c => c.type === 'TEXT');
+
+    if (hasBorder && hasText) {
+      confidence += 0.1;
+      reasons.push('Has border and text field');
+    }
+
+    // SIZE IS KEY DIFFERENTIATOR: Textareas are taller than inputs
+    // This is the primary way to distinguish textarea from input
+    if (node.size) {
+      const aspectRatio = node.size.x / node.size.y;
+      const height = node.size.y;
+
+      // Strong signal: Height >= 80px is almost certainly a textarea
+      if (height >= 80) {
+        confidence += 0.6;
+        reasons.push('Height >= 80px strongly suggests textarea (multi-line field)');
+      }
+      // Medium signal: Height 60-80px with good aspect ratio
+      else if (height >= 60 && aspectRatio >= 0.8 && aspectRatio <= 3) {
+        confidence += 0.5;
+        reasons.push('Height 60-80px with aspect ratio suggests textarea');
+      }
+      // Weak signal: Shorter but squarish (not the typical wide input)
+      else if (height >= 40 && aspectRatio >= 1 && aspectRatio <= 2) {
+        confidence += 0.3;
+        reasons.push('Square-ish aspect ratio suggests possible textarea');
+      }
+    }
+
+    return {
+      type: 'Textarea',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Checkbox classification
+   */
+  static classifyCheckbox(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('checkbox') || name.includes('check')) {
+      confidence += 0.6;
+      reasons.push('Name contains "checkbox"');
+    }
+
+    // Small square with optional checkmark
+    if (node.size && Math.abs(node.size.x - node.size.y) < 4 &&
+        node.size.x < 30) {
+      confidence += 0.2;
+      reasons.push('Square shape of small size');
+    }
+
+    return {
+      type: 'Checkbox',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Radio Group classification
+   */
+  static classifyRadioGroup(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Strong indicator: name contains "radio group" or "radio-group"
+    if (name.includes('radio group') || name.includes('radio-group') || name.includes('radiogroup')) {
+      confidence += 0.8;
+      reasons.push('Name contains "radio group"');
+    }
+
+    // Multiple radio children
+    const hasMultipleRadioChildren = node.children && node.children.filter(child => {
+      const childName = child.name.toLowerCase();
+      return childName.includes('radio') && !childName.includes('group');
+    }).length >= 2;
+
+    if (hasMultipleRadioChildren) {
+      confidence += 0.5;
+      reasons.push('Contains multiple radio child components');
+    }
+
+    // Layout suggests grouped items (vertical or horizontal layout)
+    const hasLayout = node.layoutMode === 'HORIZONTAL' || node.layoutMode === 'VERTICAL';
+    if (hasLayout && hasMultipleRadioChildren) {
+      confidence += 0.2;
+      reasons.push('Has layout mode with multiple items');
+    }
+
+    // Has item spacing (common for radio groups)
+    if (node.itemSpacing && node.itemSpacing > 0 && hasMultipleRadioChildren) {
+      confidence += 0.1;
+      reasons.push('Has item spacing between radio options');
+    }
+
+    return {
+      type: 'RadioGroup',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Radio button classification
+   */
+  static classifyRadio(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Exclude if this looks like a group
+    if (name.includes('group') || (node.children && node.children.length > 3)) {
+      return {
+        type: 'Radio',
+        confidence: 0,
+        reasons: ['Appears to be a radio group, not individual radio']
+      };
+    }
+
+    if (name.includes('radio')) {
+      confidence += 0.7;
+      reasons.push('Name contains "radio"');
+    }
+
+    // Small circle
+    if (node.cornerRadius && node.size &&
+        Math.abs(node.size.x - node.size.y) < 4 &&
+        node.cornerRadius >= node.size.x / 2) {
+      confidence += 0.2;
+      reasons.push('Circular shape of small size');
+    }
+
+    return {
+      type: 'Radio',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Switch/Toggle classification
+   */
+  static classifySwitch(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Skip if this looks like a toggle group (has multiple toggle items)
+    if ((name.includes('toggle') || name.includes('switch')) &&
+        (name.includes('group') || name.includes('bar'))) {
+      return {
+        type: 'Switch',
+        confidence: 0,
+        reasons: ['Name suggests toggle group, not single switch']
+      };
+    }
+
+    // Skip if has multiple children that look like toggles (structural check)
+    const hasMultipleToggles = node.children && node.children.length >= 2 &&
+      node.children.filter(child => {
+        const childName = child.name.toLowerCase();
+        return childName.includes('toggle') ||
+               childName.includes('item') ||
+               childName.includes('option') ||
+               childName.includes('button');
+      }).length >= 2;
+
+    if (hasMultipleToggles) {
+      return {
+        type: 'Switch',
+        confidence: 0,
+        reasons: ['Has multiple toggle-like children, likely a toggle group']
+      };
+    }
+
+    if (name.includes('switch') || name.includes('toggle')) {
+      confidence += 0.7;
+      reasons.push('Name contains switch/toggle');
+    }
+
+    // Pill shape (width roughly 2x height, high corner radius)
+    if (node.size && node.cornerRadius &&
+        node.size.x > node.size.y * 1.5 &&
+        node.size.x < node.size.y * 2.5 &&
+        node.cornerRadius >= node.size.y / 2) {
+      confidence += 0.2;
+      reasons.push('Pill shape suggests switch');
+    }
+
+    return {
+      type: 'Switch',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Select/Dropdown classification
+   */
+
+  /**
+   * Slider classification
+   */
+  static classifySlider(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes("slider")) {
+      confidence += 0.7;
+      reasons.push("Name contains \"slider\"");
+    }
+
+    const hasRangeVariant = /range\s*=\s*(yes|no)/i.test(name);
+    if (hasRangeVariant) {
+      confidence += 0.3;
+      reasons.push("Has Range=Yes/No variant property");
+    }
+
+    const hasSliderState = /state\s*=\s*(default|focus|hover)/i.test(name);
+    if (hasSliderState) {
+      confidence += 0.2;
+      reasons.push("Has slider state property");
+    }
+
+    if (node.size && node.size.x > node.size.y * 4) {
+      confidence += 0.2;
+      reasons.push("Wide horizontal layout suggests slider");
+    }
+
+    const hasTrack = node.children?.some(c =>
+      c.name.toLowerCase().includes("track") ||
+      c.name.toLowerCase().includes("rail")
+    );
+    const hasThumb = node.children?.some(c =>
+      c.name.toLowerCase().includes("thumb") ||
+      c.name.toLowerCase().includes("handle") ||
+      c.name.toLowerCase().includes("knob")
+    );
+
+    if (hasTrack && hasThumb) {
+      confidence += 0.3;
+      reasons.push("Contains track and thumb elements");
+    } else if (hasTrack || hasThumb) {
+      confidence += 0.15;
+      reasons.push("Contains slider-like element");
+    }
+
+    if (node.children) {
+      const roundedChildren = node.children.filter(c =>
+        c.cornerRadius && c.size &&
+        Math.abs(c.size.x - c.size.y) < 4 &&
+        c.cornerRadius >= c.size.x / 2
+      );
+
+      if (roundedChildren.length >= 2) {
+        confidence += 0.15;
+        reasons.push(`Contains ${roundedChildren.length} circular children`);
+      } else if (roundedChildren.length === 1) {
+        confidence += 0.1;
+        reasons.push("Contains 1 circular child (likely slider thumb)");
+      }
+    }
+
+    return {
+      type: "Slider",
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * ToggleGroup classification
+   */
+  static classifyToggleGroup(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('togglegroup') || name.includes('toggle group') ||
+        name.includes('toggle-group')) {
+      confidence += 0.7;
+      reasons.push('Name contains "togglegroup" or "toggle group"');
+    } else if (name.includes('toggle') && (name.includes('group') || name.includes('bar'))) {
+      confidence += 0.5;
+      reasons.push('Name contains "toggle" with "group" or "bar"');
+    }
+
+    // Structure-based detection: has multiple toggle items as children
+    const hasMultipleToggles = node.children && node.children.length >= 2 &&
+      node.children.filter(child => {
+        const childName = child.name.toLowerCase();
+        return childName.includes('toggle') ||
+               childName.includes('item') ||
+               childName.includes('option') ||
+               childName.includes('button');
+      }).length >= 2;
+
+    if (hasMultipleToggles) {
+      confidence += 0.4;
+      reasons.push('Has multiple toggle items as children');
+    }
+
+    // Layout detection: horizontal or vertical group
+    if (node.layoutMode === 'HORIZONTAL' || node.layoutMode === 'VERTICAL') {
+      confidence += 0.1;
+      reasons.push('Has flex layout (typical for toggle groups)');
+    }
+
+    // Has background/border (toggle groups are typically contained)
+    const hasBackground = node.fills && node.fills.length > 0 &&
+                         node.fills.some(f => f.visible !== false);
+    const hasBorder = node.strokes && node.strokes.length > 0;
+
+    if (hasBackground || hasBorder) {
+      confidence += 0.1;
+      reasons.push('Has background or border (typical container style)');
+    }
+
+    // Check if children are arranged in a group-like manner
+    if (node.children && node.children.length >= 2) {
+      const childrenWithSimilarSize = node.children.filter(child => {
+        if (!child.size || !node.children![0].size) return false;
+        const firstChildSize = node.children![0].size;
+        return Math.abs(child.size.x - firstChildSize.x) < 20 &&
+               Math.abs(child.size.y - firstChildSize.y) < 20;
+      });
+
+      if (childrenWithSimilarSize.length >= 2) {
+        confidence += 0.1;
+        reasons.push('Children have similar sizes (grouped layout)');
+      }
+    }
+
+    return {
+      type: 'ToggleGroup',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+
+  static classifySelect(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('select') || name.includes('dropdown') || name.includes('combobox')) {
+      confidence += 0.6;
+      reasons.push('Name contains select/dropdown');
+    }
+
+    // Has text and icon (typically down chevron)
+    const hasText = node.children?.some(c => c.type === 'TEXT');
+    const hasIcon = node.children?.some(c =>
+      c.name.toLowerCase().includes('icon') ||
+      c.name.toLowerCase().includes('chevron')
+    );
+
+    if (hasText && hasIcon) {
+      confidence += 0.3;
+      reasons.push('Has text and icon');
+    }
+
+    return {
+      type: 'Select',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Card classification
+   */
+  static classifyCard(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('card')) {
+      confidence += 0.5;
+      reasons.push('Name contains "card"');
+    }
+
+    // Has shadow/elevation and multiple children
+    const hasShadow = node.effects && node.effects.some(e =>
+      e.type === 'DROP_SHADOW' && e.visible !== false
+    );
+    const hasMultipleChildren = node.children && node.children.length >= 2;
+
+    if (hasShadow && hasMultipleChildren) {
+      confidence += 0.3;
+      reasons.push('Has elevation and multiple content sections');
+    }
+
+    // Medium to large size
+    if (node.size && node.size.x > 200 && node.size.y > 100) {
+      confidence += 0.1;
+      reasons.push('Size suggests content container');
+    }
+
+    return {
+      type: 'Card',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Dialog/Modal classification
+   */
+  static classifyDialog(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('dialog') || name.includes('modal') || name.includes('popup')) {
+      confidence += 0.7;
+      reasons.push('Name contains dialog/modal');
+    }
+
+    // Large with shadow and multiple sections
+    const hasShadow = node.effects && node.effects.some(e =>
+      e.type === 'DROP_SHADOW' && e.visible !== false
+    );
+    const isLarge = node.size && node.size.x > 300 && node.size.y > 200;
+    const hasMultipleSections = node.children && node.children.length >= 3;
+
+    if (hasShadow && isLarge && hasMultipleSections) {
+      confidence += 0.2;
+      reasons.push('Large container with shadow and multiple sections');
+    }
+
+    return {
+      type: 'Dialog',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Badge classification
+   */
+  static classifyBadge(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('badge') || name.includes('tag') || name.includes('chip')) {
+      confidence += 0.6;
+      reasons.push('Name contains badge/tag/chip');
+    }
+
+    // Small with text and rounded corners
+    const hasText = node.children?.some(c => c.type === 'TEXT');
+    const isSmall = node.size && node.size.x < 100 && node.size.y < 40;
+    const isRounded = node.cornerRadius && node.cornerRadius >= 4;
+
+    if (hasText && isSmall && isRounded) {
+      confidence += 0.3;
+      reasons.push('Small, rounded container with text');
+    }
+
+    return {
+      type: 'Badge',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Avatar classification
+   */
+  static classifyAvatar(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('avatar') || name.includes('profile')) {
+      confidence += 0.6;
+      reasons.push('Name contains avatar/profile');
+    }
+
+    // Circular or square, small to medium size
+    const isCircular = node.cornerRadius && node.size &&
+                       node.cornerRadius >= node.size.x / 2;
+    const isSquare = node.size && Math.abs(node.size.x - node.size.y) < 4;
+    const isSmallMedium = node.size && node.size.x < 100;
+
+    if ((isCircular || isSquare) && isSmallMedium) {
+      confidence += 0.3;
+      reasons.push('Circular or square shape of appropriate size');
+    }
+
+    return {
+      type: 'Avatar',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Icon classification
+   */
+  static classifyIcon(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('icon') || name.includes('ico ')) {
+      confidence += 0.6;
+      reasons.push('Name contains "icon"');
+    }
+
+    // Size=icon variant (strong signal for icon buttons) (NEW)
+    if (/size\s*=\s*icon/i.test(name)) {
+      confidence += 0.5;
+      reasons.push('Size=icon indicates icon component');
+    }
+
+    // Small, square or nearly square
+    const isSmall = node.size && node.size.x <= 32 && node.size.y <= 32;
+    const isSquarish = node.size &&
+                       Math.abs(node.size.x - node.size.y) / Math.max(node.size.x, node.size.y) < 0.2;
+
+    if (isSmall && isSquarish) {
+      confidence += 0.3;
+      reasons.push('Small, square dimensions');
+    }
+
+    // Vector or group type
+    if (node.type === 'VECTOR' || node.type === 'GROUP' || node.type === 'BOOLEAN_OPERATION') {
+      confidence += 0.1;
+      reasons.push('Vector-based node');
+    }
+
+    return {
+      type: 'Icon',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Text classification
+   */
+  static classifyText(node: FigmaNode): ComponentClassification {
+    if (node.type === 'TEXT') {
+      return {
+        type: 'Text',
+        confidence: 1.0,
+        reasons: ['Is a text node']
+      };
+    }
+
+    return {
+      type: 'Text',
+      confidence: 0,
+      reasons: []
+    };
+  }
+
+  /**
+   * Image classification
+   */
+  static classifyImage(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('image') || name.includes('img') || name.includes('picture')) {
+      confidence += 0.5;
+      reasons.push('Name suggests image');
+    }
+
+    // Has image fill
+    const hasImageFill = node.fills && node.fills.some(f => f.type === 'IMAGE');
+    if (hasImageFill) {
+      confidence += 0.5;
+      reasons.push('Has image fill');
+    }
+
+    return {
+      type: 'Image',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+}
+
+// ============================================================================
+// TAILWIND CSS MAPPER
+// ============================================================================
+
+export class TailwindMapper {
+  /**
+   * Map extracted styles to Tailwind classes
+   */
+  static mapStyles(styles: ExtractedStyles): string[] {
+    const classes: string[] = [];
+
+    // Background color
+    if (styles.colors.background && styles.colors.background.length > 0) {
+      const bgClass = this.mapColorToTailwind(styles.colors.background[0], 'bg');
+      if (bgClass) classes.push(bgClass);
+    }
+
+    // Text color
+    if (styles.colors.text && styles.colors.text.length > 0) {
+      const textClass = this.mapColorToTailwind(styles.colors.text[0], 'text');
+      if (textClass) classes.push(textClass);
+    }
+
+    // Border
+    if (styles.colors.border && styles.colors.border.length > 0) {
+      const borderClass = this.mapColorToTailwind(styles.colors.border[0], 'border');
+      if (borderClass) {
+        classes.push('border');
+        classes.push(borderClass);
+      }
+    }
+
+    // Border radius
+    const radiusClass = this.mapBorderRadius(styles.borderRadius);
+    if (radiusClass) classes.push(radiusClass);
+
+    // Padding
+    const paddingClasses = this.mapSpacing(styles.spacing.padding, 'p');
+    classes.push(...paddingClasses);
+
+    // Gap
+    if (styles.spacing.gap !== undefined) {
+      const gapClass = this.mapGap(styles.spacing.gap);
+      if (gapClass) classes.push(gapClass);
+    }
+
+    // Typography
+    if (styles.typography) {
+      const typoClasses = this.mapTypography(styles.typography);
+      classes.push(...typoClasses);
+    }
+
+    // Effects
+    const shadowClass = this.mapShadow(styles.effects);
+    if (shadowClass) classes.push(shadowClass);
+
+    // Layout
+    if (styles.layout) {
+      const layoutClasses = this.mapLayout(styles.layout);
+      classes.push(...layoutClasses);
+    }
+
+    return classes;
+  }
+
+  /**
+   * Map color to closest Tailwind color
+   */
+  static mapColorToTailwind(color: ExtractedColor, prefix: string): string | null {
+    // Try to match to common Tailwind colors
+    const colorMap: Record<string, string> = {
+      // Grays
+      '#000000': `${prefix}-black`,
+      '#ffffff': `${prefix}-white`,
+      '#f9fafb': `${prefix}-gray-50`,
+      '#f3f4f6': `${prefix}-gray-100`,
+      '#e5e7eb': `${prefix}-gray-200`,
+      '#d1d5db': `${prefix}-gray-300`,
+      '#9ca3af': `${prefix}-gray-400`,
+      '#6b7280': `${prefix}-gray-500`,
+      '#4b5563': `${prefix}-gray-600`,
+      '#374151': `${prefix}-gray-700`,
+      '#1f2937': `${prefix}-gray-800`,
+      '#111827': `${prefix}-gray-900`,
+
+      // Blues
+      '#3b82f6': `${prefix}-blue-500`,
+      '#2563eb': `${prefix}-blue-600`,
+      '#1d4ed8': `${prefix}-blue-700`,
+
+      // Purples
+      '#7c3aed': `${prefix}-violet-600`,
+      '#6d28d9': `${prefix}-violet-700`,
+
+      // Reds
+      '#ef4444': `${prefix}-red-500`,
+      '#dc2626': `${prefix}-red-600`,
+
+      // Greens
+      '#10b981': `${prefix}-green-500`,
+      '#059669': `${prefix}-green-600`,
+    };
+
+    const hex = color.hex.toLowerCase();
+    return colorMap[hex] || null;
+  }
+
+  /**
+   * Map border radius to Tailwind
+   */
+  static mapBorderRadius(radius: number | number[]): string | null {
+    if (Array.isArray(radius)) {
+      // Check if all corners are the same
+      if (radius.every(r => r === radius[0])) {
+        radius = radius[0];
+      } else {
+        return null; // Complex radius, needs custom CSS
+      }
+    }
+
+    if (radius === 0) return null;
+    if (radius <= 2) return 'rounded-sm';
+    if (radius <= 4) return 'rounded';
+    if (radius <= 6) return 'rounded-md';
+    if (radius <= 8) return 'rounded-lg';
+    if (radius <= 12) return 'rounded-xl';
+    if (radius <= 16) return 'rounded-2xl';
+    if (radius >= 9999) return 'rounded-full';
+
+    return 'rounded-lg';
+  }
+
+  /**
+   * Map spacing to Tailwind
+   */
+  static mapSpacing(padding: { top: number; right: number; bottom: number; left: number }, prefix: string): string[] {
+    const { top, right, bottom, left } = padding;
+
+    // Check if uniform
+    if (top === right && right === bottom && bottom === left) {
+      if (top === 0) return [];
+      return [this.spacingValueToClass(top, prefix)];
+    }
+
+    // Check if symmetric (y and x)
+    if (top === bottom && left === right) {
+      const classes = [];
+      if (top > 0) classes.push(this.spacingValueToClass(top, `${prefix}y`));
+      if (left > 0) classes.push(this.spacingValueToClass(left, `${prefix}x`));
+      return classes;
+    }
+
+    // Individual sides
+    const classes = [];
+    if (top > 0) classes.push(this.spacingValueToClass(top, `${prefix}t`));
+    if (right > 0) classes.push(this.spacingValueToClass(right, `${prefix}r`));
+    if (bottom > 0) classes.push(this.spacingValueToClass(bottom, `${prefix}b`));
+    if (left > 0) classes.push(this.spacingValueToClass(left, `${prefix}l`));
+    return classes;
+  }
+
+  /**
+   * Convert spacing value to Tailwind class
+   */
+  static spacingValueToClass(value: number, prefix: string): string {
+    // Tailwind spacing scale: 0, 1, 2, 3, 4, 5, 6, 8, 10, 12, 16, 20, 24...
+    // 1 unit = 0.25rem = 4px
+    const rem = value / 16; // Convert px to rem
+    const units = rem * 4; // Convert rem to Tailwind units
+
+    if (units <= 0.5) return `${prefix}-0`;
+    if (units <= 1.5) return `${prefix}-1`;
+    if (units <= 2.5) return `${prefix}-2`;
+    if (units <= 3.5) return `${prefix}-3`;
+    if (units <= 4.5) return `${prefix}-4`;
+    if (units <= 5.5) return `${prefix}-5`;
+    if (units <= 6.5) return `${prefix}-6`;
+    if (units <= 9) return `${prefix}-8`;
+    if (units <= 11) return `${prefix}-10`;
+    if (units <= 14) return `${prefix}-12`;
+    if (units <= 18) return `${prefix}-16`;
+    if (units <= 22) return `${prefix}-20`;
+
+    return `${prefix}-24`;
+  }
+
+  /**
+   * Map gap to Tailwind
+   */
+  static mapGap(gap: number): string | null {
+    return this.spacingValueToClass(gap, 'gap');
+  }
+
+  /**
+   * Map typography to Tailwind
+   */
+  static mapTypography(typo: ExtractedTypography): string[] {
+    const classes: string[] = [];
+
+    // Font size
+    const fontSize = typo.fontSize;
+    if (fontSize <= 12) classes.push('text-xs');
+    else if (fontSize <= 14) classes.push('text-sm');
+    else if (fontSize <= 16) classes.push('text-base');
+    else if (fontSize <= 18) classes.push('text-lg');
+    else if (fontSize <= 20) classes.push('text-xl');
+    else if (fontSize <= 24) classes.push('text-2xl');
+    else if (fontSize <= 30) classes.push('text-3xl');
+    else classes.push('text-4xl');
+
+    // Font weight
+    const weight = typeof typo.fontWeight === 'number' ? typo.fontWeight : 400;
+    if (weight <= 300) classes.push('font-light');
+    else if (weight <= 400) classes.push('font-normal');
+    else if (weight <= 500) classes.push('font-medium');
+    else if (weight <= 600) classes.push('font-semibold');
+    else classes.push('font-bold');
+
+    // Text align
+    if (typo.textAlign === 'CENTER') classes.push('text-center');
+    else if (typo.textAlign === 'RIGHT') classes.push('text-right');
+    else if (typo.textAlign === 'JUSTIFIED') classes.push('text-justify');
+
+    return classes;
+  }
+
+  /**
+   * Map shadow effects to Tailwind
+   */
+  static mapShadow(effects: ExtractedEffect[]): string | null {
+    const shadows = effects.filter(e =>
+      e.type === 'DROP_SHADOW' && e.visible
+    );
+
+    if (shadows.length === 0) return null;
+
+    // Simple heuristic based on blur radius
+    const shadow = shadows[0];
+    const blur = shadow.radius;
+
+    if (blur <= 2) return 'shadow-sm';
+    if (blur <= 6) return 'shadow';
+    if (blur <= 10) return 'shadow-md';
+    if (blur <= 15) return 'shadow-lg';
+    if (blur <= 25) return 'shadow-xl';
+
+    return 'shadow-2xl';
+  }
+
+  /**
+   * Map layout to Tailwind
+   */
+  static mapLayout(layout: { mode: string; direction: string; align: string; justify: string }): string[] {
+    const classes: string[] = [];
+
+    if (layout.mode === 'HORIZONTAL' || layout.mode === 'VERTICAL') {
+      classes.push('flex');
+
+      if (layout.direction === 'column') {
+        classes.push('flex-col');
+      }
+
+      // Alignment
+      if (layout.align === 'CENTER') classes.push('items-center');
+      else if (layout.align === 'END') classes.push('items-end');
+      else if (layout.align === 'STRETCH') classes.push('items-stretch');
+
+      // Justify
+      if (layout.justify === 'CENTER') classes.push('justify-center');
+      else if (layout.justify === 'SPACE_BETWEEN') classes.push('justify-between');
+      else if (layout.justify === 'SPACE_AROUND') classes.push('justify-around');
+      else if (layout.justify === 'END') classes.push('justify-end');
+    }
+
+    return classes;
+  }
+}
+
+// ============================================================================
+// ENHANCED PARSER
+// ============================================================================
+
+export class EnhancedFigmaParser {
+  /**
+   * Parse a Figma node into an enhanced component
+   */
+  static parseNode(node: FigmaNode): EnhancedComponent {
+    // Extract styles
+    const styles = this.extractStyles(node);
+
+    // Classify component
+    const classification = ComponentClassifier.classify(node);
+
+    // Map to Tailwind
+    const tailwindClasses = TailwindMapper.mapStyles(styles);
+
+    // Generate CSS properties
+    const cssProperties = this.generateCssProperties(styles);
+
+    // Parse children
+    const children = node.children?.map(child => this.parseNode(child));
+
+    return {
+      id: this.getNodeId(node),
+      name: node.name,
+      type: classification.type,
+      confidence: classification.confidence,
+      styles,
+      tailwindClasses,
+      cssProperties,
+      classification,
+      children
+    };
+  }
+
+  /**
+   * Extract all styles from a node
+   */
+  static extractStyles(node: FigmaNode): ExtractedStyles {
+    const colors = {
+      background: ColorExtractor.extractFills(node),
+      text: node.type === 'TEXT' ? [ColorExtractor.extractTextColor(node)].filter(Boolean) as ExtractedColor[] : [],
+      border: ColorExtractor.extractStrokes(node)
+    };
+
+    const typography = TypographyExtractor.extractTypography(node);
+    const effects = EffectsExtractor.extractEffects(node);
+    const spacing = SpacingExtractor.extractSpacing(node);
+
+    const borderRadius = node.rectangleCornerRadii || node.cornerRadius || 0;
+
+    const dimensions = {
+      width: node.size?.x || 0,
+      height: node.size?.y || 0
+    };
+
+    const layout = node.layoutMode ? {
+      mode: node.layoutMode,
+      direction: node.layoutMode === 'HORIZONTAL' ? 'row' : 'column',
+      align: node.counterAxisAlignItems || 'start',
+      justify: node.primaryAxisAlignItems || 'start'
+    } : undefined;
+
+    return {
+      colors,
+      typography,
+      effects,
+      spacing,
+      borderRadius,
+      dimensions,
+      layout
+    };
+  }
+
+  /**
+   * Generate CSS properties from extracted styles
+   */
+  static generateCssProperties(styles: ExtractedStyles): Record<string, string> {
+    const css: Record<string, string> = {};
+
+    // Background
+    if (styles.colors.background.length > 0) {
+      css.backgroundColor = styles.colors.background[0].rgba;
+    }
+
+    // Text color
+    if (styles.colors.text.length > 0) {
+      css.color = styles.colors.text[0].rgba;
+    }
+
+    // Border
+    if (styles.colors.border.length > 0) {
+      css.borderColor = styles.colors.border[0].rgba;
+      css.borderStyle = 'solid';
+      css.borderWidth = '1px';
+    }
+
+    // Border radius
+    if (Array.isArray(styles.borderRadius)) {
+      css.borderRadius = styles.borderRadius.map(r => `${r}px`).join(' ');
+    } else if (styles.borderRadius > 0) {
+      css.borderRadius = `${styles.borderRadius}px`;
+    }
+
+    // Spacing
+    const { padding } = styles.spacing;
+    if (SpacingExtractor.isUniformPadding(styles.spacing)) {
+      css.padding = `${padding.top}px`;
+    } else if (SpacingExtractor.isSymmetricPadding(styles.spacing)) {
+      css.padding = `${padding.top}px ${padding.left}px`;
+    } else {
+      css.padding = `${padding.top}px ${padding.right}px ${padding.bottom}px ${padding.left}px`;
+    }
+
+    // Gap
+    if (styles.spacing.gap !== undefined) {
+      css.gap = `${styles.spacing.gap}px`;
+    }
+
+    // Typography
+    if (styles.typography) {
+      css.fontFamily = styles.typography.fontFamily;
+      css.fontSize = `${styles.typography.fontSize}px`;
+      css.fontWeight = String(styles.typography.fontWeight);
+      css.lineHeight = `${styles.typography.lineHeight.value}px`;
+      css.letterSpacing = `${styles.typography.letterSpacing.value}px`;
+      css.textAlign = styles.typography.textAlign.toLowerCase();
+    }
+
+    // Effects
+    if (styles.effects.length > 0) {
+      const boxShadow = EffectsExtractor.effectsToBoxShadow(styles.effects);
+      if (boxShadow) css.boxShadow = boxShadow;
+    }
+
+    // Layout
+    if (styles.layout) {
+      css.display = 'flex';
+      css.flexDirection = styles.layout.direction;
+      css.alignItems = styles.layout.align.toLowerCase();
+      css.justifyContent = styles.layout.justify.toLowerCase();
+    }
+
+    // Dimensions
+    css.width = `${styles.dimensions.width}px`;
+    css.height = `${styles.dimensions.height}px`;
+
+    return css;
+  }
+
+  /**
+   * Get node ID
+   */
+  static getNodeId(node: FigmaNode): string {
+    if (node.id) return node.id;
+    if (node.guid) {
+      return `${node.guid.sessionID}:${node.guid.localID}`;
+    }
+    return 'unknown';
+  }
+}
+
+// ============================================================================
+// EXPORTS
+// ============================================================================
+
+export default EnhancedFigmaParser;

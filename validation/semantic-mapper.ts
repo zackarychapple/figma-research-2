@@ -259,10 +259,12 @@ export class ShadCNComponentSchemas {
       this.getButtonSchema(),
       this.getInputSchema(),
       this.getBadgeSchema(),
+      this.getToggleSchema(),
       this.getAlertSchema(),
       this.getSelectSchema(),
       this.getTabsSchema(),
       this.getAccordionSchema(),
+      this.getMenubarSchema(),
     ];
   }
 
@@ -672,8 +674,82 @@ export class ShadCNComponentSchemas {
   }
 
   /**
+   * Toggle component schema (simple)
+   */
+  static getToggleSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Toggle',
+      shadcnName: 'Toggle',
+      description: 'A two-state toggle button',
+      wrapperComponent: 'Toggle',
+      importPath: '@/components/ui/toggle',
+      slots: []
+    };
+  }
+
+  /**
    * Alert component schema
    */
+  /**
+   * ToggleGroup component schema
+   */
+  static getToggleGroupSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'ToggleGroup',
+      shadcnName: 'ToggleGroup',
+      description: 'A set of two-state toggle buttons that can work together',
+      wrapperComponent: 'ToggleGroup',
+      importPath: '@/components/ui/toggle-group',
+      slots: [
+        {
+          name: 'ToggleGroupItem',
+          required: true,
+          description: 'Individual toggle item within the group',
+          allowsMultiple: true,
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.3,
+              description: 'Node name contains "item", "toggle", "option", or "button"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['item', 'toggle', 'option', 'button'])
+            },
+            {
+              type: 'name_pattern',
+              weight: 0.3,
+              description: 'Node name contains generic position/direction names',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['left', 'center', 'right', 'top', 'middle', 'bottom', 'first', 'second', 'third', 'fourth', 'fifth'])
+            },
+            {
+              type: 'hierarchy',
+              weight: 0.2,
+              description: 'Direct child of toggle group - position-based detection',
+              matcher: (node, ctx) => {
+                // ANY direct child of ToggleGroup is a potential item
+                if (ctx.nodeIndex !== undefined && ctx.allSiblings.length >= 2) {
+                  return 0.9;
+                }
+                return 0.8;
+              }
+            },
+            {
+              type: 'content_type',
+              weight: 0.2,
+              description: 'Contains text or icon',
+              matcher: (node, ctx) => {
+                const hasText = DetectionRules.hasTextContent(node);
+                const hasIcon = node.children?.some(c =>
+                  c.name.toLowerCase().includes('icon')
+                ) ? 0.5 : 0;
+                return Math.min(hasText + hasIcon, 1.0);
+              }
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+
   static getAlertSchema(): ShadCNComponentSchema {
     return {
       componentType: 'Container',
@@ -735,6 +811,82 @@ export class ShadCNComponentSchemas {
       wrapperComponent: 'Select',
       importPath: '@/components/ui/select',
       slots: []
+    };
+  }
+
+  /**
+   * RadioGroup component schema
+   */
+  static getRadioGroupSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'RadioGroup',
+      shadcnName: 'RadioGroup',
+      description: 'A radio group component with multiple radio items for single selection',
+      wrapperComponent: 'RadioGroup',
+      importPath: '@/components/ui/radio-group',
+      slots: [
+        {
+          name: 'RadioGroupItem',
+          required: true,
+          description: 'Individual radio button option',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "radio" or "item"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['radio', 'item', 'option', 'choice'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.3,
+              description: 'Circular shape or radio-like appearance',
+              matcher: (node, ctx) => {
+                // Check if it's a small circular element
+                if (node.cornerRadius && node.size &&
+                    Math.abs(node.size.x - node.size.y) < 4 &&
+                    node.cornerRadius >= node.size.x / 2) {
+                  return 0.9;
+                }
+                // Or if it contains a circular child
+                const hasCircularChild = node.children?.some(c =>
+                  c.cornerRadius && c.size &&
+                  Math.abs(c.size.x - c.size.y) < 4 &&
+                  c.cornerRadius >= c.size.x / 2
+                );
+                return hasCircularChild ? 0.8 : 0;
+              }
+            },
+            {
+              type: 'hierarchy',
+              weight: 0.2,
+              description: 'Part of a group with siblings',
+              matcher: (node, ctx) => ctx.allSiblings.length >= 2 ? 0.9 : 0.5
+            }
+          ],
+          allowsMultiple: true,
+          children: [
+            {
+              name: 'Label',
+              required: false,
+              description: 'Label text for the radio option',
+              detectionRules: [
+                {
+                  type: 'content_type',
+                  weight: 0.6,
+                  description: 'Contains text',
+                  matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+                },
+                {
+                  type: 'name_pattern',
+                  weight: 0.4,
+                  description: 'Node name contains "label" or "text"',
+                  matcher: (node, ctx) => DetectionRules.nameMatches(node, ['label', 'text', 'title', 'name'])
+                }
+              ]
+            }
+          ]
+        }
+      ]
     };
   }
 
@@ -905,6 +1057,165 @@ export class ShadCNComponentSchemas {
                   weight: 0.2,
                   description: 'Second child',
                   matcher: (node, ctx) => ctx.nodeIndex === 1 ? 0.8 : 0
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
+  }
+
+  /**
+   * Menubar component schema
+   */
+  static getMenubarSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Menubar',
+      shadcnName: 'Menubar',
+      description: 'A desktop application-style menu bar with multiple menu triggers',
+      wrapperComponent: 'Menubar',
+      importPath: '@/components/ui/menubar',
+      slots: [
+        {
+          name: 'MenubarMenu',
+          required: true,
+          description: 'Individual menu (e.g., File, Edit, View)',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "menu"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['menu', 'item'])
+            },
+            {
+              type: 'hierarchy',
+              weight: 0.3,
+              description: 'Direct child of menubar',
+              matcher: (node, ctx) => 0.8
+            },
+            {
+              type: 'content_type',
+              weight: 0.2,
+              description: 'Contains text or trigger',
+              matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+            }
+          ],
+          allowsMultiple: true,
+          children: [
+            {
+              name: 'MenubarTrigger',
+              required: true,
+              description: 'Menu trigger button (File, Edit, etc.)',
+              detectionRules: [
+                {
+                  type: 'name_pattern',
+                  weight: 0.6,
+                  description: 'Node name contains "trigger" or menu name',
+                  matcher: (node, ctx) => DetectionRules.nameMatches(node, ['trigger', 'file', 'edit', 'view', 'help', 'button'])
+                },
+                {
+                  type: 'position',
+                  weight: 0.2,
+                  description: 'First child (trigger comes first)',
+                  matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+                },
+                {
+                  type: 'content_type',
+                  weight: 0.2,
+                  description: 'Contains text',
+                  matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+                }
+              ]
+            },
+            {
+              name: 'MenubarContent',
+              required: true,
+              description: 'Menu dropdown content',
+              detectionRules: [
+                {
+                  type: 'name_pattern',
+                  weight: 0.5,
+                  description: 'Node name contains "content" or "dropdown"',
+                  matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'dropdown', 'panel', 'list'])
+                },
+                {
+                  type: 'semantic',
+                  weight: 0.3,
+                  description: 'Node looks like content area',
+                  matcher: (node, ctx) => DetectionRules.isContentLike(node, ctx)
+                },
+                {
+                  type: 'position',
+                  weight: 0.2,
+                  description: 'Second child (content after trigger)',
+                  matcher: (node, ctx) => ctx.nodeIndex === 1 ? 0.8 : 0
+                }
+              ],
+              children: [
+                {
+                  name: 'MenubarItem',
+                  required: false,
+                  description: 'Individual menu item',
+                  detectionRules: [
+                    {
+                      type: 'name_pattern',
+                      weight: 0.6,
+                      description: 'Node name contains "item" or action name',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['item', 'option', 'action'])
+                    },
+                    {
+                      type: 'content_type',
+                      weight: 0.4,
+                      description: 'Contains text',
+                      matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+                    }
+                  ],
+                  allowsMultiple: true
+                },
+                {
+                  name: 'MenubarSeparator',
+                  required: false,
+                  description: 'Visual separator between menu items',
+                  detectionRules: [
+                    {
+                      type: 'name_pattern',
+                      weight: 0.7,
+                      description: 'Node name contains "separator" or "divider"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['separator', 'divider', 'line'])
+                    },
+                    {
+                      type: 'size',
+                      weight: 0.3,
+                      description: 'Very small height (separator-like)',
+                      matcher: (node, ctx) => {
+                        if (node.size && node.size.y <= 2) return 0.9;
+                        if (node.size && node.size.y <= 4) return 0.6;
+                        return 0;
+                      }
+                    }
+                  ],
+                  allowsMultiple: true
+                },
+                {
+                  name: 'MenubarSub',
+                  required: false,
+                  description: 'Submenu (nested menu)',
+                  detectionRules: [
+                    {
+                      type: 'name_pattern',
+                      weight: 0.6,
+                      description: 'Node name contains "sub" or "nested"',
+                      matcher: (node, ctx) => DetectionRules.nameMatches(node, ['sub', 'submenu', 'nested', 'child'])
+                    },
+                    {
+                      type: 'hierarchy',
+                      weight: 0.4,
+                      description: 'Has children (nested structure)',
+                      matcher: (node, ctx) => (node.children?.length || 0) >= 2 ? 0.8 : 0
+                    }
+                  ],
+                  allowsMultiple: true
                 }
               ]
             }
@@ -1242,7 +1553,6 @@ export class SemanticMapper {
   ): string {
     let indent = '  ';
     let code = `<${schema.wrapperComponent}>\n`;
-
     for (const mapping of mappings) {
       if (mapping.figmaNodes.length > 0) {
         for (const node of mapping.figmaNodes) {

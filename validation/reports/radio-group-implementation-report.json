@@ -1,0 +1,94 @@
+{
+  "totalTests": 4,
+  "successfulTests": 0,
+  "averageQualityScore": 0,
+  "highQualityCount": 0,
+  "mediumQualityCount": 0,
+  "lowQualityCount": 0,
+  "results": [
+    {
+      "testName": "Test 1: Simple Radio Group (3 items, vertical)",
+      "componentName": "Radio Group",
+      "componentId": "test-1",
+      "classification": {
+        "type": "Unknown",
+        "confidence": 0,
+        "reasons": []
+      },
+      "semanticMapping": {
+        "overallConfidence": 0,
+        "mappedSlots": 0,
+        "radioItems": 0,
+        "warnings": []
+      },
+      "qualityScore": 0,
+      "success": false,
+      "errors": [
+        "Cannot read properties of undefined (reading 'call')"
+      ]
+    },
+    {
+      "testName": "Test 2: Horizontal Radio Group (4 items)",
+      "componentName": "Radio-Group",
+      "componentId": "test-2",
+      "classification": {
+        "type": "Unknown",
+        "confidence": 0,
+        "reasons": []
+      },
+      "semanticMapping": {
+        "overallConfidence": 0,
+        "mappedSlots": 0,
+        "radioItems": 0,
+        "warnings": []
+      },
+      "qualityScore": 0,
+      "success": false,
+      "errors": [
+        "Cannot read properties of undefined (reading 'call')"
+      ]
+    },
+    {
+      "testName": "Test 3: Radio Group with variants (Active/Type states)",
+      "componentName": "RadioGroup",
+      "componentId": "test-3",
+      "classification": {
+        "type": "Unknown",
+        "confidence": 0,
+        "reasons": []
+      },
+      "semanticMapping": {
+        "overallConfidence": 0,
+        "mappedSlots": 0,
+        "radioItems": 0,
+        "warnings": []
+      },
+      "qualityScore": 0,
+      "success": false,
+      "errors": [
+        "Cannot read properties of undefined (reading 'call')"
+      ]
+    },
+    {
+      "testName": "Test 4: Real Figma component structure",
+      "componentName": "Radio Group",
+      "componentId": "65:341",
+      "classification": {
+        "type": "Unknown",
+        "confidence": 0,
+        "reasons": []
+      },
+      "semanticMapping": {
+        "overallConfidence": 0,
+        "mappedSlots": 0,
+        "radioItems": 0,
+        "warnings": []
+      },
+      "qualityScore": 0,
+      "success": false,
+      "errors": [
+        "Cannot read properties of undefined (reading 'call')"
+      ]
+    }
+  ]
+}

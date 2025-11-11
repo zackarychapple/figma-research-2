@@ -1,0 +1,166 @@
+  /**
+   * Field component schema (Form Field Wrapper)
+   */
+  static getFieldSchema(): ShadCNComponentSchema {
+    return {
+      componentType: 'Field',
+      shadcnName: 'Field',
+      description: 'A form field wrapper with label, input/control, description, and error message',
+      wrapperComponent: 'Field',
+      importPath: '@/components/ui/field',
+      slots: [
+        {
+          name: 'FieldLabel',
+          required: false,
+          description: 'Label text for the field',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains "label", "title", or "name"',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, ['label', 'title', 'name'])
+            },
+            {
+              type: 'semantic',
+              weight: 0.3,
+              description: 'Node looks like a label (text at top)',
+              matcher: (node, ctx) => {
+                const textScore = DetectionRules.hasTextContent(node);
+                if (textScore === 0) return 0;
+                const posScore = DetectionRules.isAtPosition(node, ctx, 'top');
+                return Math.min(textScore * 0.6 + posScore * 0.4, 1.0);
+              }
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'At top position (first or second child)',
+              matcher: (node, ctx) => ctx.nodeIndex === 0 ? 1.0 : ctx.nodeIndex === 1 ? 0.7 : 0
+            }
+          ]
+        },
+        {
+          name: 'FieldControl',
+          required: true,
+          description: 'Input or control element wrapper',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.4,
+              description: 'Node name contains input/control keywords',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, [
+                'input', 'control', 'field', 'textbox', 'textarea', 'select'
+              ])
+            },
+            {
+              type: 'semantic',
+              weight: 0.4,
+              description: 'Node looks like an input (has border, rectangular)',
+              matcher: (node, ctx) => {
+                let score = 0;
+                // Has border (common for inputs)
+                const hasBorder = node.strokes && node.strokes.length > 0;
+                if (hasBorder) score += 0.5;
+
+                // Rectangular shape (width > height)
+                if (node.size && node.size.x > node.size.y * 1.5) {
+                  score += 0.3;
+                }
+
+                // Is a frame or instance (typical for input wrappers)
+                if (node.type === 'FRAME' || node.type === 'INSTANCE' || node.type === 'COMPONENT') {
+                  score += 0.2;
+                }
+
+                return Math.min(score, 1.0);
+              }
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'In middle position or second child',
+              matcher: (node, ctx) => {
+                if (ctx.nodeIndex === 1 || ctx.nodeIndex === 2) return 0.9;
+                if (ctx.nodeIndex > 0 && ctx.nodeIndex < ctx.allSiblings.length - 1) return 0.6;
+                return 0;
+              }
+            }
+          ]
+        },
+        {
+          name: 'FieldDescription',
+          required: false,
+          description: 'Helper text or description below the input',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains description keywords',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, [
+                'description', 'helper', 'hint', 'help', 'caption', 'subtitle'
+              ])
+            },
+            {
+              type: 'semantic',
+              weight: 0.3,
+              description: 'Node looks like description (smaller text below input)',
+              matcher: (node, ctx) => {
+                const textScore = DetectionRules.hasTextContent(node);
+                if (textScore === 0) return 0;
+
+                // Usually positioned after input (index 2 or 3)
+                const posScore = (ctx.nodeIndex === 2 || ctx.nodeIndex === 3) ? 0.8 : 0.4;
+
+                return Math.min(textScore * 0.5 + posScore * 0.5, 1.0);
+              }
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'Below input (third or fourth child)',
+              matcher: (node, ctx) => ctx.nodeIndex === 2 ? 1.0 : ctx.nodeIndex === 3 ? 0.8 : 0
+            }
+          ]
+        },
+        {
+          name: 'FieldMessage',
+          required: false,
+          description: 'Error or validation message',
+          detectionRules: [
+            {
+              type: 'name_pattern',
+              weight: 0.5,
+              description: 'Node name contains error/message keywords',
+              matcher: (node, ctx) => DetectionRules.nameMatches(node, [
+                'error', 'message', 'invalid', 'validation', 'warning', 'alert'
+              ])
+            },
+            {
+              type: 'semantic',
+              weight: 0.3,
+              description: 'Node looks like error message (text at bottom)',
+              matcher: (node, ctx) => {
+                const textScore = DetectionRules.hasTextContent(node);
+                if (textScore === 0) return 0;
+
+                // Usually at bottom or late position
+                const posScore = ctx.nodeIndex >= 2 ? 0.9 : 0.3;
+
+                return Math.min(textScore * 0.5 + posScore * 0.5, 1.0);
+              }
+            },
+            {
+              type: 'position',
+              weight: 0.2,
+              description: 'At bottom or late position',
+              matcher: (node, ctx) => {
+                if (ctx.nodeIndex === ctx.allSiblings.length - 1) return 1.0;
+                if (ctx.nodeIndex >= 2) return 0.7;
+                return 0;
+              }
+            }
+          ]
+        }
+      ]
+    };
+  }

@@ -1,0 +1,100 @@
+  /**
+   * Textarea classification
+   */
+  static classifyTextarea(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('textarea') || name.includes('text area')) {
+      confidence += 0.7;
+      reasons.push('Name contains textarea-related keyword');
+    }
+
+    // SIZE IS KEY DIFFERENTIATOR: Textareas are taller than inputs
+    if (node.size) {
+      const height = node.size.y;
+      if (height >= 80) {
+        confidence += 0.6;
+        reasons.push('Height >= 80px strongly suggests textarea (multi-line field)');
+      }
+    }
+
+    return {
+      type: 'Textarea',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * RadioGroup classification
+   */
+  static classifyRadioGroup(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('radio') && (name.includes('group') || name.includes('set'))) {
+      confidence += 0.7;
+      reasons.push('Name contains "radio group" or "radio set"');
+    }
+
+    const hasMultipleRadios = node.children && node.children.length >= 2 &&
+      node.children.filter(child => child.name.toLowerCase().includes('radio')).length >= 2;
+
+    if (hasMultipleRadios) {
+      confidence += 0.4;
+      reasons.push('Has multiple radio children');
+    }
+
+    return {
+      type: 'RadioGroup',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Toggle classification
+   */
+  static classifyToggle(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('toggle') && !name.includes('group')) {
+      confidence += 0.7;
+      reasons.push('Name contains "toggle"');
+    }
+
+    return {
+      type: 'Toggle',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * NavigationMenu classification
+   */
+  static classifyNavigationMenu(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('navigation') && name.includes('menu')) {
+      confidence += 0.7;
+      reasons.push('Name contains "navigation menu"');
+    } else if (name.includes('nav') && name.includes('menu')) {
+      confidence += 0.6;
+      reasons.push('Name contains "nav menu"');
+    }
+
+    return {
+      type: 'NavigationMenu',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }

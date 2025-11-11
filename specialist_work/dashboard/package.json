@@ -1,0 +1,46 @@
+{
+  "name": "specialist-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "rsbuild build",
+    "dev": "rsbuild dev --open",
+    "preview": "rsbuild preview"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^1.2.12",
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-select": "^2.1.8",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tabs": "^1.1.1",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@tailwindcss/postcss": "^4.1.16",
+    "@tanstack/react-router": "^1.133.25",
+    "@tanstack/router-devtools": "^1.133.25",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "json5": "^2.2.3",
+    "jsondiffpatch": "^0.6.0",
+    "lucide-react": "^0.546.0",
+    "postcss": "^8.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "recharts": "2.15.4",
+    "semver": "^7.6.3",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^1.5.14",
+    "@rsbuild/plugin-react": "^1.4.1",
+    "@tanstack/router-plugin": "^1.133.25",
+    "@types/json5": "^2.2.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1",
+    "@types/semver": "^7.5.8",
+    "typescript": "^5.9.3"
+  }
+}

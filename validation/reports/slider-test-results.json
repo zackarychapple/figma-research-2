@@ -1,0 +1,162 @@
+{
+  "summary": {
+    "totalTests": 9,
+    "correctTests": 9,
+    "incorrectTests": 0,
+    "accuracy": "100.00%",
+    "averageConfidence": "0.989",
+    "passedTarget": true,
+    "singleSliderTests": 6,
+    "singleSliderAccuracy": "100.00%",
+    "rangeSliderTests": 3,
+    "rangeSliderAccuracy": "100.00%"
+  },
+  "failures": [],
+  "allResults": [
+    {
+      "name": "Slider: Range=No, State=Default",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 1,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Has Range=Yes/No variant property",
+        "Has slider state property",
+        "Wide horizontal layout suggests slider",
+        "Contains track and thumb elements",
+        "Contains 1 circular child (likely slider thumb)"
+      ],
+      "correct": true,
+      "description": "Single slider with default state",
+      "isRangeSlider": false
+    },
+    {
+      "name": "Slider: Range=No, State=Focus",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 1,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Has Range=Yes/No variant property",
+        "Has slider state property",
+        "Wide horizontal layout suggests slider",
+        "Contains track and thumb elements",
+        "Contains 1 circular child (likely slider thumb)"
+      ],
+      "correct": true,
+      "description": "Single slider with focus state",
+      "isRangeSlider": false
+    },
+    {
+      "name": "Slider: Range=No, State=Hover",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 1,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Has Range=Yes/No variant property",
+        "Has slider state property",
+        "Wide horizontal layout suggests slider",
+        "Contains track and thumb elements",
+        "Contains 1 circular child (likely slider thumb)"
+      ],
+      "correct": true,
+      "description": "Single slider with hover state",
+      "isRangeSlider": false
+    },
+    {
+      "name": "Slider: Range=Yes, State=Default",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 1,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Has Range=Yes/No variant property",
+        "Has slider state property",
+        "Wide horizontal layout suggests slider",
+        "Contains track and thumb elements",
+        "Contains 2 circular children"
+      ],
+      "correct": true,
+      "description": "Range slider with two thumbs in default state",
+      "isRangeSlider": true
+    },
+    {
+      "name": "Slider: Range=Yes, State=Focus",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 1,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Has Range=Yes/No variant property",
+        "Has slider state property",
+        "Wide horizontal layout suggests slider",
+        "Contains track and thumb elements",
+        "Contains 2 circular children"
+      ],
+      "correct": true,
+      "description": "Range slider with two thumbs in focus state",
+      "isRangeSlider": true
+    },
+    {
+      "name": "Slider: Range=Yes, State=Hover",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 1,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Has Range=Yes/No variant property",
+        "Has slider state property",
+        "Wide horizontal layout suggests slider",
+        "Contains track and thumb elements",
+        "Contains 2 circular children"
+      ],
+      "correct": true,
+      "description": "Range slider with two thumbs in hover state",
+      "isRangeSlider": true
+    },
+    {
+      "name": "Custom Slider Component",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 1,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Wide horizontal layout suggests slider",
+        "Contains track and thumb elements",
+        "Contains 1 circular child (likely slider thumb)"
+      ],
+      "correct": true,
+      "description": "Slider with alternative naming (Rail/Handle instead of Track/Thumb)",
+      "isRangeSlider": false
+    },
+    {
+      "name": "Volume Slider",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 1,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Wide horizontal layout suggests slider",
+        "Contains track and thumb elements",
+        "Contains 1 circular child (likely slider thumb)"
+      ],
+      "correct": true,
+      "description": "Slider with descriptive name (Volume) and alternative thumb naming (Knob)",
+      "isRangeSlider": false
+    },
+    {
+      "name": "Simple Slider",
+      "expected": "Slider",
+      "actual": "Slider",
+      "confidence": 0.8999999999999999,
+      "reasons": [
+        "Name contains \"slider\"",
+        "Wide horizontal layout suggests slider"
+      ],
+      "correct": true,
+      "description": "Minimal slider component based on name and dimensions only",
+      "isRangeSlider": false
+    }
+  ]
+}

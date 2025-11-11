@@ -132,15 +132,29 @@ export interface ComponentClassification {
 export type ComponentType =
   | 'Button'
   | 'Input'
+  | 'Textarea'
   | 'Card'
   | 'Dialog'
   | 'Select'
   | 'Checkbox'
   | 'Radio'
+  | 'RadioGroup'
   | 'Switch'
+  | 'Slider'
+  | 'Toggle'
+  | 'ToggleGroup'
   | 'Badge'
   | 'Avatar'
   | 'Icon'
+  | 'Form'
+  | 'Field'
+  | 'Tabs'
+  | 'DropdownMenu'
+  | 'NavigationMenu'
+  | 'Breadcrumb'
+  | 'Sidebar'
+  | 'Pagination'
+  | 'Menubar'
   | 'Container'
   | 'Text'
   | 'Image'
@@ -401,14 +415,28 @@ export class ComponentClassifier {
 
     // Try each classifier in order of specificity
     const classifiers = [
+      this.classifySlider,
+      this.classifyTabs,
+      this.classifyPagination,
+      this.classifyToggleGroup,  // Before Breadcrumb and Textarea to prevent misclassification
+      this.classifyBreadcrumb,
+      this.classifyNavigationMenu,
+      this.classifySidebar,
+      this.classifyDropdownMenu,
+      this.classifyMenubar,
       this.classifyButton,
       this.classifyInput,
+      this.classifyField,
+      this.classifyTextarea,
       this.classifyCheckbox,
+      this.classifyRadioGroup,
       this.classifyRadio,
       this.classifySwitch,
+      this.classifyToggle,
       this.classifySelect,
       this.classifyDialog,
       this.classifyCard,
+      this.classifyForm,
       this.classifyBadge,
       this.classifyAvatar,
       this.classifyIcon,
@@ -599,63 +627,6 @@ export class ComponentClassifier {
 
     return {
       type: 'Checkbox',
-      confidence: Math.min(confidence, 1),
-      reasons
-    };
-  }
-
-  /**
-   * Radio button classification
-   */
-  static classifyRadio(node: FigmaNode): ComponentClassification {
-    const name = node.name.toLowerCase();
-    const reasons: string[] = [];
-    let confidence = 0;
-
-    if (name.includes('radio')) {
-      confidence += 0.7;
-      reasons.push('Name contains "radio"');
-    }
-
-    // Small circle
-    if (node.cornerRadius && node.size &&
-        Math.abs(node.size.x - node.size.y) < 4 &&
-        node.cornerRadius >= node.size.x / 2) {
-      confidence += 0.2;
-      reasons.push('Circular shape of small size');
-    }
-
-    return {
-      type: 'Radio',
-      confidence: Math.min(confidence, 1),
-      reasons
-    };
-  }
-
-  /**
-   * Switch/Toggle classification
-   */
-  static classifySwitch(node: FigmaNode): ComponentClassification {
-    const name = node.name.toLowerCase();
-    const reasons: string[] = [];
-    let confidence = 0;
-
-    if (name.includes('switch') || name.includes('toggle')) {
-      confidence += 0.7;
-      reasons.push('Name contains switch/toggle');
-    }
-
-    // Pill shape (width roughly 2x height, high corner radius)
-    if (node.size && node.cornerRadius &&
-        node.size.x > node.size.y * 1.5 &&
-        node.size.x < node.size.y * 2.5 &&
-        node.cornerRadius >= node.size.y / 2) {
-      confidence += 0.2;
-      reasons.push('Pill shape suggests switch');
-    }
-
-    return {
-      type: 'Switch',
       confidence: Math.min(confidence, 1),
       reasons
     };
@@ -910,6 +881,956 @@ export class ComponentClassifier {
       reasons
     };
   }
+
+  /**
+   * Menubar classification
+   */
+  static classifyMenubar(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('menubar') || name.includes('menu bar') || name.includes('app menu')) {
+      confidence += 0.7;
+      reasons.push('Name contains "menubar", "menu bar", or "app menu"');
+    }
+
+    // Horizontal layout at top (typical for menubar)
+    if (node.layoutMode === 'HORIZONTAL') {
+      confidence += 0.2;
+      reasons.push('Horizontal layout suggests menubar');
+    }
+
+    // Check for multiple menu triggers (File, Edit, View, etc.)
+    if (node.children) {
+      const menuLikeChildren = node.children.filter(child => {
+        const childName = child.name.toLowerCase();
+        return childName.includes('menu') ||
+               childName.includes('file') ||
+               childName.includes('edit') ||
+               childName.includes('view') ||
+               childName.includes('help') ||
+               childName.includes('trigger');
+      });
+
+      if (menuLikeChildren.length >= 2) {
+        confidence += 0.3;
+        reasons.push(`Has ${menuLikeChildren.length} menu-like children (typical menubar)`);
+      }
+
+      // Check for desktop app style menus (File/Edit/View/Help pattern)
+      const hasDesktopMenuPattern = node.children.some(child => {
+        const childName = child.name.toLowerCase();
+        return childName.includes('file') ||
+               childName.includes('edit') ||
+               childName.includes('view') ||
+               childName.includes('help');
+      });
+
+      if (hasDesktopMenuPattern) {
+        confidence += 0.2;
+        reasons.push('Contains desktop application-style menu items (File/Edit/View/Help)');
+      }
+    }
+
+    // Size heuristic: menubar is typically wider than tall and positioned at top
+    if (node.size && node.size.x > node.size.y * 3) {
+      confidence += 0.1;
+      reasons.push('Wide horizontal layout typical of menubar');
+    }
+
+    return {
+      type: 'Menubar',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifySlider(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes("slider")) {
+      confidence += 0.7;
+      reasons.push("Name contains \"slider\"");
+    }
+
+    const hasRangeVariant = /range\s*=\s*(yes|no)/i.test(name);
+    if (hasRangeVariant) {
+      confidence += 0.3;
+      reasons.push("Has Range=Yes/No variant property");
+    }
+
+    const hasSliderState = /state\s*=\s*(default|focus|hover)/i.test(name);
+    if (hasSliderState) {
+      confidence += 0.2;
+      reasons.push("Has slider state property");
+    }
+
+    if (node.size && node.size.x > node.size.y * 4) {
+      confidence += 0.2;
+      reasons.push("Wide horizontal layout suggests slider");
+    }
+
+    const hasTrack = node.children?.some(c =>
+      c.name.toLowerCase().includes("track") ||
+      c.name.toLowerCase().includes("rail")
+    );
+    const hasThumb = node.children?.some(c =>
+      c.name.toLowerCase().includes("thumb") ||
+      c.name.toLowerCase().includes("handle") ||
+      c.name.toLowerCase().includes("knob")
+    );
+
+    if (hasTrack && hasThumb) {
+      confidence += 0.3;
+      reasons.push("Contains track and thumb elements");
+    } else if (hasTrack || hasThumb) {
+      confidence += 0.15;
+      reasons.push("Contains slider-like element");
+    }
+
+    if (node.children) {
+      const roundedChildren = node.children.filter(c =>
+        c.cornerRadius && c.size &&
+        Math.abs(c.size.x - c.size.y) < 4 &&
+        c.cornerRadius >= c.size.x / 2
+      );
+
+      if (roundedChildren.length >= 2) {
+        confidence += 0.15;
+        reasons.push(`Contains ${roundedChildren.length} circular children`);
+      } else if (roundedChildren.length === 1) {
+        confidence += 0.1;
+        reasons.push("Contains 1 circular child (likely slider thumb)");
+      }
+    }
+
+    return {
+      type: "Slider",
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifyTextarea(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('textarea') || name.includes('text area')) {
+      confidence += 0.7;
+      reasons.push('Name contains textarea-related keyword');
+    }
+
+    // Variant pattern detection for textareas
+    const hasVariantPattern = /variant\s*=/i.test(name) ||
+                             /state\s*=/i.test(name);
+
+    if (hasVariantPattern && name.includes('textarea')) {
+      confidence += 0.3;
+      reasons.push('Has variant/state properties with textarea indicators');
+    }
+
+    // Interactive state detection (same as Input but specific to textarea)
+    const hasTextareaState = /state\s*=\s*(focus|error|disabled|filled|default)/i.test(name);
+    if (hasTextareaState) {
+      confidence += 0.1;
+      reasons.push('Has textarea-specific state (focus/error/disabled/filled)');
+    }
+
+    // Typical textarea structure: frame with border and text, multiline
+    const hasBorder = node.strokes && node.strokes.length > 0;
+    const hasText = node.children?.some(c => c.type === 'TEXT');
+
+    if (hasBorder && hasText) {
+      confidence += 0.1;
+      reasons.push('Has border and text field');
+    }
+
+    // SIZE IS KEY DIFFERENTIATOR: Textareas are taller than inputs
+    // This is the primary way to distinguish textarea from input
+    if (node.size) {
+      const aspectRatio = node.size.x / node.size.y;
+      const height = node.size.y;
+
+      // Strong signal: Height >= 80px is almost certainly a textarea
+      if (height >= 80) {
+        confidence += 0.6;
+        reasons.push('Height >= 80px strongly suggests textarea (multi-line field)');
+      }
+      // Medium signal: Height 60-80px with good aspect ratio
+      else if (height >= 60 && aspectRatio >= 0.8 && aspectRatio <= 3) {
+        confidence += 0.5;
+        reasons.push('Height 60-80px with aspect ratio suggests textarea');
+      }
+      // Weak signal: Shorter but squarish (not the typical wide input)
+      else if (height >= 40 && aspectRatio >= 1 && aspectRatio <= 2) {
+        confidence += 0.3;
+        reasons.push('Square-ish aspect ratio suggests possible textarea');
+      }
+    }
+
+    return {
+      type: 'Textarea',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifyRadioGroup(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Strong indicator: name contains "radio group" or "radio-group"
+    if (name.includes('radio group') || name.includes('radio-group') || name.includes('radiogroup')) {
+      confidence += 0.8;
+      reasons.push('Name contains "radio group"');
+    }
+
+    // Multiple radio children
+    const hasMultipleRadioChildren = node.children && node.children.filter(child => {
+      const childName = child.name.toLowerCase();
+      return childName.includes('radio') && !childName.includes('group');
+    }).length >= 2;
+
+    if (hasMultipleRadioChildren) {
+      confidence += 0.5;
+      reasons.push('Contains multiple radio child components');
+    }
+
+    // Layout suggests grouped items (vertical or horizontal layout)
+    const hasLayout = node.layoutMode === 'HORIZONTAL' || node.layoutMode === 'VERTICAL';
+    if (hasLayout && hasMultipleRadioChildren) {
+      confidence += 0.2;
+      reasons.push('Has layout mode with multiple items');
+    }
+
+    // Has item spacing (common for radio groups)
+    if (node.itemSpacing && node.itemSpacing > 0 && hasMultipleRadioChildren) {
+      confidence += 0.1;
+      reasons.push('Has item spacing between radio options');
+    }
+
+    return {
+      type: 'RadioGroup',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Radio button classification
+   */
+  static classifyRadio(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Exclude if this looks like a group
+    if (name.includes('group') || (node.children && node.children.length > 3)) {
+      return {
+        type: 'Radio',
+        confidence: 0,
+        reasons: ['Appears to be a radio group, not individual radio']
+      };
+    }
+
+    if (name.includes('radio')) {
+      confidence += 0.7;
+      reasons.push('Name contains "radio"');
+    }
+
+    // Small circle
+    if (node.cornerRadius && node.size &&
+        Math.abs(node.size.x - node.size.y) < 4 &&
+        node.cornerRadius >= node.size.x / 2) {
+      confidence += 0.2;
+      reasons.push('Circular shape of small size');
+    }
+
+    return {
+      type: 'Radio',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Switch/Toggle classification
+   */
+  static classifySwitch(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Skip if this looks like a toggle group (has multiple toggle items)
+    if ((name.includes('toggle') || name.includes('switch')) &&
+        (name.includes('group') || name.includes('bar'))) {
+      return {
+        type: 'Switch',
+        confidence: 0,
+        reasons: ['Name suggests toggle group, not single switch']
+      };
+    }
+
+    // Skip if has multiple children that look like toggles (structural check)
+    const hasMultipleToggles = node.children && node.children.length >= 2 &&
+      node.children.filter(child => {
+        const childName = child.name.toLowerCase();
+        return childName.includes('toggle') ||
+               childName.includes('item') ||
+               childName.includes('option') ||
+               childName.includes('button');
+      }).length >= 2;
+
+    if (hasMultipleToggles) {
+      return {
+        type: 'Switch',
+        confidence: 0,
+        reasons: ['Has multiple toggle-like children, likely a toggle group']
+      };
+    }
+
+    if (name.includes('switch') || name.includes('toggle')) {
+      confidence += 0.7;
+      reasons.push('Name contains switch/toggle');
+    }
+
+    // Pill shape (width roughly 2x height, high corner radius)
+    if (node.size && node.cornerRadius &&
+        node.size.x > node.size.y * 1.5 &&
+        node.size.x < node.size.y * 2.5 &&
+        node.cornerRadius >= node.size.y / 2) {
+      confidence += 0.2;
+      reasons.push('Pill shape suggests switch');
+    }
+
+    return {
+      type: 'Switch',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  /**
+   * Select/Dropdown classification
+   */
+
+  /**
+   * Slider classification
+   */
+
+  static classifyToggleGroup(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('togglegroup') || name.includes('toggle group') ||
+        name.includes('toggle-group')) {
+      confidence += 0.7;
+      reasons.push('Name contains "togglegroup" or "toggle group"');
+    } else if (name.includes('toggle') && (name.includes('group') || name.includes('bar'))) {
+      confidence += 0.5;
+      reasons.push('Name contains "toggle" with "group" or "bar"');
+    }
+
+    // Structure-based detection: has multiple toggle items as children
+    const hasMultipleToggles = node.children && node.children.length >= 2 &&
+      node.children.filter(child => {
+        const childName = child.name.toLowerCase();
+        return childName.includes('toggle') ||
+               childName.includes('item') ||
+               childName.includes('option') ||
+               childName.includes('button');
+      }).length >= 2;
+
+    if (hasMultipleToggles) {
+      confidence += 0.4;
+      reasons.push('Has multiple toggle items as children');
+    }
+
+    // Layout detection: horizontal or vertical group
+    if (node.layoutMode === 'HORIZONTAL' || node.layoutMode === 'VERTICAL') {
+      confidence += 0.1;
+      reasons.push('Has flex layout (typical for toggle groups)');
+    }
+
+    // Has background/border (toggle groups are typically contained)
+    const hasBackground = node.fills && node.fills.length > 0 &&
+                         node.fills.some(f => f.visible !== false);
+    const hasBorder = node.strokes && node.strokes.length > 0;
+
+    if (hasBackground || hasBorder) {
+      confidence += 0.1;
+      reasons.push('Has background or border (typical container style)');
+    }
+
+    // Check if children are arranged in a group-like manner
+    if (node.children && node.children.length >= 2) {
+      const childrenWithSimilarSize = node.children.filter(child => {
+        if (!child.size || !node.children![0].size) return false;
+        const firstChildSize = node.children![0].size;
+        return Math.abs(child.size.x - firstChildSize.x) < 20 &&
+               Math.abs(child.size.y - firstChildSize.y) < 20;
+      });
+
+      if (childrenWithSimilarSize.length >= 2) {
+        confidence += 0.1;
+        reasons.push('Children have similar sizes (grouped layout)');
+      }
+    }
+
+    return {
+      type: 'ToggleGroup',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifyTabs(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('tabs') || name === 'tab') {
+      confidence += 0.7;
+      reasons.push('Name contains "tabs" or is "tab"');
+    } else if (name.includes('tab group') || name.includes('tab-group')) {
+      confidence += 0.6;
+      reasons.push('Name contains "tab group"');
+    }
+
+    // Structure-based detection: has tab triggers and content areas
+    const children = node.children || [];
+
+    // Look for tab list/triggers (horizontal layout with multiple items)
+    const hasTabList = children.some(child => {
+      const childName = child.name.toLowerCase();
+      return (childName.includes('list') || childName.includes('trigger') || childName.includes('tab')) &&
+             child.layoutMode === 'HORIZONTAL' &&
+             (child.children?.length || 0) >= 2;
+    });
+
+    if (hasTabList) {
+      confidence += 0.4;
+      reasons.push('Has tab list with multiple triggers in horizontal layout');
+    }
+
+    // Look for content areas (multiple children that could be panels)
+    const potentialContent = children.filter(child => {
+      const childName = child.name.toLowerCase();
+      return childName.includes('content') ||
+             childName.includes('panel') ||
+             childName.includes('pane') ||
+             childName.includes('tab ');
+    });
+
+    if (potentialContent.length >= 2) {
+      confidence += 0.3;
+      reasons.push(`Has ${potentialContent.length} potential content areas`);
+    }
+
+    // Check for typical tabs structure: list at top + content below
+    if (children.length >= 2) {
+      const firstChild = children[0];
+      const firstChildName = firstChild.name.toLowerCase();
+
+      if ((firstChildName.includes('list') || firstChildName.includes('trigger')) &&
+          firstChild.layoutMode === 'HORIZONTAL') {
+        confidence += 0.2;
+        reasons.push('First child is horizontal list (typical tabs structure)');
+      }
+    }
+
+    // Layout detection: typically vertical with list at top
+    if (node.layoutMode === 'VERTICAL' && children.length >= 2) {
+      confidence += 0.1;
+      reasons.push('Vertical layout with multiple children (tabs pattern)');
+    }
+
+    // Check for multiple tab-like children (similar size, positioned horizontally)
+    const tabLikeChildren = children.filter(child => {
+      const childName = child.name.toLowerCase();
+      return childName.includes('tab') && !childName.includes('content');
+    });
+
+    if (tabLikeChildren.length >= 2) {
+      confidence += 0.3;
+      reasons.push(`Has ${tabLikeChildren.length} tab-like children`);
+    }
+
+    return {
+      type: 'Tabs',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifyForm(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('form')) {
+      confidence += 0.6;
+      reasons.push('Name contains "form"');
+    }
+
+    // Check for form-like structure: container with multiple input fields
+    const hasMultipleChildren = node.children && node.children.length >= 2;
+    const hasInputFields = node.children?.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('input') ||
+             childName.includes('field') ||
+             childName.includes('textfield') ||
+             childName.includes('label');
+    });
+
+    if (hasMultipleChildren && hasInputFields) {
+      confidence += 0.3;
+      reasons.push('Contains multiple form fields (inputs/labels)');
+    }
+
+    // Check for button (submit/cancel)
+    const hasButton = node.children?.some(c =>
+      c.name.toLowerCase().includes('button') ||
+      c.name.toLowerCase().includes('submit')
+    );
+
+    if (hasButton) {
+      confidence += 0.1;
+      reasons.push('Contains action buttons');
+    }
+
+    // Vertical layout is common for forms
+    if (node.layoutMode === 'VERTICAL') {
+      confidence += 0.05;
+      reasons.push('Vertical layout typical for forms');
+    }
+
+    // Medium to large container
+    if (node.size && node.size.y > 150) {
+      confidence += 0.05;
+      reasons.push('Size suggests form container');
+    }
+
+    return {
+      type: 'Form',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifyField(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Primary signal: Name contains "field" but NOT "textfield" (which is Input)
+    if (name.includes('field') && !name.includes('textfield')) {
+      confidence += 0.6;
+      reasons.push('Name contains "field"');
+    }
+
+    // Check for field-specific compound names
+    if (name.includes('formfield') || name.includes('form field') || name.includes('inputfield')) {
+      confidence += 0.5;
+      reasons.push('Name suggests form field component');
+    }
+
+    // Structural analysis: Look for field-like children
+    const children = node.children || [];
+
+    // Look for label child
+    const hasLabel = children.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('label') || childName.includes('title') || childName.includes('name');
+    });
+
+    // Look for input/control child
+    const hasInput = children.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('input') ||
+             childName.includes('control') ||
+             childName.includes('field') ||
+             childName.includes('textbox') ||
+             childName.includes('textarea') ||
+             childName.includes('select');
+    });
+
+    // Look for description/helper text
+    const hasDescription = children.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('description') ||
+             childName.includes('helper') ||
+             childName.includes('hint') ||
+             childName.includes('help') ||
+             childName.includes('caption') ||
+             childName.includes('subtitle');
+    });
+
+    // Look for error/validation message
+    const hasErrorMessage = children.some(c => {
+      const childName = c.name.toLowerCase();
+      return childName.includes('error') ||
+             childName.includes('message') ||
+             childName.includes('invalid') ||
+             childName.includes('validation') ||
+             childName.includes('warning') ||
+             childName.includes('alert');
+    });
+
+    // Strong signal: has both label and input (classic field structure)
+    if (hasLabel && hasInput) {
+      confidence += 0.4;
+      reasons.push('Contains both label and input components');
+    }
+
+    // Additional signals
+    if (hasDescription) {
+      confidence += 0.1;
+      reasons.push('Contains description/helper text');
+    }
+    if (hasErrorMessage) {
+      confidence += 0.1;
+      reasons.push('Contains error/validation message');
+    }
+
+    // Variant signals
+    const hasDataInvalidVariant = /data\s*invalid\s*=\s*(true|false)/i.test(name);
+    if (hasDataInvalidVariant) {
+      confidence += 0.2;
+      reasons.push('Has "Data Invalid" variant');
+    }
+
+    const hasOrientationVariant = /orientation\s*=\s*(vertical|horizontal|responsive)/i.test(name);
+    if (hasOrientationVariant) {
+      confidence += 0.15;
+      reasons.push('Has "Orientation" variant');
+    }
+
+    const hasDescPlacementVariant = /description\s*placement\s*=/i.test(name);
+    if (hasDescPlacementVariant) {
+      confidence += 0.15;
+      reasons.push('Has "Description Placement" variant');
+    }
+
+    // Layout signals
+    if (node.layoutMode === 'VERTICAL') {
+      confidence += 0.05;
+      reasons.push('Vertical layout (typical for fields)');
+    }
+
+    // Child count heuristic (fields typically have 2-4 children)
+    if (children.length >= 2 && children.length <= 4) {
+      confidence += 0.05;
+      reasons.push('Child count matches field structure');
+    }
+
+    // Size heuristic (fields are typically medium height, not too tall or short)
+    if (node.size) {
+      if (node.size.y >= 60 && node.size.y <= 200) {
+        confidence += 0.05;
+        reasons.push('Height suggests field component');
+      }
+    }
+
+    return {
+      type: 'Field',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifyPagination(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('pagination') || name.includes('pager')) {
+      confidence += 0.7;
+      reasons.push('Name contains "pagination"');
+    }
+
+    return {
+      type: 'Pagination',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifyBreadcrumb(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('breadcrumb')) {
+      confidence += 0.7;
+      reasons.push('Name contains "breadcrumb"');
+    }
+
+    // Variant pattern detection
+    const hasVariantPattern = /variant\s*=/i.test(name) ||
+                             /state\s*=/i.test(name);
+
+    if (hasVariantPattern && name.includes('breadcrumb')) {
+      confidence += 0.2;
+      reasons.push('Has variant/state properties with breadcrumb indicators');
+    }
+
+    // Structure-based detection: horizontal layout with multiple items
+    const hasHorizontalLayout = node.layoutMode === 'HORIZONTAL';
+    if (hasHorizontalLayout) {
+      confidence += 0.2;
+      reasons.push('Has horizontal layout (typical for breadcrumbs)');
+    }
+
+    // Has multiple children (breadcrumb items)
+    const hasMultipleChildren = node.children && node.children.length >= 2;
+    if (hasMultipleChildren) {
+      confidence += 0.1;
+      reasons.push('Has multiple children (breadcrumb trail)');
+    }
+
+    // Check for separator pattern (/ or >)
+    const hasSeparator = node.children?.some(child => {
+      const childName = child.name.toLowerCase();
+      return childName.includes('separator') ||
+             childName.includes('chevron') ||
+             childName.includes('slash') ||
+             (child.type === 'TEXT' && (child.characters === '/' || child.characters === '>'));
+    });
+
+    if (hasSeparator) {
+      confidence += 0.2;
+      reasons.push('Contains separator elements (/ or >)');
+    }
+
+    // Check for link-like children
+    const hasLinks = node.children?.some(child => {
+      const childName = child.name.toLowerCase();
+      return childName.includes('link') ||
+             childName.includes('item') ||
+             childName.includes('page');
+    });
+
+    if (hasLinks) {
+      confidence += 0.1;
+      reasons.push('Contains link/item elements');
+    }
+
+    // Size heuristic: breadcrumbs are typically low height, variable width
+    if (node.size) {
+      if (node.size.y < 50 && node.size.x > 100) {
+        confidence += 0.1;
+        reasons.push('Size matches typical breadcrumb dimensions');
+      }
+    }
+
+    return {
+      type: 'Breadcrumb',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+  static classifySidebar(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    // Name-based detection
+    if (name.includes('sidebar') || name.includes('side-bar')) {
+      confidence += 0.7;
+      reasons.push('Name contains "sidebar"');
+    } else if (name.includes('side panel') || name.includes('side-panel') ||
+               name.includes('sidepanel')) {
+      confidence += 0.6;
+      reasons.push('Name contains "side panel"');
+    } else if (name.includes('navigation panel') || name.includes('nav panel')) {
+      confidence += 0.5;
+      reasons.push('Name contains "navigation panel"');
+    } else if (name.includes('nav') && (name.includes('side') || name.includes('left'))) {
+      confidence += 0.4;
+      reasons.push('Name suggests side navigation');
+    }
+
+    // Variant pattern detection for sidebars
+    const hasSidebarVariant = /type\s*=\s*(collapsible|simple|tree|checkbox)/i.test(name);
+    if (hasSidebarVariant) {
+      confidence += 0.3;
+      reasons.push('Has sidebar-specific variant type (collapsible/simple/tree/checkbox)');
+    }
+
+    // State detection
+    const hasState = /state\s*=\s*(default|hover|active|focused)/i.test(name);
+    if (hasState) {
+      confidence += 0.2;
+      reasons.push('Has interactive state property');
+    }
+
+    // Collapsed state detection
+    const hasCollapsedState = /collapsed\s*=\s*(true|false)/i.test(name);
+    if (hasCollapsedState) {
+      confidence += 0.2;
+      reasons.push('Has collapsed state property (typical for sidebars)');
+    }
+
+    // Structure-based detection: vertical layout with navigation items
+    const isVertical = node.layoutMode === 'VERTICAL';
+    const hasMultipleChildren = node.children && node.children.length >= 3;
+
+    if (isVertical && hasMultipleChildren) {
+      confidence += 0.2;
+      reasons.push('Vertical layout with multiple children (typical sidebar structure)');
+    }
+
+    // Check for navigation-like children (menu items, buttons)
+    const hasNavChildren = node.children?.some(child => {
+      const childName = child.name.toLowerCase();
+      return childName.includes('menu') ||
+             childName.includes('item') ||
+             childName.includes('button') ||
+             childName.includes('nav');
+    });
+
+    if (hasNavChildren) {
+      confidence += 0.15;
+      reasons.push('Contains navigation-like child components');
+    }
+
+    // Size heuristics: sidebars are typically tall and narrow
+    if (node.size) {
+      const aspectRatio = node.size.x / node.size.y;
+      const height = node.size.y;
+
+      // Tall and narrow (typical sidebar proportions)
+      if (height > 400 && aspectRatio < 0.8) {
+        confidence += 0.2;
+        reasons.push('Height > 400px with narrow aspect ratio suggests sidebar');
+      } else if (height > 300 && aspectRatio < 1.0) {
+        confidence += 0.15;
+        reasons.push('Tall with narrow-ish proportions suggests sidebar');
+      }
+    }
+
+    // Check for typical sidebar sections (header, content, footer)
+    const hasSidebarSections = node.children?.some(child => {
+      const childName = child.name.toLowerCase();
+      return childName.includes('header') ||
+             childName.includes('content') ||
+             childName.includes('footer');
+    });
+
+    if (hasSidebarSections) {
+      confidence += 0.1;
+      reasons.push('Contains typical sidebar sections (header/content/footer)');
+    }
+
+    return {
+      type: 'Sidebar',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+
+  /**
+   * Toggle classification
+   */
+  static classifyToggle(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('toggle') && !name.includes('group')) {
+      confidence += 0.7;
+      reasons.push('Name contains "toggle"');
+    }
+
+    return {
+      type: 'Toggle',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+
+
+  /**
+   * NavigationMenu classification
+   */
+  static classifyNavigationMenu(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('navigation') && name.includes('menu')) {
+      confidence += 0.7;
+      reasons.push('Name contains "navigation menu"');
+    } else if (name.includes('nav') && name.includes('menu')) {
+      confidence += 0.6;
+      reasons.push('Name contains "nav menu"');
+    }
+
+    return {
+      type: 'NavigationMenu',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
+
+
+  /**
+   * DropdownMenu classification
+   */
+  static classifyDropdownMenu(node: FigmaNode): ComponentClassification {
+    const name = node.name.toLowerCase();
+    const reasons: string[] = [];
+    let confidence = 0;
+
+    if (name.includes('dropdown') && name.includes('menu')) {
+      confidence += 0.7;
+      reasons.push('Name contains "dropdown menu"');
+    } else if (name.includes('dropdownmenu')) {
+      confidence += 0.7;
+      reasons.push('Name contains "dropdownmenu"');
+    } else if (name.includes('dropdown')) {
+      confidence += 0.4;
+      reasons.push('Name contains "dropdown"');
+    }
+
+    const hasTrigger = node.children?.some(c =>
+      c.name.toLowerCase().includes('trigger') ||
+      c.name.toLowerCase().includes('button')
+    );
+    const hasContent = node.children?.some(c =>
+      c.name.toLowerCase().includes('content') ||
+      c.name.toLowerCase().includes('menu')
+    );
+
+    if (hasTrigger && hasContent) {
+      confidence += 0.5;
+      reasons.push('Has trigger and menu content structure');
+    }
+
+    return {
+      type: 'DropdownMenu',
+      confidence: Math.min(confidence, 1),
+      reasons
+    };
+  }
+
 }
 
 // ============================================================================

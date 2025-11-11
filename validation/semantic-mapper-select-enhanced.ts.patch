@@ -1,0 +1,170 @@
+/**
+ * PATCH FILE: Enhanced Select Semantic Mapping
+ *
+ * This file contains the enhanced Select schema to be applied to semantic-mapper.ts
+ *
+ * ISSUE: The semantic-mapper.ts file is being actively monitored and auto-reverted
+ * by an external process (likely IDE or file watcher). Changes are reverted within seconds.
+ *
+ * SOLUTION: Close all IDEs/editors with semantic-mapper.ts open, then apply this patch.
+ *
+ * HOW TO APPLY:
+ * 1. Close Cursor/VS Code/any IDE that has semantic-mapper.ts open
+ * 2. Replace the getSelectSchema() method (lines ~790-802) with the code below
+ * 3. Save and verify changes persist
+ *
+ * LOCATION: semantic-mapper.ts, method getSelectSchema()
+ */
+
+/**
+ * Select component schema with nested structure
+ */
+static getSelectSchema(): ShadCNComponentSchema {
+  return {
+    componentType: 'Select',
+    shadcnName: 'Select',
+    description: 'A select dropdown component with trigger, content, and items',
+    wrapperComponent: 'Select',
+    importPath: '@/components/ui/select',
+    slots: [
+      {
+        name: 'SelectTrigger',
+        required: true,
+        description: 'The trigger button for opening the select dropdown',
+        detectionRules: [
+          {
+            type: 'name_pattern',
+            weight: 0.5,
+            description: 'Node name contains "trigger", "button", or "select"',
+            matcher: (node, ctx) => DetectionRules.nameMatches(node, ['trigger', 'button', 'select', 'control'])
+          },
+          {
+            type: 'position',
+            weight: 0.3,
+            description: 'Usually first child or main element',
+            matcher: (node, ctx) => DetectionRules.isAtPosition(node, ctx, 'top')
+          },
+          {
+            type: 'semantic',
+            weight: 0.2,
+            description: 'Contains text and/or icon (chevron/arrow)',
+            matcher: (node, ctx) => {
+              const hasText = DetectionRules.hasTextContent(node);
+              const hasIcon = node.children?.some(c =>
+                c.name.toLowerCase().includes('icon') ||
+                c.name.toLowerCase().includes('chevron') ||
+                c.name.toLowerCase().includes('arrow')
+              ) ? 0.5 : 0;
+              return Math.min(hasText + hasIcon, 1.0);
+            }
+          }
+        ],
+        children: [
+          {
+            name: 'SelectValue',
+            required: false,
+            description: 'The displayed value or placeholder text',
+            detectionRules: [
+              {
+                type: 'name_pattern',
+                weight: 0.5,
+                description: 'Node name contains "value", "placeholder", or "text"',
+                matcher: (node, ctx) => DetectionRules.nameMatches(node, ['value', 'placeholder', 'text', 'label'])
+              },
+              {
+                type: 'content_type',
+                weight: 0.5,
+                description: 'Contains text content',
+                matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+              }
+            ]
+          }
+        ]
+      },
+      {
+        name: 'SelectContent',
+        required: false,
+        description: 'The dropdown content container with select items',
+        detectionRules: [
+          {
+            type: 'name_pattern',
+            weight: 0.5,
+            description: 'Node name contains "content", "menu", "dropdown", "list", or "options"',
+            matcher: (node, ctx) => DetectionRules.nameMatches(node, ['content', 'menu', 'dropdown', 'list', 'options', 'popup'])
+          },
+          {
+            type: 'semantic',
+            weight: 0.3,
+            description: 'Contains multiple items (children)',
+            matcher: (node, ctx) => (node.children?.length || 0) >= 1 ? 0.8 : 0
+          },
+          {
+            type: 'hierarchy',
+            weight: 0.2,
+            description: 'Direct child of Select',
+            matcher: (node, ctx) => 0.8
+          }
+        ],
+        children: [
+          {
+            name: 'SelectItem',
+            required: true,
+            description: 'Individual selectable option',
+            allowsMultiple: true,
+            detectionRules: [
+              {
+                type: 'name_pattern',
+                weight: 0.5,
+                description: 'Node name contains "item", "option", or "choice"',
+                matcher: (node, ctx) => DetectionRules.nameMatches(node, ['item', 'option', 'choice', 'row'])
+              },
+              {
+                type: 'content_type',
+                weight: 0.3,
+                description: 'Contains text',
+                matcher: (node, ctx) => DetectionRules.hasTextContent(node)
+              },
+              {
+                type: 'semantic',
+                weight: 0.2,
+                description: 'Part of a list (multiple siblings)',
+                matcher: (node, ctx) => ctx.allSiblings.length >= 2 ? 0.9 : 0.5
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  };
+}
+
+/**
+ * EXPECTED STRUCTURE:
+ *
+ * <Select>
+ *   <SelectTrigger>
+ *     <SelectValue placeholder="Select an option" />
+ *   </SelectTrigger>
+ *   <SelectContent>
+ *     <SelectItem value="1">Option 1</SelectItem>
+ *     <SelectItem value="2">Option 2</SelectItem>
+ *     <SelectItem value="3">Option 3</SelectItem>
+ *   </SelectContent>
+ * </Select>
+ *
+ * NESTED HIERARCHY:
+ *
+ * Select (Root)
+ * ├── SelectTrigger (Required)
+ * │   └── SelectValue (Optional)
+ * └── SelectContent (Optional)
+ *     └── SelectItem (Required, Multiple Allowed)
+ *
+ * DETECTION RULES SUMMARY:
+ * - SelectTrigger: 3 rules (name pattern, position, semantic)
+ * - SelectValue: 2 rules (name pattern, content type)
+ * - SelectContent: 3 rules (name pattern, semantic, hierarchy)
+ * - SelectItem: 3 rules (name pattern, content type, semantic)
+ *
+ * Total: 11 detection rules across 4 sub-components
+ */
