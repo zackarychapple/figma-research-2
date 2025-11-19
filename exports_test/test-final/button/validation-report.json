@@ -1,0 +1,19 @@
+{
+  "componentId": "17085:177606",
+  "componentName": "Button",
+  "codeQuality": {
+    "hasTypeScript": true,
+    "hasReact": true,
+    "hasTailwind": true,
+    "hasProps": true,
+    "hasAccessibility": false,
+    "formatted": true
+  },
+  "semanticMapping": {
+    "componentType": "Button",
+    "shadcnComponent": "Button",
+    "confidence": 0,
+    "warnings": []
+  },
+  "timestamp": "2025-11-11T20:04:25.255Z"
+}

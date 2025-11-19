@@ -1,0 +1,28 @@
+{
+  "componentId": "17085:177606",
+  "componentName": "Button",
+  "figmaNodeId": "17085:177606",
+  "generatedWith": {
+    "model": "anthropic/claude-sonnet-4.5",
+    "pipelineVersion": "1.0.0",
+    "timestamp": "2025-11-11T20:02:42.835Z"
+  },
+  "classification": {
+    "componentType": "Button",
+    "shadcnComponent": "Button",
+    "confidence": 0
+  },
+  "codeInfo": {
+    "language": "typescript",
+    "framework": "react",
+    "library": "shadcn",
+    "dependencies": [
+      "@/components/ui"
+    ]
+  },
+  "validation": {
+    "status": "pass",
+    "score": 90,
+    "issues": []
+  }
+}
